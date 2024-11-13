@@ -7,10 +7,7 @@ import {
 
 import { Tab as TabComponent } from '@/widgets/tab'
 
-import { EStacks, HomeStack } from '../../stacks'
-import { ChatStack } from '../../stacks/Chat'
-import { FavoritesStack } from '../../stacks/Favorites'
-import { ProfileStack } from '../../stacks/Profile'
+import { EStacks, MapStack, NotesStack } from '../../stacks'
 import { ScreenTabOptions } from '../options'
 
 import { TMainTab } from './types'
@@ -24,10 +21,11 @@ const tabBar = (props: BottomTabBarProps) => {
 export const MainTab = () => {
   return (
     <Tab.Navigator
-      initialRouteName={EStacks.Home}
+      initialRouteName={EStacks.Notes}
       screenOptions={ScreenTabOptions}
       tabBar={tabBar}>
-      <Tab.Screen component={HomeStack} name={EStacks.Home} />
+      <Tab.Screen component={NotesStack} name={EStacks.Notes} />
+      <Tab.Screen component={MapStack} name={EStacks.Map} />
     </Tab.Navigator>
   )
 }

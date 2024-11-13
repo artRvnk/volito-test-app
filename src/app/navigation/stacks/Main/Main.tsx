@@ -1,38 +1,30 @@
 import React from 'react'
 
-import { createStackNavigator } from '@react-navigation/stack'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
-import { useTypedSelector } from '@/app/store'
-
-import { getUserSelector } from '@/entities/user'
-
-import { EColors } from '@/shared/ui/styled'
+// import { useTypedSelector } from '@/app/store'
 
 import { ETab, MainTab } from '../../tabs'
-import { AuthMainStack } from '../Auth'
+import { AuthStack } from '../Auth'
 import { ScreenNavigationOptions } from '../options'
 import { EStacks } from '../stacks'
 
 import { TMainStack } from './types'
 
-const Stack = createStackNavigator<TMainStack>()
+const Stack = createNativeStackNavigator<TMainStack>()
 
 export const MainStack = () => {
-  const { currentUser } = useTypedSelector(getUserSelector)
-  const isAuthorized = !!currentUser?._id
+  // const { currentUser } = useTypedSelector(getUserSelector)
+  // const isAuthorized = !!currentUser?._id
+  const isAuthorized = false
 
   return (
     <Stack.Navigator
       initialRouteName={ETab.Main}
-      screenOptions={{
-        ...ScreenNavigationOptions,
-        cardStyle: {
-          backgroundColor: EColors.white,
-        },
-      }}>
+      screenOptions={ScreenNavigationOptions}>
       <Stack.Screen
-        name={isAuthorized ? ETab.Main : EStacks.AuthMain}
-        component={isAuthorized ? MainTab : AuthMainStack}
+        name={isAuthorized ? ETab.Main : EStacks.Auth}
+        component={isAuthorized ? MainTab : AuthStack}
       />
     </Stack.Navigator>
   )

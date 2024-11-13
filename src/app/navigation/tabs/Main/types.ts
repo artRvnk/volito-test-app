@@ -1,6 +1,7 @@
-import { EStacks, THomeStack } from '../../stacks'
+import { EStacks, TMapStack, TNotesStack } from '../../stacks'
 import { TNavigatorScreenParams } from '../../types'
 
 export type TMainTab = {
-  [EStacks.Home]: TNavigatorScreenParams<THomeStack>
+  [EStacks.Notes]: TNavigatorScreenParams<TNotesStack>
+  [EStacks.Map]: TNavigatorScreenParams<TMapStack>
 }

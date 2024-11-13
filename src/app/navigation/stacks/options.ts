@@ -1,7 +1,5 @@
-import { StackNavigationOptions } from '@react-navigation/stack'
+import { NativeStackNavigationOptions } from '@react-navigation/native-stack'
 
-export const ScreenNavigationOptions: StackNavigationOptions = {
+export const ScreenNavigationOptions: NativeStackNavigationOptions = {
   headerShown: false,
-  presentation: 'transparentModal',
-  animationEnabled: true,
 }

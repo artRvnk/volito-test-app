@@ -18,9 +18,9 @@ export const AuthStack = () => {
       screenOptions={ScreenNavigationOptions}>
       <Stack.Screen name={EScreens.AMain} component={AuthScreens.Main} />
 
-      <Stack.Screen name={EScreens.ASighIn} component={AuthScreens.SignIn} />
+      <Stack.Screen name={EScreens.ASignIn} component={AuthScreens.SignIn} />
 
-      <Stack.Screen name={EScreens.ASighUp} component={AuthScreens.SignUp} />
+      <Stack.Screen name={EScreens.ASignUp} component={AuthScreens.SignUp} />
     </Stack.Navigator>
   )
 }

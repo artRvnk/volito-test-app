@@ -8,6 +8,9 @@ export default {
     with_google: 'Continue with Google',
   },
 
+  notes: { title: 'Notes' },
+  map: { title: 'Map' },
+
   add_phone: {
     title: 'Continue with Phone',
     description:

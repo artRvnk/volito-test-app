@@ -5,10 +5,11 @@ import {
   useSharedValue,
   useAnimatedStyle,
 } from 'react-native-reanimated'
-import { heightPercentageToDP as hp } from 'react-native-responsive-screen'
 
-export const TAB_HEIGHT = hp(8)
-const HEIGHT_2 = hp(4)
+import { HP } from '@/shared/tools'
+
+export const TAB_HEIGHT = HP(8)
+const HEIGHT_2 = HP(4)
 
 export const useAnimatedTab = () => {
   const [visible, setVisible] = useState<boolean>(true)

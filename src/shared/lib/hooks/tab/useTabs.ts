@@ -1,22 +1,26 @@
+import { useTranslation } from 'react-i18next'
+
 import { EStacks } from '@/app/navigation'
 
-import { TStacksKeys, TUseTabs } from '@/widgets/tab/Standard'
+import { TStacksKeys, TUseTabs } from '@/widgets/tab/Bottom'
 
-// TODO
+import { EColors } from '../../constants'
 
 export const useTabs = () => {
+  const { t } = useTranslation()
+
   const tabs: Record<TStacksKeys, TUseTabs> = {
-    [EStacks.Home]: {
-      icon: 'Home',
+    [EStacks.Notes]: {
+      icon: 'Task',
+      active: EColors.black,
+      inactive: EColors.gray,
+      title: t('notes.title'),
     },
-    [EStacks.Favorites]: {
-      icon: 'HeartEmpty',
-    },
-    [EStacks.Profile]: {
-      icon: 'Profile',
-    },
-    [EStacks.Chat]: {
-      icon: 'Message',
+    [EStacks.Map]: {
+      icon: 'Map',
+      active: EColors.black,
+      inactive: EColors.gray,
+      title: t('map.title'),
     },
   }
 
