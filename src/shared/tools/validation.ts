@@ -1,0 +1,97 @@
+import { zodResolver } from '@hookform/resolvers/zod'
+import { TFunction } from 'i18next'
+import { isValidPhoneNumber } from 'libphonenumber-js'
+import { ZodRawShape, z } from 'zod'
+
+const numberReg = /^\d+$/
+
+export type TSchema<TSchemaType extends z.ZodTypeAny> = z.infer<TSchemaType>
+
+// TODO
+export const getSchemas = (t: TFunction) => ({
+  phone: z
+    .string({
+      required_error: t('validation.required'),
+    })
+    .min(1, t('validation.min', { value: 1 }))
+    .refine(item => isValidPhoneNumber(item), {
+      message: t('validation.phone'),
+    }),
+  email: z
+    .string({
+      required_error: t('validation.required'),
+    })
+    .email({ message: t('validation.email') }),
+
+  password: z
+    .string({ required_error: t('validation.required') })
+    .min(4, t('validation.password')),
+
+  photo: z.string().min(1, t('validation.required')),
+
+  fullName: z
+    .string({
+      required_error: t('validation.required'),
+    })
+    .min(1, t('validation.min', { value: 1 }))
+    .max(
+      255,
+      t('validation.max', {
+        value: 255,
+      }),
+    ),
+
+  optionalString: z.string().optional().or(z.literal('')),
+  requiredString: z
+    .string({
+      required_error: t('validation.required'),
+    })
+    .min(1, t('validation.min', { value: 1 })),
+  requiredNumber: z
+    .number({
+      required_error: t('validation.required'),
+    })
+    .min(0, t('validation.min', { value: 0 })),
+
+  textArea: z
+    .string({
+      required_error: t('validation.required'),
+    })
+    .min(1, t('validation.min', { value: 1 }))
+    .max(
+      500,
+      t('validation.max', {
+        value: 500,
+      }),
+    ),
+
+  code: z
+    .string({
+      required_error: t('validation.required'),
+    })
+    .min(1, t('validation.min', { value: 6 })),
+
+  arrayString: z.array(
+    z.string({
+      required_error: t('validation.required'),
+    }),
+  ),
+
+  arrayObject: z.array(
+    z.object({
+      key: z.string(),
+      label: z.string(),
+    }),
+  ),
+})
+
+export const validationSchema = (
+  cb: (schemas: ReturnType<typeof getSchemas>, t: TFunction) => ZodRawShape,
+) => {
+  return (t: TFunction) => {
+    const schemas = getSchemas(t)
+    const schema = cb(schemas, t)
+
+    return zodResolver(z.object(schema))
+  }
+}
