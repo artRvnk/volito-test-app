@@ -1,0 +1,1 @@
+/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native/ReactAndroid/cmake-utils/default-app-setup/CMakeLists.txt

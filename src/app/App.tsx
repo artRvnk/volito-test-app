@@ -1,14 +1,16 @@
 import React, { useEffect } from 'react'
 import { StatusBar, Text, View } from 'react-native'
 
+import SplashScreen from 'react-native-splash-screen'
+
 import { Sentry } from '@/shared/lib/sentry'
 
 const App = () => {
-  //   useEffect(() => {
-  //     setTimeout(() => {
-  //       SplashScreen.hide()
-  //     }, 1500)
-  //   }, [])
+  useEffect(() => {
+    setTimeout(() => {
+      SplashScreen.hide()
+    }, 1500)
+  }, [])
 
   return (
     <>

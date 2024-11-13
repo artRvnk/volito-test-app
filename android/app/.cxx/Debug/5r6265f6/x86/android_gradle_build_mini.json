@@ -1,0 +1,31 @@
+{
+  "buildFiles": [
+    "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native/ReactAndroid/cmake-utils/default-app-setup/CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "/Users/art_rvnk/Library/Android/sdk/cmake/3.22.1/bin/ninja",
+      "-C",
+      "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/android/app/.cxx/Debug/5r6265f6/x86",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "/Users/art_rvnk/Library/Android/sdk/cmake/3.22.1/bin/ninja",
+    "-C",
+    "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/android/app/.cxx/Debug/5r6265f6/x86",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {
+    "appmodules::@6890427a1f51a3e7e1df": {
+      "artifactName": "appmodules",
+      "abi": "x86",
+      "output": "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/android/app/build/intermediates/cxx/Debug/5r6265f6/obj/x86/libappmodules.so",
+      "runtimeFiles": [
+        "/Users/art_rvnk/.gradle/caches/8.10.2/transforms/eb4b98dea289284ca2b26e9265bd49ab/transformed/fbjni-0.6.0/prefab/modules/fbjni/libs/android.x86/libfbjni.so",
+        "/Users/art_rvnk/.gradle/caches/8.10.2/transforms/53ca3ec166779873078450fc2e43b919/transformed/react-android-0.76.1-debug/prefab/modules/jsi/libs/android.x86/libjsi.so",
+        "/Users/art_rvnk/.gradle/caches/8.10.2/transforms/53ca3ec166779873078450fc2e43b919/transformed/react-android-0.76.1-debug/prefab/modules/reactnative/libs/android.x86/libreactnative.so"
+      ]
+    }
+  }
+}
