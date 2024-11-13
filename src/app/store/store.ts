@@ -32,6 +32,10 @@ const store = configureStore({
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
       thunk: false,
+      serializableCheck: {
+        // Ignore non-serializable values for the `persist/PERSIST` action type
+        ignoredActions: ['persist/PERSIST'],
+      },
     }).concat(middlewares),
   devTools: true,
 })

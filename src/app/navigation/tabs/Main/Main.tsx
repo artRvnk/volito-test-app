@@ -15,7 +15,7 @@ import { TMainTab } from './types'
 const Tab = createBottomTabNavigator<TMainTab>()
 
 const tabBar = (props: BottomTabBarProps) => {
-  return <TabComponent.Standard {...props} />
+  return <TabComponent.Bottom {...props} />
 }
 
 export const MainTab = () => {

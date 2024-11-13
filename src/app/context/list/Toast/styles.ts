@@ -1,7 +1,6 @@
 import { StyleSheet } from 'react-native'
 
-import { EColors } from '@/shared/ui/styled'
-import { EFonts } from '@/shared/ui/utils'
+import { EColors, EFonts } from '@/shared/lib'
 
 export const styles = StyleSheet.create({
   toastContainer: {

@@ -7,21 +7,21 @@ import i18n, {
 } from 'i18next'
 import { initReactI18next } from 'react-i18next'
 
+import { isIos } from '@/shared/tools'
+
 import { en } from './languages'
 import { ELanguage } from './types'
 
 const DEFAULT_LANG = ELanguage.en
 
 const getDeviceLang = () => {
-  const appLanguage =
-    Platform.OS === 'ios'
-      ? NativeModules.SettingsManager.settings.AppleLocale ||
-        NativeModules.SettingsManager.settings.AppleLanguages[0]
-      : NativeModules.I18nManager.localeIdentifier
+  const appLanguage = isIos
+    ? NativeModules.SettingsManager?.settings?.AppleLocale ||
+      NativeModules.SettingsManager?.settings?.AppleLanguages?.[0] ||
+      DEFAULT_LANG
+    : NativeModules.I18nManager?.localeIdentifier || DEFAULT_LANG
 
-  return appLanguage.search(/-|_/g) !== -1
-    ? appLanguage.slice(0, 2)
-    : appLanguage
+  return appLanguage.slice(0, 2)
 }
 
 const languageDetector: LanguageDetectorAsyncModule = {
@@ -34,6 +34,7 @@ const languageDetector: LanguageDetectorAsyncModule = {
   ) => {},
   detect: callback => {
     const deviceLang = getDeviceLang()
+    // const deviceLang = LanguageService.getDeviceLang()
 
     let lang = deviceLang
 

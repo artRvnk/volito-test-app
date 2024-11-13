@@ -1,23 +1,25 @@
-import { NativeModules, Platform } from 'react-native'
+import { NativeModules } from 'react-native'
 
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import i18next from 'i18next'
 
 import { ELanguage } from '@/app/i18n'
 
-export class Language {
+import { isIos } from '../tools'
+
+export class LanguageService {
   private static KEY = 'language'
   private static storage = AsyncStorage
 
   public static DEFAULT_LANGUAGE = ELanguage.en
 
-  // Get device language
   private static getDeviceLang() {
-    const appLanguage =
-      Platform.OS === 'ios'
-        ? NativeModules.SettingsManager.settings.AppleLocale ||
-          NativeModules.SettingsManager.settings.AppleLanguages[0]
-        : NativeModules.I18nManager.localeIdentifier
+    const appLanguage = isIos
+      ? NativeModules.SettingsManager?.settings?.AppleLocale ||
+        NativeModules.SettingsManager?.settings?.AppleLanguages?.[0] ||
+        LanguageService.DEFAULT_LANGUAGE
+      : NativeModules?.I18nManager?.localeIdentifier ||
+        LanguageService.DEFAULT_LANGUAGE
 
     return appLanguage.slice(0, 2)
   }
@@ -38,7 +40,7 @@ export class Language {
     const deviceLang = this.getDeviceLang()
 
     // If device lang exist
-    if (Object.values(Language).includes(deviceLang)) {
+    if (Object.values(LanguageService).includes(deviceLang)) {
       this.setLanguage(deviceLang)
       return deviceLang
     }
@@ -46,7 +48,6 @@ export class Language {
     return this.DEFAULT_LANGUAGE
   }
 
-  //Set lang
   static async setLanguage(lang: ELanguage) {
     i18next.changeLanguage(lang)
 

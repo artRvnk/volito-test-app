@@ -1,6 +1,5 @@
 import { combineReducers } from '@reduxjs/toolkit'
 
-// TODO
 import { userReducer } from '@/entities/user'
 
 import { EStoreReducer } from './types'

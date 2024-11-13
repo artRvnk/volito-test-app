@@ -1,4 +1,3 @@
-import { Standard } from './Bottom'
-import { Top } from './Top'
+import { Bottom } from './Bottom'
 
-export const Tab = { Standard, Top }
+export const Tab = { Bottom }

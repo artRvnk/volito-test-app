@@ -4,19 +4,19 @@ import { I18nextProvider } from 'react-i18next'
 
 import { i18n } from '@/app/i18n'
 
-import { Language } from '@/shared/services'
+import { LanguageService } from '@/shared/services'
 
 import { TChildrenContext } from '../types'
 
 import { TLanguageProvider } from './types'
 
 export const LanguageContext = createContext<TLanguageProvider>({
-  language: Language.DEFAULT_LANGUAGE,
+  language: LanguageService.DEFAULT_LANGUAGE,
   setLanguage: () => {},
 })
 
 export const LanguageProvider = ({ children }: TChildrenContext) => {
-  const [language, setLanguage] = useState(Language.DEFAULT_LANGUAGE)
+  const [language, setLanguage] = useState(LanguageService.DEFAULT_LANGUAGE)
 
   const value = useMemo(
     () => ({ language, setLanguage }),
@@ -24,16 +24,17 @@ export const LanguageProvider = ({ children }: TChildrenContext) => {
   )
 
   useEffect(() => {
+    // eslint-disable-next-line no-extra-semi
     ;(async () => {
-      const appLanguage = await Language.getLanguage()
+      const appLanguage = await LanguageService.getLanguage()
       if (appLanguage === language) return
 
-      Language.setLanguage(language)
+      LanguageService.setLanguage(language)
     })()
   }, [language])
 
   useEffect(() => {
-    Language.getLanguage().then(lang => {
+    LanguageService.getLanguage().then(lang => {
       lang && setLanguage(lang)
     })
   }, [])

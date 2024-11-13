@@ -20,12 +20,14 @@ export const MainStack = () => {
 
   return (
     <Stack.Navigator
-      initialRouteName={ETab.Main}
+      initialRouteName={EStacks.Auth}
       screenOptions={ScreenNavigationOptions}>
-      <Stack.Screen
+      {/* <Stack.Screen
         name={isAuthorized ? ETab.Main : EStacks.Auth}
         component={isAuthorized ? MainTab : AuthStack}
-      />
+      /> */}
+
+      <Stack.Screen name={EStacks.Auth} component={AuthStack} />
     </Stack.Navigator>
   )
 }

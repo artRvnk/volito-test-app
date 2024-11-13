@@ -8,6 +8,7 @@ export const Main = () => {
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
+        backgroundColor: 'green',
       }}>
       <Text>Auth Main</Text>
     </View>

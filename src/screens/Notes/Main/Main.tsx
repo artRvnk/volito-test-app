@@ -8,6 +8,7 @@ export const Main = () => {
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
+        backgroundColor: 'pink',
       }}>
       <Text>Notes Main</Text>
     </View>
