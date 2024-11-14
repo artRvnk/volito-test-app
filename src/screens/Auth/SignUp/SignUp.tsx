@@ -25,7 +25,7 @@ export const SignUp = () => {
   const { params } = useRoute<TRouteProps>()
 
   const { authMethod, ...data } = params
-  console.log('data', data)
+  // console.log('data', data)
 
   const dispatch = useDispatch()
   const { t } = useTranslation()

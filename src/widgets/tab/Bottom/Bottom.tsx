@@ -3,6 +3,8 @@ import React, { useEffect, useCallback } from 'react'
 import { BottomTabBarProps } from '@react-navigation/bottom-tabs'
 import { getFocusedRouteNameFromRoute } from '@react-navigation/native'
 
+import { useSafeAreaInsets } from 'react-native-safe-area-context'
+
 import { EScreens, whiteList } from '@/app/navigation'
 
 import { useAnimatedTab, useTabs } from '@/shared/lib/hooks/tab'
@@ -20,6 +22,8 @@ export const Bottom = ({
 }: BottomTabBarProps) => {
   const { tabs } = useTabs()
   const { visible, setVisible } = useAnimatedTab()
+
+  const { bottom } = useSafeAreaInsets()
 
   useEffect(() => {
     const currentRoute = state.routes[state.index]
@@ -67,7 +71,7 @@ export const Bottom = ({
   return (
     <>
       {visible && (
-        <Container>
+        <Container bottomInst={bottom}>
           {state.routes.map((route, index) => {
             const { options } = descriptors[route.key]
 

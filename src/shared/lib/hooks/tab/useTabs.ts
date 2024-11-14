@@ -12,13 +12,13 @@ export const useTabs = () => {
   const tabs: Record<TStacksKeys, TUseTabs> = {
     [EStacks.Notes]: {
       icon: 'Task',
-      active: EColors.black,
+      active: EColors.primary_400,
       inactive: EColors.gray,
       title: t('notes.title'),
     },
     [EStacks.Map]: {
       icon: 'Map',
-      active: EColors.black,
+      active: EColors.primary_400,
       inactive: EColors.gray,
       title: t('map.title'),
     },

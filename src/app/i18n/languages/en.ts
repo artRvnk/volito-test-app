@@ -6,6 +6,8 @@ export default {
     with_phone: 'Continue with Phone',
     with_apple: 'Continue with Apple',
     with_google: 'Continue with Google',
+
+    success: "You've successfully signed in",
   },
 
   input: {

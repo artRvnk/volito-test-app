@@ -11,8 +11,12 @@ export const styles = StyleSheet.create({
   },
 })
 
-export const Container = styled(View)`
+export const Container = styled(View)<{
+  bottomInst: number
+}>`
   flex-direction: row;
+  justify-content: space-around;
+
   padding-top: 11px;
   padding-bottom: 8px;
 
@@ -22,10 +26,15 @@ export const Container = styled(View)`
   border-radius: 80px;
   height: 64px;
   position: absolute;
-  bottom: 10px;
   align-items: center;
+  bottom: ${({ bottomInst }) => (bottomInst === 0 ? 16 : bottomInst * 0.67)}px;
+  /* bottom: 16px; */
 `
 
 export const StyledTabButton = styled(TouchableOpacity)`
-  flex: 1;
+  align-items: center;
+  /* width: 75px; */
+  width: ${WP(30)}px;
+  /* flex: 1; */
+  /* background-color: red; */
 `

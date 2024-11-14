@@ -21,9 +21,11 @@ const tabBar = (props: BottomTabBarProps) => {
 export const MainTab = () => {
   return (
     <Tab.Navigator
-      initialRouteName={EStacks.Notes}
+      // initialRouteName={EStacks.Notes}
       screenOptions={ScreenTabOptions}
-      tabBar={tabBar}>
+      tabBar={tabBar}
+      //
+    >
       <Tab.Screen component={NotesStack} name={EStacks.Notes} />
       <Tab.Screen component={MapStack} name={EStacks.Map} />
     </Tab.Navigator>
