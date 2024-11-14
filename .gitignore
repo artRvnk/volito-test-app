@@ -66,3 +66,6 @@ buck-out/
 /vendor/bundle/
 
 .vscode
+ 
+android/app/.cxx
+**/.cxx

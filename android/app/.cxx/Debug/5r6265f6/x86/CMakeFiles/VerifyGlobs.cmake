@@ -5,6 +5,313 @@ cmake_policy(SET CMP0009 NEW)
 # input_SRC at /Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native/ReactAndroid/cmake-utils/ReactNative-application.cmake:38 (file)
 file(GLOB NEW_GLOB LIST_DIRECTORIES true "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/android/app/build/generated/autolinking/src/main/jni/*.cpp")
 set(OLD_GLOB
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/android/app/build/generated/autolinking/src/main/jni/autolinking.cpp"
+  )
+if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
+  message("-- GLOB mismatch!")
+  file(TOUCH_NOCREATE "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/android/app/.cxx/Debug/5r6265f6/x86/CMakeFiles/cmake.verify_globs")
+endif()
+
+# react_codegen_SRCS at /Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/@react-native-async-storage/async-storage/android/build/generated/source/codegen/jni/CMakeLists.txt:9 (file)
+file(GLOB NEW_GLOB LIST_DIRECTORIES true "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/@react-native-async-storage/async-storage/android/build/generated/source/codegen/jni/*.cpp")
+set(OLD_GLOB
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/@react-native-async-storage/async-storage/android/build/generated/source/codegen/jni/rnasyncstorage-generated.cpp"
+  )
+if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
+  message("-- GLOB mismatch!")
+  file(TOUCH_NOCREATE "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/android/app/.cxx/Debug/5r6265f6/x86/CMakeFiles/cmake.verify_globs")
+endif()
+
+# react_codegen_SRCS at /Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/@react-native-async-storage/async-storage/android/build/generated/source/codegen/jni/CMakeLists.txt:9 (file)
+file(GLOB NEW_GLOB LIST_DIRECTORIES true "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/@react-native-async-storage/async-storage/android/build/generated/source/codegen/jni/react/renderer/components/rnasyncstorage/*.cpp")
+set(OLD_GLOB
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/@react-native-async-storage/async-storage/android/build/generated/source/codegen/jni/react/renderer/components/rnasyncstorage/ComponentDescriptors.cpp"
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/@react-native-async-storage/async-storage/android/build/generated/source/codegen/jni/react/renderer/components/rnasyncstorage/EventEmitters.cpp"
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/@react-native-async-storage/async-storage/android/build/generated/source/codegen/jni/react/renderer/components/rnasyncstorage/Props.cpp"
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/@react-native-async-storage/async-storage/android/build/generated/source/codegen/jni/react/renderer/components/rnasyncstorage/ShadowNodes.cpp"
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/@react-native-async-storage/async-storage/android/build/generated/source/codegen/jni/react/renderer/components/rnasyncstorage/States.cpp"
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/@react-native-async-storage/async-storage/android/build/generated/source/codegen/jni/react/renderer/components/rnasyncstorage/rnasyncstorageJSI-generated.cpp"
+  )
+if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
+  message("-- GLOB mismatch!")
+  file(TOUCH_NOCREATE "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/android/app/.cxx/Debug/5r6265f6/x86/CMakeFiles/cmake.verify_globs")
+endif()
+
+# react_codegen_SRCS at /Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/@react-native-google-signin/google-signin/android/build/generated/source/codegen/jni/CMakeLists.txt:9 (file)
+file(GLOB NEW_GLOB LIST_DIRECTORIES true "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/@react-native-google-signin/google-signin/android/build/generated/source/codegen/jni/*.cpp")
+set(OLD_GLOB
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/@react-native-google-signin/google-signin/android/build/generated/source/codegen/jni/RNGoogleSignInCGen-generated.cpp"
+  )
+if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
+  message("-- GLOB mismatch!")
+  file(TOUCH_NOCREATE "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/android/app/.cxx/Debug/5r6265f6/x86/CMakeFiles/cmake.verify_globs")
+endif()
+
+# react_codegen_SRCS at /Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/@react-native-google-signin/google-signin/android/build/generated/source/codegen/jni/CMakeLists.txt:9 (file)
+file(GLOB NEW_GLOB LIST_DIRECTORIES true "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/@react-native-google-signin/google-signin/android/build/generated/source/codegen/jni/react/renderer/components/RNGoogleSignInCGen/*.cpp")
+set(OLD_GLOB
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/@react-native-google-signin/google-signin/android/build/generated/source/codegen/jni/react/renderer/components/RNGoogleSignInCGen/ComponentDescriptors.cpp"
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/@react-native-google-signin/google-signin/android/build/generated/source/codegen/jni/react/renderer/components/RNGoogleSignInCGen/EventEmitters.cpp"
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/@react-native-google-signin/google-signin/android/build/generated/source/codegen/jni/react/renderer/components/RNGoogleSignInCGen/Props.cpp"
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/@react-native-google-signin/google-signin/android/build/generated/source/codegen/jni/react/renderer/components/RNGoogleSignInCGen/RNGoogleSignInCGenJSI-generated.cpp"
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/@react-native-google-signin/google-signin/android/build/generated/source/codegen/jni/react/renderer/components/RNGoogleSignInCGen/ShadowNodes.cpp"
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/@react-native-google-signin/google-signin/android/build/generated/source/codegen/jni/react/renderer/components/RNGoogleSignInCGen/States.cpp"
+  )
+if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
+  message("-- GLOB mismatch!")
+  file(TOUCH_NOCREATE "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/android/app/.cxx/Debug/5r6265f6/x86/CMakeFiles/cmake.verify_globs")
+endif()
+
+# react_codegen_SRCS at /Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/@sentry/react-native/android/build/generated/source/codegen/jni/CMakeLists.txt:9 (file)
+file(GLOB NEW_GLOB LIST_DIRECTORIES true "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/@sentry/react-native/android/build/generated/source/codegen/jni/*.cpp")
+set(OLD_GLOB
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/@sentry/react-native/android/build/generated/source/codegen/jni/RNSentrySpec-generated.cpp"
+  )
+if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
+  message("-- GLOB mismatch!")
+  file(TOUCH_NOCREATE "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/android/app/.cxx/Debug/5r6265f6/x86/CMakeFiles/cmake.verify_globs")
+endif()
+
+# react_codegen_SRCS at /Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/@sentry/react-native/android/build/generated/source/codegen/jni/CMakeLists.txt:9 (file)
+file(GLOB NEW_GLOB LIST_DIRECTORIES true "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/@sentry/react-native/android/build/generated/source/codegen/jni/react/renderer/components/RNSentrySpec/*.cpp")
+set(OLD_GLOB
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/@sentry/react-native/android/build/generated/source/codegen/jni/react/renderer/components/RNSentrySpec/ComponentDescriptors.cpp"
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/@sentry/react-native/android/build/generated/source/codegen/jni/react/renderer/components/RNSentrySpec/EventEmitters.cpp"
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/@sentry/react-native/android/build/generated/source/codegen/jni/react/renderer/components/RNSentrySpec/Props.cpp"
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/@sentry/react-native/android/build/generated/source/codegen/jni/react/renderer/components/RNSentrySpec/RNSentrySpecJSI-generated.cpp"
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/@sentry/react-native/android/build/generated/source/codegen/jni/react/renderer/components/RNSentrySpec/ShadowNodes.cpp"
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/@sentry/react-native/android/build/generated/source/codegen/jni/react/renderer/components/RNSentrySpec/States.cpp"
+  )
+if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
+  message("-- GLOB mismatch!")
+  file(TOUCH_NOCREATE "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/android/app/.cxx/Debug/5r6265f6/x86/CMakeFiles/cmake.verify_globs")
+endif()
+
+# react_codegen_SRCS at /Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-gesture-handler/android/build/generated/source/codegen/jni/CMakeLists.txt:9 (file)
+file(GLOB NEW_GLOB LIST_DIRECTORIES true "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-gesture-handler/android/build/generated/source/codegen/jni/*.cpp")
+set(OLD_GLOB
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-gesture-handler/android/build/generated/source/codegen/jni/rngesturehandler_codegen-generated.cpp"
+  )
+if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
+  message("-- GLOB mismatch!")
+  file(TOUCH_NOCREATE "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/android/app/.cxx/Debug/5r6265f6/x86/CMakeFiles/cmake.verify_globs")
+endif()
+
+# react_codegen_SRCS at /Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-gesture-handler/android/build/generated/source/codegen/jni/CMakeLists.txt:9 (file)
+file(GLOB NEW_GLOB LIST_DIRECTORIES true "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-gesture-handler/android/build/generated/source/codegen/jni/react/renderer/components/rngesturehandler_codegen/*.cpp")
+set(OLD_GLOB
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-gesture-handler/android/build/generated/source/codegen/jni/react/renderer/components/rngesturehandler_codegen/ComponentDescriptors.cpp"
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-gesture-handler/android/build/generated/source/codegen/jni/react/renderer/components/rngesturehandler_codegen/EventEmitters.cpp"
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-gesture-handler/android/build/generated/source/codegen/jni/react/renderer/components/rngesturehandler_codegen/Props.cpp"
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-gesture-handler/android/build/generated/source/codegen/jni/react/renderer/components/rngesturehandler_codegen/ShadowNodes.cpp"
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-gesture-handler/android/build/generated/source/codegen/jni/react/renderer/components/rngesturehandler_codegen/States.cpp"
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-gesture-handler/android/build/generated/source/codegen/jni/react/renderer/components/rngesturehandler_codegen/rngesturehandler_codegenJSI-generated.cpp"
+  )
+if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
+  message("-- GLOB mismatch!")
+  file(TOUCH_NOCREATE "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/android/app/.cxx/Debug/5r6265f6/x86/CMakeFiles/cmake.verify_globs")
+endif()
+
+# react_codegen_SRCS at /Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-keyboard-controller/android/build/generated/source/codegen/jni/CMakeLists.txt:9 (file)
+file(GLOB NEW_GLOB LIST_DIRECTORIES true "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-keyboard-controller/android/build/generated/source/codegen/jni/*.cpp")
+set(OLD_GLOB
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-keyboard-controller/android/build/generated/source/codegen/jni/reactnativekeyboardcontroller-generated.cpp"
+  )
+if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
+  message("-- GLOB mismatch!")
+  file(TOUCH_NOCREATE "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/android/app/.cxx/Debug/5r6265f6/x86/CMakeFiles/cmake.verify_globs")
+endif()
+
+# react_codegen_SRCS at /Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-keyboard-controller/android/build/generated/source/codegen/jni/CMakeLists.txt:9 (file)
+file(GLOB NEW_GLOB LIST_DIRECTORIES true "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-keyboard-controller/android/build/generated/source/codegen/jni/react/renderer/components/reactnativekeyboardcontroller/*.cpp")
+set(OLD_GLOB
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-keyboard-controller/android/build/generated/source/codegen/jni/react/renderer/components/reactnativekeyboardcontroller/ComponentDescriptors.cpp"
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-keyboard-controller/android/build/generated/source/codegen/jni/react/renderer/components/reactnativekeyboardcontroller/EventEmitters.cpp"
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-keyboard-controller/android/build/generated/source/codegen/jni/react/renderer/components/reactnativekeyboardcontroller/Props.cpp"
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-keyboard-controller/android/build/generated/source/codegen/jni/react/renderer/components/reactnativekeyboardcontroller/ShadowNodes.cpp"
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-keyboard-controller/android/build/generated/source/codegen/jni/react/renderer/components/reactnativekeyboardcontroller/States.cpp"
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-keyboard-controller/android/build/generated/source/codegen/jni/react/renderer/components/reactnativekeyboardcontroller/reactnativekeyboardcontrollerJSI-generated.cpp"
+  )
+if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
+  message("-- GLOB mismatch!")
+  file(TOUCH_NOCREATE "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/android/app/.cxx/Debug/5r6265f6/x86/CMakeFiles/cmake.verify_globs")
+endif()
+
+# react_codegen_SRCS at /Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-keychain/android/build/generated/source/codegen/jni/CMakeLists.txt:9 (file)
+file(GLOB NEW_GLOB LIST_DIRECTORIES true "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-keychain/android/build/generated/source/codegen/jni/*.cpp")
+set(OLD_GLOB
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-keychain/android/build/generated/source/codegen/jni/RNKeychainSpec-generated.cpp"
+  )
+if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
+  message("-- GLOB mismatch!")
+  file(TOUCH_NOCREATE "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/android/app/.cxx/Debug/5r6265f6/x86/CMakeFiles/cmake.verify_globs")
+endif()
+
+# react_codegen_SRCS at /Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-keychain/android/build/generated/source/codegen/jni/CMakeLists.txt:9 (file)
+file(GLOB NEW_GLOB LIST_DIRECTORIES true "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-keychain/android/build/generated/source/codegen/jni/react/renderer/components/RNKeychainSpec/*.cpp")
+set(OLD_GLOB
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-keychain/android/build/generated/source/codegen/jni/react/renderer/components/RNKeychainSpec/ComponentDescriptors.cpp"
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-keychain/android/build/generated/source/codegen/jni/react/renderer/components/RNKeychainSpec/EventEmitters.cpp"
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-keychain/android/build/generated/source/codegen/jni/react/renderer/components/RNKeychainSpec/Props.cpp"
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-keychain/android/build/generated/source/codegen/jni/react/renderer/components/RNKeychainSpec/RNKeychainSpecJSI-generated.cpp"
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-keychain/android/build/generated/source/codegen/jni/react/renderer/components/RNKeychainSpec/ShadowNodes.cpp"
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-keychain/android/build/generated/source/codegen/jni/react/renderer/components/RNKeychainSpec/States.cpp"
+  )
+if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
+  message("-- GLOB mismatch!")
+  file(TOUCH_NOCREATE "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/android/app/.cxx/Debug/5r6265f6/x86/CMakeFiles/cmake.verify_globs")
+endif()
+
+# react_codegen_SRCS at /Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-reanimated/android/build/generated/source/codegen/jni/CMakeLists.txt:9 (file)
+file(GLOB NEW_GLOB LIST_DIRECTORIES true "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-reanimated/android/build/generated/source/codegen/jni/*.cpp")
+set(OLD_GLOB
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-reanimated/android/build/generated/source/codegen/jni/rnreanimated-generated.cpp"
+  )
+if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
+  message("-- GLOB mismatch!")
+  file(TOUCH_NOCREATE "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/android/app/.cxx/Debug/5r6265f6/x86/CMakeFiles/cmake.verify_globs")
+endif()
+
+# react_codegen_SRCS at /Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-reanimated/android/build/generated/source/codegen/jni/CMakeLists.txt:9 (file)
+file(GLOB NEW_GLOB LIST_DIRECTORIES true "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-reanimated/android/build/generated/source/codegen/jni/react/renderer/components/rnreanimated/*.cpp")
+set(OLD_GLOB
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-reanimated/android/build/generated/source/codegen/jni/react/renderer/components/rnreanimated/ComponentDescriptors.cpp"
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-reanimated/android/build/generated/source/codegen/jni/react/renderer/components/rnreanimated/EventEmitters.cpp"
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-reanimated/android/build/generated/source/codegen/jni/react/renderer/components/rnreanimated/Props.cpp"
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-reanimated/android/build/generated/source/codegen/jni/react/renderer/components/rnreanimated/ShadowNodes.cpp"
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-reanimated/android/build/generated/source/codegen/jni/react/renderer/components/rnreanimated/States.cpp"
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-reanimated/android/build/generated/source/codegen/jni/react/renderer/components/rnreanimated/rnreanimatedJSI-generated.cpp"
+  )
+if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
+  message("-- GLOB mismatch!")
+  file(TOUCH_NOCREATE "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/android/app/.cxx/Debug/5r6265f6/x86/CMakeFiles/cmake.verify_globs")
+endif()
+
+# LIB_CUSTOM_SRCS at /Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-safe-area-context/android/src/main/jni/CMakeLists.txt:21 (file)
+file(GLOB NEW_GLOB LIST_DIRECTORIES true "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-safe-area-context/android/src/main/jni/*.cpp")
+set(OLD_GLOB
+  )
+if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
+  message("-- GLOB mismatch!")
+  file(TOUCH_NOCREATE "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/android/app/.cxx/Debug/5r6265f6/x86/CMakeFiles/cmake.verify_globs")
+endif()
+
+# LIB_CUSTOM_SRCS at /Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-safe-area-context/android/src/main/jni/CMakeLists.txt:21 (file)
+file(GLOB NEW_GLOB LIST_DIRECTORIES true "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-safe-area-context/android/src/main/jni/../../../../common/cpp/react/renderer/components/safeareacontext/*.cpp")
+set(OLD_GLOB
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-safe-area-context/android/src/main/jni/../../../../common/cpp/react/renderer/components/safeareacontext/RNCSafeAreaViewShadowNode.cpp"
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-safe-area-context/android/src/main/jni/../../../../common/cpp/react/renderer/components/safeareacontext/RNCSafeAreaViewState.cpp"
+  )
+if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
+  message("-- GLOB mismatch!")
+  file(TOUCH_NOCREATE "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/android/app/.cxx/Debug/5r6265f6/x86/CMakeFiles/cmake.verify_globs")
+endif()
+
+# LIB_CODEGEN_SRCS at /Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-safe-area-context/android/src/main/jni/CMakeLists.txt:22 (file)
+file(GLOB NEW_GLOB LIST_DIRECTORIES true "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-safe-area-context/android/src/main/jni/../../../build/generated/source/codegen/jni/*.cpp")
+set(OLD_GLOB
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-safe-area-context/android/src/main/jni/../../../build/generated/source/codegen/jni/safeareacontext-generated.cpp"
+  )
+if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
+  message("-- GLOB mismatch!")
+  file(TOUCH_NOCREATE "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/android/app/.cxx/Debug/5r6265f6/x86/CMakeFiles/cmake.verify_globs")
+endif()
+
+# LIB_CODEGEN_SRCS at /Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-safe-area-context/android/src/main/jni/CMakeLists.txt:22 (file)
+file(GLOB NEW_GLOB LIST_DIRECTORIES true "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-safe-area-context/android/src/main/jni/../../../build/generated/source/codegen/jni/react/renderer/components/safeareacontext/*.cpp")
+set(OLD_GLOB
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-safe-area-context/android/src/main/jni/../../../build/generated/source/codegen/jni/react/renderer/components/safeareacontext/ComponentDescriptors.cpp"
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-safe-area-context/android/src/main/jni/../../../build/generated/source/codegen/jni/react/renderer/components/safeareacontext/EventEmitters.cpp"
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-safe-area-context/android/src/main/jni/../../../build/generated/source/codegen/jni/react/renderer/components/safeareacontext/Props.cpp"
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-safe-area-context/android/src/main/jni/../../../build/generated/source/codegen/jni/react/renderer/components/safeareacontext/ShadowNodes.cpp"
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-safe-area-context/android/src/main/jni/../../../build/generated/source/codegen/jni/react/renderer/components/safeareacontext/States.cpp"
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-safe-area-context/android/src/main/jni/../../../build/generated/source/codegen/jni/react/renderer/components/safeareacontext/safeareacontextJSI-generated.cpp"
+  )
+if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
+  message("-- GLOB mismatch!")
+  file(TOUCH_NOCREATE "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/android/app/.cxx/Debug/5r6265f6/x86/CMakeFiles/cmake.verify_globs")
+endif()
+
+# LIB_CUSTOM_SRCS at /Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-screens/android/src/main/jni/CMakeLists.txt:22 (file)
+file(GLOB NEW_GLOB LIST_DIRECTORIES true "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-screens/android/src/main/jni/*.cpp")
+set(OLD_GLOB
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-screens/android/src/main/jni/rnscreens.cpp"
+  )
+if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
+  message("-- GLOB mismatch!")
+  file(TOUCH_NOCREATE "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/android/app/.cxx/Debug/5r6265f6/x86/CMakeFiles/cmake.verify_globs")
+endif()
+
+# LIB_CUSTOM_SRCS at /Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-screens/android/src/main/jni/CMakeLists.txt:22 (file)
+file(GLOB NEW_GLOB LIST_DIRECTORIES true "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-screens/android/src/main/jni/../../../../common/cpp/react/renderer/components/rnscreens/*.cpp")
+set(OLD_GLOB
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-screens/android/src/main/jni/../../../../common/cpp/react/renderer/components/rnscreens/RNSModalScreenShadowNode.cpp"
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-screens/android/src/main/jni/../../../../common/cpp/react/renderer/components/rnscreens/RNSScreenShadowNode.cpp"
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-screens/android/src/main/jni/../../../../common/cpp/react/renderer/components/rnscreens/RNSScreenStackHeaderConfigShadowNode.cpp"
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-screens/android/src/main/jni/../../../../common/cpp/react/renderer/components/rnscreens/RNSScreenStackHeaderConfigState.cpp"
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-screens/android/src/main/jni/../../../../common/cpp/react/renderer/components/rnscreens/RNSScreenStackHeaderSubviewShadowNode.cpp"
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-screens/android/src/main/jni/../../../../common/cpp/react/renderer/components/rnscreens/RNSScreenStackHeaderSubviewState.cpp"
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-screens/android/src/main/jni/../../../../common/cpp/react/renderer/components/rnscreens/RNSScreenState.cpp"
+  )
+if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
+  message("-- GLOB mismatch!")
+  file(TOUCH_NOCREATE "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/android/app/.cxx/Debug/5r6265f6/x86/CMakeFiles/cmake.verify_globs")
+endif()
+
+# LIB_CUSTOM_SRCS at /Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-screens/android/src/main/jni/CMakeLists.txt:22 (file)
+file(GLOB NEW_GLOB LIST_DIRECTORIES true "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-screens/android/src/main/jni/../../../../common/cpp/react/renderer/components/rnscreens/utils/*.cpp")
+set(OLD_GLOB
+  )
+if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
+  message("-- GLOB mismatch!")
+  file(TOUCH_NOCREATE "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/android/app/.cxx/Debug/5r6265f6/x86/CMakeFiles/cmake.verify_globs")
+endif()
+
+# LIB_CODEGEN_SRCS at /Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-screens/android/src/main/jni/CMakeLists.txt:23 (file)
+file(GLOB NEW_GLOB LIST_DIRECTORIES true "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-screens/android/src/main/jni/../../../build/generated/source/codegen/jni/react/renderer/components/rnscreens/*.cpp")
+set(OLD_GLOB
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-screens/android/src/main/jni/../../../build/generated/source/codegen/jni/react/renderer/components/rnscreens/ComponentDescriptors.cpp"
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-screens/android/src/main/jni/../../../build/generated/source/codegen/jni/react/renderer/components/rnscreens/EventEmitters.cpp"
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-screens/android/src/main/jni/../../../build/generated/source/codegen/jni/react/renderer/components/rnscreens/Props.cpp"
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-screens/android/src/main/jni/../../../build/generated/source/codegen/jni/react/renderer/components/rnscreens/ShadowNodes.cpp"
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-screens/android/src/main/jni/../../../build/generated/source/codegen/jni/react/renderer/components/rnscreens/States.cpp"
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-screens/android/src/main/jni/../../../build/generated/source/codegen/jni/react/renderer/components/rnscreens/rnscreensJSI-generated.cpp"
+  )
+if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
+  message("-- GLOB mismatch!")
+  file(TOUCH_NOCREATE "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/android/app/.cxx/Debug/5r6265f6/x86/CMakeFiles/cmake.verify_globs")
+endif()
+
+# rnsvg_SRCS at /Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-svg/android/src/main/jni/CMakeLists.txt:19 (file)
+file(GLOB NEW_GLOB LIST_DIRECTORIES true "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-svg/android/src/main/jni/*.cpp")
+set(OLD_GLOB
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-svg/android/src/main/jni/rnsvg.cpp"
+  )
+if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
+  message("-- GLOB mismatch!")
+  file(TOUCH_NOCREATE "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/android/app/.cxx/Debug/5r6265f6/x86/CMakeFiles/cmake.verify_globs")
+endif()
+
+# rnsvg_SRCS at /Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-svg/android/src/main/jni/CMakeLists.txt:19 (file)
+file(GLOB NEW_GLOB LIST_DIRECTORIES true "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-svg/android/src/main/jni/../../../../common/cpp/react/renderer/components/rnsvg/*.cpp")
+set(OLD_GLOB
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-svg/android/src/main/jni/../../../../common/cpp/react/renderer/components/rnsvg/RNSVGImageShadowNode.cpp"
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-svg/android/src/main/jni/../../../../common/cpp/react/renderer/components/rnsvg/RNSVGImageState.cpp"
+  )
+if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
+  message("-- GLOB mismatch!")
+  file(TOUCH_NOCREATE "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/android/app/.cxx/Debug/5r6265f6/x86/CMakeFiles/cmake.verify_globs")
+endif()
+
+# rnsvg_codegen_SRCS at /Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-svg/android/src/main/jni/CMakeLists.txt:20 (file)
+file(GLOB NEW_GLOB LIST_DIRECTORIES true "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-svg/android/src/main/jni/../../../build/generated/source/codegen/jni/react/renderer/components/rnsvg/*cpp")
+set(OLD_GLOB
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-svg/android/src/main/jni/../../../build/generated/source/codegen/jni/react/renderer/components/rnsvg/ComponentDescriptors.cpp"
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-svg/android/src/main/jni/../../../build/generated/source/codegen/jni/react/renderer/components/rnsvg/EventEmitters.cpp"
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-svg/android/src/main/jni/../../../build/generated/source/codegen/jni/react/renderer/components/rnsvg/Props.cpp"
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-svg/android/src/main/jni/../../../build/generated/source/codegen/jni/react/renderer/components/rnsvg/ShadowNodes.cpp"
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-svg/android/src/main/jni/../../../build/generated/source/codegen/jni/react/renderer/components/rnsvg/States.cpp"
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-svg/android/src/main/jni/../../../build/generated/source/codegen/jni/react/renderer/components/rnsvg/rnsvgJSI-generated.cpp"
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")
