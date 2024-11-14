@@ -10,9 +10,9 @@ import App from '@/app/App'
 
 import { name as appName } from './app.json'
 
-Sentry.init({
-  dsn: SENTRY_DNS,
-  tracesSampleRate: 1.0,
-})
+// Sentry.init({
+//   dsn: SENTRY_DNS,
+//   tracesSampleRate: 1.0,
+// })
 
 AppRegistry.registerComponent(appName, () => App)

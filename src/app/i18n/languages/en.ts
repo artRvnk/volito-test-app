@@ -1,15 +1,26 @@
 export default {
-  first_screen: {
-    title_line_1: 'Welcome to Volito Test Application',
-    title_line_2: 'By Artem Revenko',
+  auth_main: {
+    title_line_1: 'Welcome to Volito Test App',
+    title_line_2: 'Created by Artem Revenko',
 
     with_phone: 'Continue with Phone',
     with_apple: 'Continue with Apple',
     with_google: 'Continue with Google',
   },
 
-  notes: { title: 'Notes' },
-  map: { title: 'Map' },
+  input: {
+    select_country: 'Select country',
+    search: 'Search',
+  },
+
+  sign_up: {
+    title: 'Sign up',
+    name: 'Name',
+    surname: 'Surname',
+    email: 'Email',
+    create_account: 'Create an account',
+    user_created: 'User created',
+  },
 
   add_phone: {
     title: 'Continue with Phone',
@@ -25,6 +36,11 @@ export default {
     description_text_2: 'Please enter it in the field below.',
     resend_code: 'Resend code',
   },
+
+  notes: { title: 'Notes' },
+  map: { title: 'Map' },
+
+  user_exist: 'A user with these credentials already exists',
 
   button: {
     continue: 'Continue',

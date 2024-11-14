@@ -14,13 +14,17 @@ const Stack = createNativeStackNavigator<TAuthStack>()
 export const AuthStack = () => {
   return (
     <Stack.Navigator
-      initialRouteName={EScreens.AMain}
+      initialRouteName={EScreens.AuthMain}
       screenOptions={ScreenNavigationOptions}>
-      <Stack.Screen name={EScreens.AMain} component={AuthScreens.Main} />
+      <Stack.Screen name={EScreens.AuthMain} component={AuthScreens.Main} />
 
-      <Stack.Screen name={EScreens.ASignIn} component={AuthScreens.SignIn} />
+      <Stack.Screen name={EScreens.AuthSignIn} component={AuthScreens.SignIn} />
 
-      <Stack.Screen name={EScreens.ASignUp} component={AuthScreens.SignUp} />
+      <Stack.Screen name={EScreens.AuthSignUp} component={AuthScreens.SignUp} />
+
+      <Stack.Screen name={EScreens.AuthPhone} component={AuthScreens.Phone} />
+
+      <Stack.Screen name={EScreens.AuthOtp} component={AuthScreens.Otp} />
     </Stack.Navigator>
   )
 }

@@ -1,7 +1,17 @@
 import React from 'react'
-import { Text, View } from 'react-native'
+import { Button, Text, View } from 'react-native'
+
+import { useDispatch } from 'react-redux'
+
+import { userActions } from '@/entities/user'
 
 export const Main = () => {
+  const dispatch = useDispatch()
+
+  const logOut = () => {
+    dispatch(userActions.clearUser())
+  }
+
   return (
     <View
       style={{
@@ -11,6 +21,8 @@ export const Main = () => {
         backgroundColor: 'pink',
       }}>
       <Text>Notes Main</Text>
+
+      <Button title="Log out" onPress={logOut} />
     </View>
   )
 }

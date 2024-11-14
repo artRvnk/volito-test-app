@@ -3,8 +3,6 @@ import { TFunction } from 'i18next'
 import { isValidPhoneNumber } from 'libphonenumber-js'
 import { ZodRawShape, z } from 'zod'
 
-const numberReg = /^\d+$/
-
 export type TSchema<TSchemaType extends z.ZodTypeAny> = z.infer<TSchemaType>
 
 // TODO

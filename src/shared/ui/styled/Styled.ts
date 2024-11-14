@@ -16,6 +16,8 @@ export const FlexWrapper = styled(View)<TFlexWrapper>`
   flex-wrap: ${({ wrap }) => wrap || 'nowrap'};
   max-width: 100%;
 
+  background-color: transparent;
+
   ${props => MARGIN(props)}
 `
 

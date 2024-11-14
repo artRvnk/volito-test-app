@@ -6,7 +6,7 @@ export const theme: Theme = {
   dark: true,
   colors: {
     primary: EColors.neutral_500,
-    background: EColors.black,
+    background: EColors.neutral_500,
     text: EColors.white,
     border: EColors.neutral_500,
     notification: EColors.neutral_500,
