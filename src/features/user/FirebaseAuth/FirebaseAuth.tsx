@@ -2,8 +2,6 @@ import React, { useContext } from 'react'
 
 import { useTranslation } from 'react-i18next'
 
-import { TIconsKeys } from '@assets/svg'
-
 import { LoaderContext } from '@/app/context'
 
 import { EScreens } from '@/app/navigation'
@@ -15,17 +13,10 @@ import { FirebaseService, useHandleUser } from '@/entities/user'
 import { EAuthMethod, EColors, useNavigation } from '@/shared/lib'
 import { Icon } from '@/shared/ui'
 import { Button } from '@/shared/ui/button'
-
 import { Typography } from '@/shared/ui/styled'
 
 import { IconWrapper } from './styles'
-
-type TRenderButton = {
-  onPress: () => void
-  icon: TIconsKeys
-  isFirst?: boolean
-  text: string
-}
+import { TRenderButton } from './types'
 
 export const FirebaseAuth = () => {
   const { t } = useTranslation()

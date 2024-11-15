@@ -12,7 +12,6 @@ export type TUseTabs = {
   icon: TIconsKeys
   active: EColors
   inactive: EColors
-  title: string
 }
 
 export type TOnPressTab = {

@@ -1,15 +1,9 @@
-import { StyleSheet, TouchableOpacity, View } from 'react-native'
+import { TouchableOpacity, View } from 'react-native'
 
 import styled from 'styled-components'
 
 import { EColors } from '@/shared/lib'
 import { WP } from '@/shared/tools'
-
-export const styles = StyleSheet.create({
-  shadow: {
-    width: '100%',
-  },
-})
 
 export const Container = styled(View)<{
   bottomInst: number
@@ -28,13 +22,17 @@ export const Container = styled(View)<{
   position: absolute;
   align-items: center;
   bottom: ${({ bottomInst }) => (bottomInst === 0 ? 16 : bottomInst * 0.67)}px;
-  /* bottom: 16px; */
 `
 
-export const StyledTabButton = styled(TouchableOpacity)`
+export const ButtonTab = styled(TouchableOpacity)`
   align-items: center;
-  /* width: 75px; */
   width: ${WP(30)}px;
-  /* flex: 1; */
-  /* background-color: red; */
+`
+
+export const Dot = styled(View)<{ color: EColors }>`
+  border-radius: 50px;
+  height: 4px;
+  width: 4px;
+  margin-top: 6px;
+  background-color: ${({ color }) => color};
 `

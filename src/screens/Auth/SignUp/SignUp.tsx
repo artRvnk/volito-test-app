@@ -1,23 +1,20 @@
 import React from 'react'
-import { Text, View } from 'react-native'
 
 import firestore from '@react-native-firebase/firestore'
 import { useRoute } from '@react-navigation/native'
 import { captureException } from '@sentry/react-native'
 import { useTranslation } from 'react-i18next'
-
 import { useDispatch } from 'react-redux'
+import { v4 as uuidv4 } from 'uuid'
 
 import { Header } from '@/widgets/header'
 
 import { UserFeature } from '@/features/user'
-
-// import { TSignUpForm } from '@/features/user/SignUpForm/types'
 import { TSignUpForm } from '@/features/user/SignUpForm'
 
 import { userActions } from '@/entities/user'
 
-import { useToast } from '@/shared/lib'
+import { ECollection, useToast } from '@/shared/lib'
 
 import { TRouteProps } from './types'
 
@@ -34,18 +31,24 @@ export const SignUp = () => {
   const onSubmit = async (values: TSignUpForm) => {
     try {
       await firestore()
-        .collection('users')
+        .collection(ECollection.users)
         .add({
           ...values,
           ...(phone && { phone }),
+          id: uuidv4(),
           authMethod,
         })
 
-      console.log('User added!')
+      // console.log('User added!', {
+      //   ...values,
+      //   id: uuidv4(),
+      //   authMethod,
+      // })
 
       dispatch(
         userActions.setUser({
           ...values,
+          id: uuidv4(),
           authMethod,
         }),
       )

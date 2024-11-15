@@ -39,7 +39,16 @@ export default {
     resend_code: 'Resend code',
   },
 
-  notes: { title: 'Notes' },
+  notes: {
+    title: 'Notes',
+    empty_list: 'You have not created any note yet',
+  },
+
+  favorites: {
+    title: 'Favorites',
+    empty_list: "You haven't added favorites of this type yet",
+  },
+
   map: { title: 'Map' },
 
   user_exist: 'A user with these credentials already exists',

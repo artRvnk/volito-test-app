@@ -1,5 +1,5 @@
 import { PayloadAction } from '@reduxjs/toolkit'
-import { WritableDraft } from 'immer/dist/internal'
+import { WritableDraft } from 'immer'
 import _ from 'lodash'
 import { TypedUseSelectorHook, useSelector } from 'react-redux'
 

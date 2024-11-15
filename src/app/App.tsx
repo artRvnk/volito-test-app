@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { StatusBar } from 'react-native'
 
+import 'react-native-get-random-values'
 import SplashScreen from 'react-native-splash-screen'
 import { Provider } from 'react-redux'
 import { PersistGate } from 'redux-persist/integration/react'

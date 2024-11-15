@@ -7,11 +7,11 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
 import { EScreens, whiteList } from '@/app/navigation'
 
+import { EColors } from '@/shared/lib'
 import { useAnimatedTab, useTabs } from '@/shared/lib/hooks/tab'
 import { Icon } from '@/shared/ui'
-import { Typography } from '@/shared/ui/styled'
 
-import { Container, StyledTabButton } from './styles'
+import { Container, ButtonTab, Dot } from './styles'
 
 import type { TOnPressTab, TStacksKeys } from './types'
 
@@ -79,10 +79,10 @@ export const Bottom = ({
             const tab = tabs[route.name as TStacksKeys]
 
             const color = isFocused ? tab.active : tab.inactive
+            const colorDot = isFocused ? tab.active : EColors.transparent
 
-            // TODO
             return (
-              <StyledTabButton
+              <ButtonTab
                 activeOpacity={1}
                 key={route.key}
                 accessibilityRole="button"
@@ -93,10 +93,8 @@ export const Bottom = ({
                 onLongPress={() => onLongPress({ ...tab, route, isFocused })}>
                 <Icon name={tab.icon} fill={color} />
 
-                <Typography.CaptionR mTop="4px" color={color}>
-                  {tab.title}
-                </Typography.CaptionR>
-              </StyledTabButton>
+                <Dot color={colorDot} />
+              </ButtonTab>
             )
           })}
         </Container>

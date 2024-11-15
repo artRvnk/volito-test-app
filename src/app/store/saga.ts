@@ -1,10 +1,10 @@
 import { all } from 'redux-saga/effects'
 
-// TODO
-// import { userWatcher } from '@/entities/user'
+import { noteWatcher } from '@/entities/note'
+import { userWatcher } from '@/entities/user'
 
 function* rootSaga() {
-  // yield all([userWatcher()])
+  yield all([userWatcher(), noteWatcher()])
 }
 
 export default rootSaga

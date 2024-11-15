@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux'
 
 import { TUser, userActions } from '@/entities/user'
 
-import { EAuthMethod, useToast } from '@/shared/lib'
+import { EAuthMethod, ECollection, useToast } from '@/shared/lib'
 
 type THandleUser = {
   email?: string
@@ -23,7 +23,7 @@ export const useHandleUser = () => {
   const handleUser = async ({ phone, email, authMethod }: THandleUser) => {
     try {
       let query = firestore()
-        .collection('users')
+        .collection(ECollection.users)
         .where('authMethod', '==', authMethod)
         .limit(1)
 

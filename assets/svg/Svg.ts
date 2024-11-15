@@ -12,3 +12,7 @@ export { default as ArrowUp } from './sources/arrow-up.svg'
 
 export { default as TriangleDown } from './sources/triangle_down.svg'
 export { default as ChevronLeft } from './sources/chevron_left.svg'
+
+export { default as StickyNote } from './sources/sticky-note.svg'
+export { default as Add } from './sources/add.svg'
+export { default as Profile } from './sources/profile.svg'
