@@ -19,5 +19,8 @@ export const styles = StyleSheet.create({
     marginBottom: TAB_HEIGHT * 1.25,
   },
   loaderContainer: { width: '100%', height: 200 },
-  list: { paddingHorizontal: 8 },
+  list: {
+    // paddingHorizontal: 8,
+    marginHorizontal: 8,
+  },
 })

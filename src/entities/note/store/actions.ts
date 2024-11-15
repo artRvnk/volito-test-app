@@ -10,7 +10,9 @@ export const noteActions = {
 
   getNotes: createAction<Types.TGetNotesAction>(ActionsTypes.getNotes),
   getNotesCount: createAction(ActionsTypes.getNotesCount),
+
   postNote: createAction(ActionsTypes.postNote),
   updateNote: createAction(ActionsTypes.updateNote),
-  deleteNote: createAction(ActionsTypes.deleteNote),
+
+  deleteNote: createAction<Types.TDeleteNoteAction>(ActionsTypes.deleteNote),
 }

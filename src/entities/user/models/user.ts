@@ -1,6 +1,7 @@
 import { EAuthMethod } from '@/shared/lib'
 
 export type TUser = {
+  _id: string
   id: string
   name: string
   surname: string

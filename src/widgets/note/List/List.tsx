@@ -6,12 +6,9 @@ import {
   RefreshControl,
 } from 'react-native'
 
-import { useIsFocused } from '@react-navigation/native'
 import { useTranslation } from 'react-i18next'
 
-import { NoteEntity, TNote } from '@/entities/note'
-
-import { useGetNotes } from '@/entities/note/hooks'
+import { NoteEntity, TNote, useGetNotes } from '@/entities/note'
 
 import { EColors } from '@/shared/lib'
 import { TAB_HEIGHT } from '@/shared/lib/hooks/tab'
@@ -19,11 +16,10 @@ import { Icon } from '@/shared/ui'
 import { Divider, FlexWrapper, Typography } from '@/shared/ui/styled'
 
 import { EmptyWrapper, styles } from './styles'
+import { NoteFeature } from '@/features/note'
 
 export const List = () => {
   const { t } = useTranslation()
-
-  const isFocused = useIsFocused()
 
   const {
     data = [],
@@ -38,12 +34,6 @@ export const List = () => {
   } = useGetNotes()
 
   console.log('List', data)
-
-  //   useEffect(() => {
-  //     if (isFocused) {
-  //       getFirstPage?.()
-  //     }
-  //   }, [isFocused])
 
   useEffect(() => {
     console.log('getNotes-getFirstPage')
@@ -61,8 +51,13 @@ export const List = () => {
     }
   }
 
-  const renderItem: ListRenderItem<TNote> = ({ item, index }) => {
-    return <NoteEntity.Card item={item} index={index} />
+  const renderItem: ListRenderItem<TNote> = ({ item }) => {
+    return (
+      <NoteFeature.Delete
+        item={item}
+        entity={<NoteEntity.Card item={item} />}
+      />
+    )
   }
 
   const renderLoader = () => {
@@ -105,7 +100,12 @@ export const List = () => {
         ListEmptyComponent={renderEmpty}
         ListFooterComponent={renderLoader}
         showsVerticalScrollIndicator={false}
-        style={styles.list}
+        ItemSeparatorComponent={() => <Divider height={12} />}
+        // style={styles.list}
+        contentContainerStyle={{
+          paddingHorizontal: 8,
+          // marginHorizontal: 8,
+        }}
         refreshControl={
           <RefreshControl
             onRefresh={refresh}

@@ -1,10 +1,11 @@
 import firestore, {
+  deleteDoc,
   FirebaseFirestoreTypes,
 } from '@react-native-firebase/firestore'
 
 import { PayloadAction } from '@reduxjs/toolkit'
 import { captureException } from '@sentry/react-native'
-import { call, put, takeLatest } from 'redux-saga/effects'
+import { call, put, takeEvery, takeLatest } from 'redux-saga/effects'
 
 import { TSagaResponse } from '@/app/store'
 
@@ -68,7 +69,28 @@ function* getNotesCount({
   yield put(noteActions.setState({ loading: false }))
 }
 
+function* deleteNote({ payload }: PayloadAction<Types.TDeleteNoteAction>) {
+  yield put(noteActions.setState({ loading: true }))
+
+  try {
+    const response: Types.TDeleteNoteRequest = yield call(() =>
+      firestore().collection(ECollection.notes).doc(payload).delete(),
+    )
+    console.log('deleteNote-response', response)
+
+    yield put(noteActions.setDeleteNote(payload))
+  } catch (e) {
+    console.log('deleteNote-e', e)
+
+    captureException(e)
+  }
+
+  yield put(noteActions.setState({ loading: false }))
+}
+
 export function* noteWatcher() {
   yield takeLatest(ActionsTypes.getNotes, getNotes)
   yield takeLatest(ActionsTypes.getNotesCount, getNotesCount)
+
+  yield takeEvery(ActionsTypes.deleteNote, deleteNote)
 }

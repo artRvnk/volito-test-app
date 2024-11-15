@@ -30,7 +30,7 @@ export const slice = createSlice({
 
         return {
           ...(data as TNote),
-          key: snapshot.id,
+          _id: snapshot.id,
         }
       })
 
@@ -44,7 +44,7 @@ export const slice = createSlice({
 
         return {
           ...(data as TNote),
-          key: snapshot.id,
+          _id: snapshot.id,
         }
       })
 
@@ -62,6 +62,13 @@ export const slice = createSlice({
       // console.log('setNotesCount-payload', payload)
 
       state.notesCount = payload
+    },
+
+    setDeleteNote: (state, { payload }: PayloadAction<string>) => {
+      // console.log('deleteNote-payload', payload)
+
+      state.notes = state.notes.filter(el => el._id !== payload)
+      state.notesCount--
     },
   },
 })

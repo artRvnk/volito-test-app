@@ -6,5 +6,3 @@ export type TGetNotesCountRequest =
   FirebaseFirestoreTypes.AggregateQuerySnapshot<{
     count: FirebaseFirestoreTypes.AggregateField<number>
   }>
-
-export type TGetNotesCountStore = number

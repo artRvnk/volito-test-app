@@ -1,4 +1,6 @@
 export type TNote = {
+  _id: string
+
   id: string
   title: string
   text: string
