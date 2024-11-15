@@ -1,4 +1,9 @@
 export const ActionsTypes = {
   setLoading: 'setLoading',
-  logOut: 'logOut',
+
+  getNotes: 'getNotes',
+  getNotesCount: 'getNotesCount',
+  postNote: 'postNote',
+  updateNote: 'updateNote',
+  deleteNote: 'deleteNote',
 }

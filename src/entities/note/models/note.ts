@@ -6,5 +6,5 @@ export type TNote = {
   image: string
 
   createdAt: string
-  deletedAt: string
+  updatedAt: string
 }

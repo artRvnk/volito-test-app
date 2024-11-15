@@ -34,7 +34,10 @@ export const List = () => {
     refresh,
     refreshing,
     getFirstPage,
+    totalCount,
   } = useGetNotes()
+
+  console.log('List', data)
 
   //   useEffect(() => {
   //     if (isFocused) {
@@ -43,17 +46,23 @@ export const List = () => {
   //   }, [isFocused])
 
   useEffect(() => {
+    console.log('getNotes-getFirstPage')
+
     getFirstPage?.()
   }, [])
 
   const onGetMore = () => {
+    console.log('getNotes-canGetMoreItems', canGetMoreItems)
+    console.log('getNotes-totalCount', totalCount)
+
     if (canGetMoreItems && !!getMore) {
+      console.log('getNotes-d-getMore', totalCount)
       getMore()
     }
   }
 
-  const renderItem: ListRenderItem<TNote> = ({ item }) => {
-    return <NoteEntity.Card item={item} />
+  const renderItem: ListRenderItem<TNote> = ({ item, index }) => {
+    return <NoteEntity.Card item={item} index={index} />
   }
 
   const renderLoader = () => {
@@ -65,7 +74,7 @@ export const List = () => {
       )
     }
 
-    return <Divider height={TAB_HEIGHT / 2} />
+    return <Divider height={TAB_HEIGHT * 1.25} />
   }
 
   const renderEmpty = () => {
@@ -92,10 +101,11 @@ export const List = () => {
         renderItem={renderItem}
         keyExtractor={item => item.id}
         onEndReached={onGetMore}
-        onEndReachedThreshold={0.5}
+        onEndReachedThreshold={0.8}
         ListEmptyComponent={renderEmpty}
         ListFooterComponent={renderLoader}
         showsVerticalScrollIndicator={false}
+        style={styles.list}
         refreshControl={
           <RefreshControl
             onRefresh={refresh}

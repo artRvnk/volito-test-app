@@ -22,6 +22,8 @@ type TUsePagination = {
   totalCount: number
 }
 
+export const STEP = 10
+
 export const usePagination = ({
   getAction,
   loading,
@@ -30,10 +32,16 @@ export const usePagination = ({
 }: TUsePagination): TPaginationReturn => {
   const length = useMemo(() => items.length ?? 0, [items.length])
 
+  const [steps, setSteps] = useState(STEP)
+
   const [refreshing, setRefreshing] = useState(false)
 
   const canGetMoreItems = useMemo(
-    () => items.length < totalCount && !!items.length,
+    () =>
+      items.length < totalCount &&
+      !!items.length &&
+      totalCount > steps &&
+      !loading,
     [items.length, totalCount],
   )
 
@@ -50,13 +58,16 @@ export const usePagination = ({
   // Get more method
   const getMore = useCallback(() => {
     if (loading || !canGetMoreItems) return
-    getAction(length)
-  }, [loading, canGetMoreItems, getAction, length])
+
+    setSteps(prev => prev + STEP)
+
+    getAction(steps + STEP)
+  }, [loading, canGetMoreItems, getAction, steps])
 
   // Get first page
   const getFirstPage = useCallback(
     (activeGlobalLoader?: boolean) => {
-      getAction(0, activeGlobalLoader)
+      getAction(STEP, activeGlobalLoader)
     },
     [getAction],
   )
@@ -64,6 +75,9 @@ export const usePagination = ({
   // Refresh
   const refresh = useCallback(() => {
     setRefreshing(true)
+
+    setSteps(STEP)
+
     getFirstPage()
   }, [getFirstPage])
 

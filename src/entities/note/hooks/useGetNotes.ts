@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 
 import firestore, {
   deleteDoc,
@@ -7,57 +7,82 @@ import firestore, {
 
 import { captureException } from '@sentry/react-native'
 
+import { useDispatch } from 'react-redux'
+
+import { useTypedSelector } from '@/app/store'
+
 import { ECollection, usePagination } from '@/shared/lib'
 
 import { TNote } from '../models'
+import { getNoteSelector, noteActions } from '../store'
 
 export const useGetNotes = () => {
-  const [notes, setNotes] = useState<TNote[]>([])
+  const dispatch = useDispatch()
+
+  // const [notes, setNotes] = useState<TNote[]>([])
   const [totalCount, setTotalCount] = useState<number>(0)
   const [isLoading, setLoading] = useState<boolean>(false)
 
-  const getNotes = async () => {
-    setLoading(true)
+  const [page, setPage] = useState(5)
 
-    try {
-      const response: FirebaseFirestoreTypes.QuerySnapshot<FirebaseFirestoreTypes.DocumentData> =
-        await firestore().collection(ECollection.notes).get()
-      const array = response?.docs
+  const { loading, notes, notesCount } = useTypedSelector(getNoteSelector)
 
-      const notesArray = array.map(snapshot => {
-        const data = snapshot.data()
+  const getNotes = useCallback<(skip: number) => void>(skip => {
+    // if (notes.length + 1 < notesCount) {
+    dispatch(
+      noteActions.getNotes({
+        // skip: page + 5,
+        skip,
+      }),
+    )
+    // setPage(page + 5)
+    // }
 
-        return {
-          ...(data as TNote),
-          key: snapshot.id,
-        }
-      })
-      // setNotes(notesArray)
-      setNotes([])
+    dispatch(noteActions.getNotesCount())
+  }, [])
 
-      const responseCount: FirebaseFirestoreTypes.AggregateQuerySnapshot<{
-        count: FirebaseFirestoreTypes.AggregateField<number>
-      }> = await firestore().collection(ECollection.notes).count().get()
+  // const getNotes = async () => {
+  //   setLoading(true)
 
-      // setTotalCount(responseCount.data().count)
-      setTotalCount(0)
-    } catch (e) {
-      captureException(e)
-    }
+  //   try {
+  //     const response: FirebaseFirestoreTypes.QuerySnapshot<FirebaseFirestoreTypes.DocumentData> =
+  //       await firestore().collection(ECollection.notes).get()
+  //     const array = response?.docs
 
-    setLoading(false)
-  }
+  //     const notesArray = array.map(snapshot => {
+  //       const data = snapshot.data()
+
+  //       return {
+  //         ...(data as TNote),
+  //         key: snapshot.id,
+  //       }
+  //     })
+  //     // setNotes(notesArray)
+  //     setNotes([])
+
+  //     const responseCount: FirebaseFirestoreTypes.AggregateQuerySnapshot<{
+  //       count: FirebaseFirestoreTypes.AggregateField<number>
+  //     }> = await firestore().collection(ECollection.notes).count().get()
+
+  //     // setTotalCount(responseCount.data().count)
+  //     setTotalCount(0)
+  //   } catch (e) {
+  //     captureException(e)
+  //   }
+
+  //   setLoading(false)
+  // }
 
   const paginationProps = usePagination({
     getAction: getNotes,
-    loading: isLoading,
+    loading,
     items: notes,
-    totalCount,
+    totalCount: notesCount,
   })
 
   return {
     data: notes,
-    totalCount,
+    totalCount: notesCount,
     ...paginationProps,
   }
 }

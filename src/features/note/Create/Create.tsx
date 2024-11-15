@@ -9,6 +9,8 @@ import { v4 as uuidv4 } from 'uuid'
 
 import { EScreens } from '@/app/navigation'
 
+import { noteActions } from '@/entities/note'
+
 import { ECollection, EColors, useNavigation } from '@/shared/lib'
 
 import { Icon } from '@/shared/ui'
@@ -18,7 +20,11 @@ import * as S from './styles'
 export const Create = () => {
   const { navigate } = useNavigation()
 
+  const dispatch = useDispatch()
+
   const onNavigate = async () => {
+    // dispatch(noteActions.getNotesCount())
+
     navigate(EScreens.NSingle)
 
     // try {
@@ -31,7 +37,7 @@ export const Create = () => {
     //       location: '',
     //       image: '',
     //       createdAt: new Date().toISOString(),
-    //       deletedAt: new Date().toISOString(),
+    //       updatedAt: new Date().toISOString(),
     //     })
     //   // console.log('User added!', {
     //   //   ...values,
