@@ -1,5 +1,5 @@
 import React from 'react'
-import { View } from 'react-native'
+import { Platform, View } from 'react-native'
 
 import { useTranslation } from 'react-i18next'
 import {
@@ -35,15 +35,16 @@ export const Code = ({ error, value, onChange = () => {} }: TCodeProps) => {
         autoFocus
         onChangeText={onChange}
         rootStyle={styles.root}
-        keyboardType="number-pad"
         cellCount={CELL_COUNT}
         keyboardAppearance="dark"
+        keyboardType="number-pad"
         textContentType="oneTimeCode"
         renderCell={({ index, symbol, isFocused }) => (
           <View key={index}>
             <Ceil isError={!!error} onLayout={getCellOnLayoutHandler(index)}>
-              <Typography.H3>
-                {symbol || (isFocused ? <Cursor delay={1500} /> : null)}
+              <Typography.H3
+                color={isFocused ? EColors.primary_300 : EColors.white}>
+                {symbol || (isFocused ? <Cursor delay={1000} /> : null)}
               </Typography.H3>
             </Ceil>
           </View>

@@ -117,4 +117,6 @@ export const firebaseErrors: Array<string> = [
   'auth/code-expired',
 
   'auth/invalid-app-credential',
+
+  'auth/billing-not',
 ]

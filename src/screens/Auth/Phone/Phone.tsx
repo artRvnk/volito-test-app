@@ -5,9 +5,7 @@ import { useTranslation } from 'react-i18next'
 import { CountryItem } from 'react-native-country-codes-picker'
 
 import { LoaderContext } from '@/app/context'
-import { EScreens, EStacks } from '@/app/navigation'
-
-// import { Header } from '@/widgets/header'
+import { EScreens } from '@/app/navigation'
 
 import { Header } from '@/widgets/header'
 
@@ -16,10 +14,6 @@ import { FirebaseService } from '@/entities/user'
 import { EColors, useNavigation } from '@/shared/lib'
 import { Background } from '@/shared/ui/background'
 import { Button } from '@/shared/ui/button'
-// import { Input } from '@/shared/ui/input'
-// import { initialCountry } from '@/shared/ui/input/CountryPhone'
-// import { Body1R, EColors } from '@/shared/ui/styled'
-
 import { Input } from '@/shared/ui/input'
 import { initialCountry } from '@/shared/ui/input/Phone'
 
@@ -42,8 +36,6 @@ export const Phone = () => {
 
   const signInWithPhone = async () => {
     setLoading(true)
-
-    // console.log(country?.dial_code + phone)
 
     try {
       await FirebaseService.signInWithPhone(country?.dial_code + phone)
@@ -86,8 +78,6 @@ export const Phone = () => {
         </View>
 
         <Button.Standard
-          // TODO - RETURN
-          // onPress={onNavigate}
           onPress={signInWithPhone}
           disabled={phone.length !== correctLength}
           text={t('add_phone.continue')}

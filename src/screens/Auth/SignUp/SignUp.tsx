@@ -24,8 +24,7 @@ import { TRouteProps } from './types'
 export const SignUp = () => {
   const { params } = useRoute<TRouteProps>()
 
-  const { authMethod, ...data } = params
-  // console.log('data', data)
+  const { authMethod, phone, ...data } = params
 
   const dispatch = useDispatch()
   const { t } = useTranslation()
@@ -38,6 +37,7 @@ export const SignUp = () => {
         .collection('users')
         .add({
           ...values,
+          ...(phone && { phone }),
           authMethod,
         })
 

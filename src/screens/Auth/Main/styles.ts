@@ -9,12 +9,6 @@ export const Container = styled.View`
   padding: 0px 16px;
 `
 
-export const BottomLinks = styled.View<{ bottom?: number }>`
-  position: absolute;
-  bottom: ${({ bottom }) => (bottom ? bottom + 5 : 0)}px;
-  padding: 0px 16px;
-`
-
 export const styles = StyleSheet.create({
   background: {
     backgroundColor: EColors.primary_400,
@@ -25,7 +19,7 @@ export const styles = StyleSheet.create({
   link: {},
   image: {
     width: WP(100),
-    maxHeight: HP(35),
+    maxHeight: HP(40),
     marginBottom: 16,
   },
 })

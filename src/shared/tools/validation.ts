@@ -19,7 +19,8 @@ export const getSchemas = (t: TFunction) => ({
     .string({
       required_error: t('validation.required'),
     })
-    .email({ message: t('validation.email') }),
+    .email({ message: t('validation.email') })
+    .optional(),
 
   password: z
     .string({ required_error: t('validation.required') })

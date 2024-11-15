@@ -10,6 +10,7 @@ import { EAuthMethod, useToast } from '@/shared/lib'
 
 type THandleUser = {
   email?: string
+  phone?: string
   authMethod: EAuthMethod
 }
 
@@ -19,20 +20,25 @@ export const useHandleUser = () => {
 
   const { callToast } = useToast()
 
-  const handleUser = async ({ email, authMethod }: THandleUser) => {
+  const handleUser = async ({ phone, email, authMethod }: THandleUser) => {
     try {
-      const userSnapshot = await firestore()
+      let query = firestore()
         .collection('users')
-        .where('email', '==', email)
         .where('authMethod', '==', authMethod)
         .limit(1)
-        .get()
+
+      if (phone) {
+        query = query.where('phone', '==', phone)
+      }
+
+      if (email) {
+        query = query.where('email', '==', email)
+      }
+
+      const userSnapshot = await query.get()
 
       if (!userSnapshot.empty) {
-        console.log('User exists: true')
-
         const userData = userSnapshot.docs[0].data() as TUser
-        console.log('User found:', userData)
 
         dispatch(userActions.setUser(userData))
 

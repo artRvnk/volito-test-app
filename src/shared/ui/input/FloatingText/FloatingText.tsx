@@ -102,6 +102,7 @@ export const FloatingText = ({
             labelStyles={styles.labelStyles}
             containerStyles={styles.container}
             customLabelStyles={customLabelStyles}
+            cursorColor={EColors.primary_300}
             editable={!disabled}
             // multiline={multiline}
             keyboardAppearance={'dark'}

@@ -69,3 +69,5 @@ buck-out/
  
 android/app/.cxx
 **/.cxx
+    
+*.env.local

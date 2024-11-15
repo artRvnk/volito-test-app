@@ -9,12 +9,10 @@ import { BottomBar } from '@/shared/ui'
 import { Background } from '@/shared/ui/background'
 import { Button } from '@/shared/ui/button'
 import { Input } from '@/shared/ui/input'
-
 import { Divider } from '@/shared/ui/styled'
 
+import { TSignUpForm, TSignUpProps } from './types'
 import { signUpValidation } from './validation'
-
-import type { TSignUpForm, TSignUpProps } from './types'
 
 export const SignUpForm = ({ data, onSubmit }: TSignUpProps) => {
   const { t } = useTranslation()

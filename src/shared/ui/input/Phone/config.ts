@@ -1,3 +1,4 @@
+// TODO - CHANGE initialCountry
 export const initialCountry = {
   name: {
     en: 'Ukraine',

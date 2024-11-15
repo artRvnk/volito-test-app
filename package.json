@@ -16,7 +16,6 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",
-    "@invertase/react-native-apple-authentication": "^2.4.0",
     "@react-native-async-storage/async-storage": "^2.0.0",
     "@react-native-community/eslint-config": "^3.2.0",
     "@react-native-firebase/app": "^21.3.0",

@@ -1,7 +1,4 @@
-import { Platform } from 'react-native'
-
 import { FIREBASE_WEB_CLIENT_ID } from '@env'
-import appleAuth from '@invertase/react-native-apple-authentication'
 import auth, { FirebaseAuthTypes } from '@react-native-firebase/auth'
 import { GoogleSignin } from '@react-native-google-signin/google-signin'
 import * as Sentry from '@sentry/react-native'
@@ -30,7 +27,6 @@ class FirebaseService {
     await GoogleSignin.hasPlayServices({ showPlayServicesUpdateDialog: true })
 
     const signInResponse = await GoogleSignin.signIn()
-    console.log('Auth-signInWithGoogle-signInResponse', signInResponse)
 
     const idToken = signInResponse.data?.idToken
 
@@ -39,48 +35,8 @@ class FirebaseService {
     }
 
     const googleCredential = auth.GoogleAuthProvider.credential(idToken)
-    console.log('Auth-signInWithGoogle-googleCredential', googleCredential)
 
     const signInResult = await auth().signInWithCredential(googleCredential)
-    console.log('Auth-signInWithGoogle-signInResult', signInResult)
-
-    await this.updateProfile(signInResult)
-
-    return signInResult
-  }
-
-  // Sign in with apple
-  public async signInWithApple() {
-    const iOSMajorVersion = parseInt(Platform.Version as string, 10)
-    console.log('Auth-signInWithApple iOSMajorVersion', iOSMajorVersion)
-
-    console.log('Auth-signInWithApple State', appleAuth.State)
-
-    const appleAuthRequestResponse = await appleAuth.performRequest({
-      requestedOperation: appleAuth.Operation.LOGIN,
-      requestedScopes: [appleAuth.Scope.EMAIL, appleAuth.Scope.FULL_NAME],
-    })
-    console.log(
-      'Auth-signInWithApple appleAuthRequestResponse',
-      appleAuthRequestResponse,
-    )
-
-    if (!appleAuthRequestResponse.identityToken) {
-      console.log('Auth-signInWithApple failed - no identify token returned')
-      throw new Error('Apple Sign-In failed - no identify token returned')
-    }
-
-    const { identityToken, nonce } = appleAuthRequestResponse
-    console.log('Auth-signInWithApple identityToken', identityToken)
-
-    const appleCredential = auth.AppleAuthProvider.credential(
-      identityToken,
-      nonce,
-    )
-    console.log('Auth-signInWithApple appleCredential', appleCredential)
-
-    const signInResult = await auth().signInWithCredential(appleCredential)
-    console.log('Auth-signInWithApple signInResult', signInResult)
 
     await this.updateProfile(signInResult)
 
@@ -93,7 +49,6 @@ class FirebaseService {
     resend: boolean | undefined = false,
   ) {
     const codeConfirm = await auth().signInWithPhoneNumber(phoneNumber, resend)
-    console.log('codeConfirm', codeConfirm)
 
     this.confirmation = codeConfirm
   }
@@ -126,23 +81,6 @@ class FirebaseService {
       })
   }
 
-  // Link phone number
-  public async linkPhoneNumber(code: string) {
-    if (!this.snapshot) throw Error('Nothing to confirm')
-
-    const credential = auth.PhoneAuthProvider.credential(
-      this.snapshot.verificationId,
-      code,
-    )
-
-    return auth().currentUser?.updatePhoneNumber(credential)
-  }
-
-  // Unlink phone number
-  public async unlinkUserPhone() {
-    return auth().currentUser?.unlink(auth.PhoneAuthProvider.PROVIDER_ID)
-  }
-
   // Get current user
   public getUser() {
     const user = auth()?.currentUser
@@ -169,7 +107,7 @@ class FirebaseService {
   }
 
   public async validateError(error: unknown) {
-    console.log(error)
+    console.log('validateError-e', error)
     const err = error as { code?: string; message?: string }
 
     if (err.code) {

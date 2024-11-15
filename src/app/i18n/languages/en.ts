@@ -190,5 +190,6 @@ export default {
       'SMS code has expired. Please resend the verification code to try again.',
     'auth/invalid-app-credential':
       'The phone verification request contains an invalid application',
+    'auth/billing-not': 'An internal error has occurred.',
   },
 }

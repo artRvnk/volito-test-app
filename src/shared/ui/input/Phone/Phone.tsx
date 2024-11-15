@@ -94,56 +94,6 @@ export const Phone = ({
     initializeCountryAndMask()
   }, [countryLocal])
 
-  // useEffect(() => {
-  //   setCountry(countryLocal)
-  //   const getExample = async () => {
-  //     if (!!countryLocal?.code) {
-  //       try {
-  //         const exampleNumber = getExampleNumber(
-  //           countryLocal?.code as CountryCode,
-  //           examples,
-  //         )
-  //         if (exampleNumber) {
-  //           const internationalPhoneNumber = exampleNumber.formatInternational()
-
-  //           const onlyNationalNumber = internationalPhoneNumber.split(
-  //             `+${exampleNumber.countryCallingCode} `,
-  //           )[1]
-  //           setCorrectLength(onlyNationalNumber.replace(/\D/g, '').length)
-
-  //           const operatorSection = onlyNationalNumber.split(' ')[0]
-
-  //           const arr: any = []
-
-  //           onlyNationalNumber.split('').map((item, index) => {
-  //             if (index === 0) {
-  //               arr.push('(', /\d/)
-  //               return
-  //             }
-  //             if (index === operatorSection.length) {
-  //               arr.push(')', ' ')
-  //               return
-  //             }
-  //             if (item === ' ') {
-  //               arr.push(' ')
-  //               return
-  //             } else {
-  //               arr.push(/\d/)
-  //             }
-  //           })
-  //           setInputMask(arr)
-  //         }
-  //       } catch (error) {
-  //         console.error('Error getting example number:', error)
-  //       }
-  //     }
-  //   }
-
-  //   getExample()
-  // }, [countryLocal])
-
-  // console.log('countryLocal', countryLocal)
-
   useEffect(() => {
     setCountryLocal(country)
   }, [country])

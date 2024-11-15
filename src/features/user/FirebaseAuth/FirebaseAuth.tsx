@@ -1,8 +1,6 @@
 import React, { useContext } from 'react'
 
-import firestore from '@react-native-firebase/firestore'
 import { useTranslation } from 'react-i18next'
-import { useDispatch } from 'react-redux'
 
 import { TIconsKeys } from '@assets/svg'
 
@@ -12,18 +10,15 @@ import { EScreens } from '@/app/navigation'
 
 import { TAuthStackSighUpParams } from '@/screens/Auth/SignUp'
 
-import { FirebaseService } from '@/entities/user'
+import { FirebaseService, useHandleUser } from '@/entities/user'
 
 import { EAuthMethod, EColors, useNavigation } from '@/shared/lib'
-import { isIos } from '@/shared/tools'
 import { Icon } from '@/shared/ui'
 import { Button } from '@/shared/ui/button'
 
 import { Typography } from '@/shared/ui/styled'
 
 import { IconWrapper } from './styles'
-
-import { useHandleUser } from './useHandleUser'
 
 type TRenderButton = {
   onPress: () => void
@@ -34,7 +29,6 @@ type TRenderButton = {
 
 export const FirebaseAuth = () => {
   const { t } = useTranslation()
-  const dispatch = useDispatch()
   const { navigate } = useNavigation()
 
   const { handleUser } = useHandleUser()
@@ -50,18 +44,10 @@ export const FirebaseAuth = () => {
   }
 
   const signInWithGoogle = async () => {
-    // navigateToSignUp({
-    //   name: 'Artem',
-    //   surname: 'Revenko',
-    //   email: 'test@gmail.com',
-    //   authMethod: EAuthMethod.google,
-    // })
-    // return
     setLoading(true)
 
     try {
       const response = await FirebaseService.signInWithGoogle()
-      console.log('Auth-signInWithGoogle-response', response)
 
       const name = response?.additionalUserInfo?.profile?.given_name || ''
       const surname = response?.additionalUserInfo?.profile?.family_name || ''
@@ -87,32 +73,11 @@ export const FirebaseAuth = () => {
       }
 
       if (isErrorWithMessage(e) && !!e.message) {
-        console.log('Auth-signInWithGoogle-e', e)
         FirebaseService.validateError(e)
 
         setLoading(false)
         return
       }
-
-      FirebaseService.validateError(e)
-    }
-
-    setLoading(false)
-  }
-
-  const signInWithApple = async () => {
-    setLoading(true)
-
-    try {
-      const response = await FirebaseService.signInWithApple()
-      console.log('Auth-signInWithApple-response', response)
-
-      const email = response?.additionalUserInfo?.profile?.email || ''
-
-      // const isCreated = await getUserMe()
-      // if (!isCreated) onNavigate({ email })
-    } catch (e: unknown) {
-      console.log('Auth-signInWithApple-e', e)
 
       FirebaseService.validateError(e)
     }
@@ -143,13 +108,6 @@ export const FirebaseAuth = () => {
         isFirst: true,
         text: t('auth_main.with_phone'),
       })}
-
-      {isIos &&
-        renderButton({
-          onPress: signInWithApple,
-          icon: 'Apple',
-          text: t('auth_main.with_apple'),
-        })}
 
       {renderButton({
         onPress: signInWithGoogle,

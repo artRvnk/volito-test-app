@@ -9,6 +9,6 @@ export const signUpValidation = (t: TFunction) => {
   return z.object({
     name: schemas.requiredString,
     surname: schemas.requiredString,
-    email: schemas.optionalString,
+    email: schemas.email,
   })
 }

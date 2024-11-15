@@ -1,90 +1,67 @@
 import React, { useContext, useState } from 'react'
 
 import { useRoute } from '@react-navigation/native'
-import { captureException } from '@sentry/react-native'
 import { useTranslation } from 'react-i18next'
-import { useDispatch } from 'react-redux'
 
 import { LoaderContext } from '@/app/context'
 import { EScreens } from '@/app/navigation'
 
-// import { Header } from '@/widgets/header'
-
 import { Header } from '@/widgets/header'
 
-import {
-  FirebaseService,
-  // UserService,
-  // useGetUserMe,
-  // userActions,
-} from '@/entities/user'
+import { FirebaseService, useHandleUser } from '@/entities/user'
 
-import { EColors, useNavigation } from '@/shared/lib'
+import { EAuthMethod, EColors, useNavigation } from '@/shared/lib'
 import { Background } from '@/shared/ui/background'
 import { Button } from '@/shared/ui/button'
 import { Input } from '@/shared/ui/input'
 import { Touchable, Typography } from '@/shared/ui/styled'
 
+import { TAuthStackSighUpParams } from '../SignUp'
+
 import { TRouteProps } from './types'
 
 export const Otp = () => {
   const {
-    params: { phone, formattedPhone, isLink },
+    params: { phone, formattedPhone },
   } = useRoute<TRouteProps>()
 
   const { t } = useTranslation()
-  const dispatch = useDispatch()
-  const { navigate, goBack } = useNavigation()
+  const { navigate } = useNavigation()
 
   const [value, setValue] = useState('')
 
-  // const { getUserMe } = useGetUserMe()
+  const { handleUser } = useHandleUser()
 
   const { setLoading } = useContext(LoaderContext)
 
-  const confirmCode = async () => {
-    return
+  const navigateToSignUp = (data: TAuthStackSighUpParams) => {
+    navigate(EScreens.AuthSignUp, data)
+  }
 
+  const confirmCode = async () => {
     setLoading(true)
 
     try {
-      if (isLink) {
-        await linkPhoneNumber()
-        return
-      }
-
       await FirebaseService.confirmCode(value)
 
-      // const isCreated = await getUserMe()
+      const isExist = await handleUser({
+        phone,
+        authMethod: EAuthMethod.phone,
+      })
 
-      // if (!isCreated) onNavigate()
-    } catch (e: unknown) {
+      if (!isExist)
+        navigateToSignUp({
+          phone,
+          authMethod: EAuthMethod.phone,
+        })
+    } catch (e) {
       FirebaseService.validateError(e)
     }
 
     setLoading(false)
   }
 
-  const linkPhoneNumber = async () => {
-    return
-
-    try {
-      await FirebaseService.linkPhoneNumber(value)
-
-      // await UserService.patchUserMe({ phone })
-
-      // dispatch(userActions.updateCurrentUser({ phone }))
-
-      setLoading(false)
-
-      goBack()
-    } catch (e) {
-      captureException(e)
-    }
-  }
-
   const resendCode = async () => {
-    return
     setLoading(true)
 
     try {
@@ -94,11 +71,6 @@ export const Otp = () => {
     }
 
     setLoading(false)
-  }
-
-  const onNavigate = () => {
-    // dispatch(userActions.setUserCreation({ phone }))
-    // navigate(EScreens.AuthRole)
   }
 
   return (

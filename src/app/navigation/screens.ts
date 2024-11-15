@@ -1,9 +1,8 @@
 export enum EScreens {
   AuthMain = 'AuthMain',
-  AuthSignIn = 'AuthSignIn',
-  AuthSignUp = 'AuthSignUp',
   AuthPhone = 'AuthPhone',
   AuthOtp = 'AuthOtp',
+  AuthSignUp = 'AuthSignUp',
 
   NMain = 'NotesMain',
   NList = 'NotesList',
