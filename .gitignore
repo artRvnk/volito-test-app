@@ -68,6 +68,6 @@ buck-out/
 .vscode
  
 android/app/.cxx
-**/.cxx
+**/.cxx 
     
 *.env.local
