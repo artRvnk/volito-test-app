@@ -20,7 +20,6 @@ export const styles = StyleSheet.create({
   },
   loaderContainer: { width: '100%', height: 200 },
   list: {
-    // paddingHorizontal: 8,
-    marginHorizontal: 8,
+    paddingHorizontal: 8,
   },
 })

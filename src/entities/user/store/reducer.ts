@@ -9,6 +9,8 @@ import { TInitialState } from './types'
 
 const initialState: TInitialState = {
   user: null,
+  location: null,
+
   loading: false,
 }
 
@@ -32,6 +34,13 @@ export const slice = createSlice({
     },
     clearUser: state => {
       state.user = null
+    },
+
+    setLocation: (
+      state,
+      { payload }: PayloadAction<TInitialState['location']>,
+    ) => {
+      state.location = payload
     },
   },
 })

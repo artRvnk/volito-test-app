@@ -22,11 +22,11 @@ export const Main = () => {
     dispatch(userActions.clearUser())
   }
 
-  // useGetNotes()
-
   return (
     <>
       <Header.Standard title={t('notes.title')} canGoBack={false} />
+
+      {/* <Button title="Log out" onPress={logOut} /> */}
 
       <NoteWidget.List />
 

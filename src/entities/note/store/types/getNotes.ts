@@ -1,6 +1,6 @@
 import { FirebaseFirestoreTypes } from '@react-native-firebase/firestore'
 
-export type TGetNotesAction = { skip: number }
+export type TGetNotesAction = { owner: string; skip: number }
 
 export type TGetNotesRequest =
   FirebaseFirestoreTypes.QuerySnapshot<FirebaseFirestoreTypes.DocumentData>

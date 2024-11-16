@@ -1,7 +1,7 @@
 import React from 'react'
 import { Text, View } from 'react-native'
 
-export const List = () => {
+export const Create = () => {
   return (
     <View
       style={{
@@ -9,7 +9,7 @@ export const List = () => {
         alignItems: 'center',
         justifyContent: 'center',
       }}>
-      <Text>Notes List</Text>
+      <Text>Notes Create</Text>
     </View>
   )
 }

@@ -18,7 +18,7 @@ export const NotesStack = () => {
       screenOptions={ScreenNavigationOptions}>
       <Stack.Screen name={EScreens.NMain} component={NotesScreens.Main} />
 
-      <Stack.Screen name={EScreens.NList} component={NotesScreens.List} />
+      <Stack.Screen name={EScreens.NCreate} component={NotesScreens.Create} />
 
       <Stack.Screen name={EScreens.NSingle} component={NotesScreens.Single} />
 

@@ -21,27 +21,28 @@ import type * as Types from './types'
 function* getNotes({ payload }: PayloadAction<Types.TGetNotesAction>) {
   yield put(noteActions.setState({ loading: true }))
 
-  console.log('getNotes-d-skip', payload.skip)
+  const { owner, skip } = payload
 
   try {
     const response: Types.TGetNotesRequest = yield call(() =>
       firestore()
         .collection(ECollection.notes)
+        .where('owner', '==', owner)
         .orderBy('createdAt')
-        .limit(5)
-        .limitToLast(payload.skip)
+        .limit(STEP)
+        .limitToLast(skip)
         .get(),
     )
-    console.log('getNotes-response', response.docs)
+    console.log('getNotes-response', response)
 
-    if (payload.skip > STEP) {
-      console.log('getNotes-d-setMoreNotes')
+    if (skip > STEP) {
       yield put(noteActions.setMoreNotes(response.docs))
     } else {
-      console.log('getNotes-d-setNotes')
       yield put(noteActions.setNotes(response.docs))
     }
   } catch (e) {
+    console.log('getNotes-e', e)
+
     captureException(e)
   }
 

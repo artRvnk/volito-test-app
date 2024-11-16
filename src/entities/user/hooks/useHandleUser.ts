@@ -38,7 +38,15 @@ export const useHandleUser = () => {
       const userSnapshot = await query.get()
 
       if (!userSnapshot.empty) {
-        const userData = userSnapshot.docs[0].data() as TUser
+        console.log('userSnapshot', userSnapshot)
+        console.log('userSnapshot-id', userSnapshot.docs[0].id)
+
+        const userData = {
+          _id: userSnapshot.docs[0].id,
+          ...userSnapshot.docs[0].data(),
+        } as TUser
+
+        console.log('userData', userData)
 
         dispatch(userActions.setUser(userData))
 

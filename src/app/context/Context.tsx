@@ -11,11 +11,13 @@ export const Context = ({ children }: TContext) => {
   return (
     <GestureView>
       <C.SafeAreaWrapper>
-        <C.LanguageProvider>
-          <C.ToastProvider>
-            <C.LoaderProvider>{children}</C.LoaderProvider>
-          </C.ToastProvider>
-        </C.LanguageProvider>
+        <C.GeolocationProvider>
+          <C.LanguageProvider>
+            <C.ToastProvider>
+              <C.LoaderProvider>{children}</C.LoaderProvider>
+            </C.ToastProvider>
+          </C.LanguageProvider>
+        </C.GeolocationProvider>
       </C.SafeAreaWrapper>
     </GestureView>
   )

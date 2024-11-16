@@ -7,6 +7,8 @@ export type TNote = {
   location: string
   image: string
 
+  owner: string
+
   createdAt: string
   updatedAt: string
 }

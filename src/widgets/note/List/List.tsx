@@ -8,7 +8,13 @@ import {
 
 import { useTranslation } from 'react-i18next'
 
+import { useTypedSelector } from '@/app/store'
+
+import { NoteFeature } from '@/features/note'
+
 import { NoteEntity, TNote, useGetNotes } from '@/entities/note'
+
+import { getUserSelector } from '@/entities/user'
 
 import { EColors } from '@/shared/lib'
 import { TAB_HEIGHT } from '@/shared/lib/hooks/tab'
@@ -16,10 +22,13 @@ import { Icon } from '@/shared/ui'
 import { Divider, FlexWrapper, Typography } from '@/shared/ui/styled'
 
 import { EmptyWrapper, styles } from './styles'
-import { NoteFeature } from '@/features/note'
 
 export const List = () => {
   const { t } = useTranslation()
+
+  const { user } = useTypedSelector(getUserSelector)
+
+  // console.log('getNotes-user', user)
 
   const {
     data = [],
@@ -31,22 +40,19 @@ export const List = () => {
     refreshing,
     getFirstPage,
     totalCount,
-  } = useGetNotes()
-
-  console.log('List', data)
+  } = useGetNotes({ owner: user?._id })
 
   useEffect(() => {
-    console.log('getNotes-getFirstPage')
-
     getFirstPage?.()
+    console.log('getNotes-getFirstPage')
   }, [])
 
   const onGetMore = () => {
-    console.log('getNotes-canGetMoreItems', canGetMoreItems)
-    console.log('getNotes-totalCount', totalCount)
+    // console.log('getNotes-canGetMoreItems', canGetMoreItems)
+    // console.log('getNotes-totalCount', totalCount)
 
     if (canGetMoreItems && !!getMore) {
-      console.log('getNotes-d-getMore', totalCount)
+      console.log('getNotes-getMore!!', totalCount)
       getMore()
     }
   }
@@ -101,11 +107,7 @@ export const List = () => {
         ListFooterComponent={renderLoader}
         showsVerticalScrollIndicator={false}
         ItemSeparatorComponent={() => <Divider height={12} />}
-        // style={styles.list}
-        contentContainerStyle={{
-          paddingHorizontal: 8,
-          // marginHorizontal: 8,
-        }}
+        contentContainerStyle={styles.list}
         refreshControl={
           <RefreshControl
             onRefresh={refresh}

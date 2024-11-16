@@ -16,7 +16,7 @@ import { ECollection, usePagination } from '@/shared/lib'
 import { TNote } from '../models'
 import { getNoteSelector, noteActions } from '../store'
 
-export const useGetNotes = () => {
+export const useGetNotes = ({ owner }: { owner?: string }) => {
   const dispatch = useDispatch()
 
   // const [notes, setNotes] = useState<TNote[]>([])
@@ -28,10 +28,13 @@ export const useGetNotes = () => {
   const { loading, notes, notesCount } = useTypedSelector(getNoteSelector)
 
   const getNotes = useCallback<(skip: number) => void>(skip => {
+    if (!owner) return
+
     // if (notes.length + 1 < notesCount) {
     dispatch(
       noteActions.getNotes({
         // skip: page + 5,
+        owner,
         skip,
       }),
     )

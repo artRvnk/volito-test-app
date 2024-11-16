@@ -5,7 +5,7 @@ export enum EScreens {
   AuthSignUp = 'AuthSignUp',
 
   NMain = 'NotesMain',
-  NList = 'NotesList',
+  NCreate = 'NotesCreate',
   NSingle = 'NotesSingle',
   NEdit = 'NotesEdit',
 
