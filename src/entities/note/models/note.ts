@@ -3,12 +3,18 @@ export type TNote = {
 
   id: string
   title: string
-  text: string
-  location: string
+  description: string
   image: string
+
+  location: TCoordinates
 
   owner: string
 
   createdAt: string
   updatedAt: string
+}
+
+export type TCoordinates = {
+  latitude: number
+  longitude: number
 }

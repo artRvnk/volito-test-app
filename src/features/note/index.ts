@@ -1,4 +1,4 @@
-import { Create } from './Create'
+import { CreateForm } from './CreateForm'
 import { Delete } from './Delete'
 
-export const NoteFeature = { Create, Delete }
+export const NoteFeature = { Delete, CreateForm }

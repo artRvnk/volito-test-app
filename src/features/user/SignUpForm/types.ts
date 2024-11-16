@@ -6,11 +6,7 @@ export type TSignUpForm = {
   email: string
 }
 
-export type TSignUpReturn = {
-  name: string
-  surname: string
-  email: string
-}
+export type TSignUpReturn = TSignUpForm
 
 export type TSignUpProps = {
   data?: TUser

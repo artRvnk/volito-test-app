@@ -5,36 +5,47 @@ import { Controller, useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 
 import { EColors } from '@/shared/lib'
-import { BottomBar } from '@/shared/ui'
+import { useImagePicker } from '@/shared/lib'
+import { BottomBar, Image } from '@/shared/ui'
 import { Background } from '@/shared/ui/background'
 import { Button } from '@/shared/ui/button'
 import { Input } from '@/shared/ui/input'
-import { Divider } from '@/shared/ui/styled'
+import { Divider, FlexWrapper } from '@/shared/ui/styled'
 
-import { TSignUpForm, TSignUpProps } from './types'
-import { signUpValidation } from './validation'
+import { TCreateForm, TCreateProps } from './types'
+import { createValidation } from './validation'
 
-export const SignUpForm = ({ data, onSubmit }: TSignUpProps) => {
+export const CreateForm = ({ onSubmit }: TCreateProps) => {
   const { t } = useTranslation()
+  const { onShowAlert } = useImagePicker()
 
   const {
     control,
+    setValue,
     getValues,
     handleSubmit,
     formState: { isValid },
-  } = useForm<TSignUpForm>({
-    resolver: zodResolver(signUpValidation(t)),
+  } = useForm<TCreateForm>({
+    resolver: zodResolver(createValidation(t)),
     defaultValues: {
-      name: data?.name || '',
-      surname: data?.surname || '',
-      email: data?.email || '',
+      title: '',
+      description: '',
+      image: '',
     },
   })
 
+  const selectImage = async () => {
+    const res = await onShowAlert({})
+    if (!res?.path) return
+
+    setValue('image', res.path, { shouldValidate: true })
+    // onSavePhoto(res.path)
+  }
+
   const _onSubmit = () => {
     const values = getValues()
-
     onSubmit(values)
+    // onSubmit()
   }
 
   return (
@@ -44,11 +55,26 @@ export const SignUpForm = ({ data, onSubmit }: TSignUpProps) => {
 
         <Controller
           control={control}
-          name={'name'}
+          name="image"
+          render={({ field: { value } }) => (
+            <FlexWrapper mBottom="28px">
+              <Image
+                image={value}
+                isEditable
+                size="large"
+                onPress={selectImage}
+              />
+            </FlexWrapper>
+          )}
+        />
+
+        <Controller
+          control={control}
+          name={'title'}
           render={({ field: { value, onChange }, fieldState: { error } }) => (
             <Input.FloatingText
               {...{ value, onChange }}
-              label={t('sign_up.name')}
+              label={t('create_note.enter_title')}
               error={error?.message}
             />
           )}
@@ -56,29 +82,14 @@ export const SignUpForm = ({ data, onSubmit }: TSignUpProps) => {
 
         <Controller
           control={control}
-          name={'surname'}
+          name={'description'}
           render={({ field: { value, onChange }, fieldState: { error } }) => (
             <Input.FloatingText
               {...{ value, onChange }}
-              label={t('sign_up.surname')}
+              label={t('create_note.enter_description')}
               error={error?.message}
-            />
-          )}
-        />
-
-        <Controller
-          control={control}
-          name={'email'}
-          render={({ field: { value, onChange }, fieldState: { error } }) => (
-            <Input.FloatingText
-              {...{ value, onChange }}
-              label={t('sign_up.email')}
-              error={error?.message}
-              inputProps={{
-                autoCapitalize: 'none',
-                keyboardType: 'email-address',
-                textContentType: 'oneTimeCode',
-              }}
+              multiline
+              maxCharacters={500}
             />
           )}
         />
@@ -88,8 +99,9 @@ export const SignUpForm = ({ data, onSubmit }: TSignUpProps) => {
         <Button.Standard
           disabled={!isValid}
           onPress={handleSubmit(_onSubmit)}
+          // onPress={_onSubmit}
           color={EColors.primary_400}
-          text={t('sign_up.create_account')}
+          text={t('create_note.create')}
         />
       </BottomBar>
     </>

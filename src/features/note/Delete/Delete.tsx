@@ -46,7 +46,6 @@ export const Delete = ({ item, entity }: TDeleteProps) => {
   const dispatch = useDispatch()
 
   const onDelete = () => {
-    console.log('onDelete', item._id)
     dispatch(noteActions.deleteNote(item._id))
   }
 

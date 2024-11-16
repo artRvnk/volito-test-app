@@ -1,6 +1,6 @@
 import React from 'react'
 
-import * as Svg from '@assets/svg/Svg'
+import { Svg } from '@assets/svg'
 
 import { EColors } from '@/shared/lib'
 

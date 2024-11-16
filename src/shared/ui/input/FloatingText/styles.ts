@@ -72,3 +72,7 @@ export const CIcon = styled(View)<TMargin>`
 `
 
 export const TouchIcon = styled(TouchableOpacity)``
+
+export const CCounter = styled(View)`
+  margin-left: auto;
+`

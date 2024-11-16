@@ -1,2 +1,3 @@
-export * from './Svg'
+export * as Svg from './Svg'
+
 export * from './types'

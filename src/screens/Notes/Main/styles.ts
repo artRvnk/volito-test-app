@@ -1,5 +1,3 @@
-import { View } from 'react-native'
-
 import styled from 'styled-components'
 
 import { EColors } from '@/shared/lib'

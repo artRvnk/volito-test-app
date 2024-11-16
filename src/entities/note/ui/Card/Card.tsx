@@ -1,10 +1,7 @@
 import React from 'react'
 
-import { Text } from 'react-native'
-
 import { format, parseISO } from 'date-fns'
 
-import { EColors } from '@/shared/lib'
 import { Row, Typography } from '@/shared/ui/styled'
 
 import { TNote } from '../../models'
@@ -25,13 +22,9 @@ export const Card = ({ item }: { item: TNote }) => {
           </Typography.Body2R>
         </Row>
 
-        <Typography.Body1R
-          // style={S.styles.text}
-          numberOfLines={2}>
-          {item.text}
+        <Typography.Body1R numberOfLines={2}>
+          {item.description}
         </Typography.Body1R>
-        {/* <Text>{index}: </Text>
-        <Text>{new Date(item.createdAt).toISOString()}</Text> */}
       </S.Container>
     </>
   )

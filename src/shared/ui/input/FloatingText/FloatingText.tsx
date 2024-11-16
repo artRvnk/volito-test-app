@@ -34,9 +34,15 @@ export const FloatingText = ({
   disabled,
   size = 'large',
   multiline = false,
+  maxCharacters,
+
   ...props
 }: TFloatingTextProps) => {
   const { t, keys } = useTranslation()
+
+  const maxLengthExceed = maxCharacters
+    ? (value?.length || 0) > maxCharacters
+    : false
 
   const [lineHeight, setLineHeight] = useState<number>(0)
 
@@ -122,6 +128,20 @@ export const FloatingText = ({
           align="right">
           {t(error as keyof typeof keys)}
         </Typography.Body2R>
+      )}
+
+      {!!maxCharacters && (
+        <S.CCounter>
+          <Typography.CaptionR
+            mTop={'2px'}
+            color={
+              error || maxLengthExceed
+                ? EColors.primary_400
+                : EColors.neutral_200
+            }>
+            {value?.length || 0}/{maxCharacters}
+          </Typography.CaptionR>
+        </S.CCounter>
       )}
     </FlexWrapper>
   )

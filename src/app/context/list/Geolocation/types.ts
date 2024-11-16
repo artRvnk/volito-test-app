@@ -1,4 +1,5 @@
 import { ReactNode } from 'react'
+
 import { PermissionStatus } from 'react-native-permissions'
 
 export type TGeolocationProvider = {

@@ -19,6 +19,9 @@
 /Users/art_rvnk/Documents/Projects/Test/volito-test-app/android/app/.cxx/Debug/5r6265f6/x86/RNKeychainSpec_autolinked_build/CMakeFiles/react_codegen_RNKeychainSpec.dir
 /Users/art_rvnk/Documents/Projects/Test/volito-test-app/android/app/.cxx/Debug/5r6265f6/x86/RNKeychainSpec_autolinked_build/CMakeFiles/edit_cache.dir
 /Users/art_rvnk/Documents/Projects/Test/volito-test-app/android/app/.cxx/Debug/5r6265f6/x86/RNKeychainSpec_autolinked_build/CMakeFiles/rebuild_cache.dir
+/Users/art_rvnk/Documents/Projects/Test/volito-test-app/android/app/.cxx/Debug/5r6265f6/x86/RNPermissionsSpec_autolinked_build/CMakeFiles/react_codegen_RNPermissionsSpec.dir
+/Users/art_rvnk/Documents/Projects/Test/volito-test-app/android/app/.cxx/Debug/5r6265f6/x86/RNPermissionsSpec_autolinked_build/CMakeFiles/edit_cache.dir
+/Users/art_rvnk/Documents/Projects/Test/volito-test-app/android/app/.cxx/Debug/5r6265f6/x86/RNPermissionsSpec_autolinked_build/CMakeFiles/rebuild_cache.dir
 /Users/art_rvnk/Documents/Projects/Test/volito-test-app/android/app/.cxx/Debug/5r6265f6/x86/rnreanimated_autolinked_build/CMakeFiles/react_codegen_rnreanimated.dir
 /Users/art_rvnk/Documents/Projects/Test/volito-test-app/android/app/.cxx/Debug/5r6265f6/x86/rnreanimated_autolinked_build/CMakeFiles/edit_cache.dir
 /Users/art_rvnk/Documents/Projects/Test/volito-test-app/android/app/.cxx/Debug/5r6265f6/x86/rnreanimated_autolinked_build/CMakeFiles/rebuild_cache.dir

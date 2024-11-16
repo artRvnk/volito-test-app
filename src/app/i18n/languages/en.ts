@@ -44,9 +44,12 @@ export default {
     empty_list: 'You have not created any note yet',
   },
 
-  favorites: {
-    title: 'Favorites',
-    empty_list: "You haven't added favorites of this type yet",
+  create_note: {
+    title: 'Create a new note',
+    enter_title: 'Enter a note title',
+    enter_description: 'Enter a note description',
+    create: 'Create',
+    created: 'Note created',
   },
 
   map: { title: 'Map' },

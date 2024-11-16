@@ -6,6 +6,7 @@
     "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-gesture-handler/android/build/generated/source/codegen/jni/CMakeLists.txt",
     "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-keyboard-controller/android/build/generated/source/codegen/jni/CMakeLists.txt",
     "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-keychain/android/build/generated/source/codegen/jni/CMakeLists.txt",
+    "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-permissions/android/build/generated/source/codegen/jni/CMakeLists.txt",
     "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-reanimated/android/build/generated/source/codegen/jni/CMakeLists.txt",
     "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-safe-area-context/android/src/main/jni/CMakeLists.txt",
     "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-screens/android/src/main/jni/CMakeLists.txt",
@@ -50,6 +51,11 @@
       "toolchain": "toolchain",
       "abi": "x86",
       "artifactName": "react_codegen_RNKeychainSpec"
+    },
+    "react_codegen_RNPermissionsSpec::@7ad697819b753921c957": {
+      "toolchain": "toolchain",
+      "abi": "x86",
+      "artifactName": "react_codegen_RNPermissionsSpec"
     },
     "react_codegen_RNSentrySpec::@b85314237d91cb2ada57": {
       "toolchain": "toolchain",

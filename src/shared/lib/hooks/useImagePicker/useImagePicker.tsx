@@ -7,7 +7,6 @@ import { useToast } from '../useToast'
 
 import { cropperConfig, maxSizeMB } from './config'
 
-// TODO
 export const useImagePicker = () => {
   const { t } = useTranslation()
 

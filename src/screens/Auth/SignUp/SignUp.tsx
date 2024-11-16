@@ -4,15 +4,14 @@ import firestore from '@react-native-firebase/firestore'
 import { useRoute } from '@react-navigation/native'
 import { captureException } from '@sentry/react-native'
 import { useTranslation } from 'react-i18next'
-import { useDispatch } from 'react-redux'
 import { v4 as uuidv4 } from 'uuid'
 
 import { Header } from '@/widgets/header'
 
 import { UserFeature } from '@/features/user'
-import { TSignUpForm } from '@/features/user/SignUpForm'
+import { TSignUpReturn } from '@/features/user/SignUpForm'
 
-import { userActions } from '@/entities/user'
+import { useHandleUser } from '@/entities/user'
 
 import { ECollection, useToast } from '@/shared/lib'
 
@@ -23,12 +22,12 @@ export const SignUp = () => {
 
   const { authMethod, phone, ...data } = params
 
-  const dispatch = useDispatch()
   const { t } = useTranslation()
 
   const { callToast } = useToast()
+  const { handleUser } = useHandleUser()
 
-  const onSubmit = async (values: TSignUpForm) => {
+  const onSubmit = async (values: TSignUpReturn) => {
     try {
       await firestore()
         .collection(ECollection.users)
@@ -39,21 +38,20 @@ export const SignUp = () => {
           authMethod,
         })
 
-      // console.log('User added!', {
-      //   ...values,
-      //   id: uuidv4(),
-      //   authMethod,
-      // })
-
-      dispatch(
-        userActions.setUser({
-          ...values,
-          id: uuidv4(),
-          authMethod,
-        }),
-      )
+      await checkUser(values.email)
 
       callToast({ title: t('success'), message: t('sign_up.user_created') })
+    } catch (e) {
+      captureException(e)
+    }
+  }
+
+  const checkUser = async (email: string) => {
+    try {
+      await handleUser({
+        ...(phone ? { phone } : { email }),
+        authMethod,
+      })
     } catch (e) {
       captureException(e)
     }

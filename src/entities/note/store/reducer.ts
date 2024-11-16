@@ -6,7 +6,7 @@ import { EStoreReducer } from '@/app/store/types'
 
 import { TNote } from '../models'
 
-import { TInitialState, TGetNotesStore } from './types'
+import { TInitialState, TGetNotesStore, TPostNoteStore } from './types'
 
 const initialState: TInitialState = {
   notes: [],
@@ -69,6 +69,22 @@ export const slice = createSlice({
 
       state.notes = state.notes.filter(el => el._id !== payload)
       state.notesCount--
+    },
+
+    setLocalNote: (state, { payload }: PayloadAction<TPostNoteStore>) => {
+      state.notes?.unshift(payload)
+      state.notesCount++
+    },
+
+    handleLocalNote: (
+      state,
+      { payload }: PayloadAction<{ id: string; _id: string }>,
+    ) => {
+      const noteIndex = state.notes.findIndex(note => note.id === payload.id)
+
+      if (noteIndex === -1) return
+
+      state.notes[noteIndex]._id = payload._id
     },
   },
 })

@@ -23,6 +23,7 @@ export type TFloatingTextProps = {
 
   size?: TSize
   multiline?: boolean
+  maxCharacters?: number
 } & TMargin
 
 export type TSize = 'large' | 'medium'

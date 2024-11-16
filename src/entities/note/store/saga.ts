@@ -1,17 +1,18 @@
 import firestore, {
-  deleteDoc,
   FirebaseFirestoreTypes,
 } from '@react-native-firebase/firestore'
 
 import { PayloadAction } from '@reduxjs/toolkit'
 import { captureException } from '@sentry/react-native'
-import { call, put, takeEvery, takeLatest } from 'redux-saga/effects'
+import Geolocation from 'react-native-geolocation-service'
+import { call, put, select, takeEvery, takeLatest } from 'redux-saga/effects'
+import { v4 as uuidv4 } from 'uuid'
 
-import { TSagaResponse } from '@/app/store'
+import { EStoreReducer, useTypedSelector } from '@/app/store'
+
+import { getUserSelector, TUser } from '@/entities/user'
 
 import { ECollection, STEP } from '@/shared/lib'
-
-import { TNote } from '../models'
 
 import { noteActions } from './actions'
 import { ActionsTypes } from './constants'
@@ -28,7 +29,7 @@ function* getNotes({ payload }: PayloadAction<Types.TGetNotesAction>) {
       firestore()
         .collection(ECollection.notes)
         .where('owner', '==', owner)
-        .orderBy('createdAt')
+        .orderBy('createdAt', 'desc')
         .limit(STEP)
         .limitToLast(skip)
         .get(),
@@ -89,9 +90,46 @@ function* deleteNote({ payload }: PayloadAction<Types.TDeleteNoteAction>) {
   yield put(noteActions.setState({ loading: false }))
 }
 
+// const selectLocation = useTypedSelector(getUserSelector)
+
+function* postNote({ payload }: PayloadAction<Types.TPostNoteAction>) {
+  yield put(noteActions.setState({ loading: true }))
+
+  console.log('postNote-payload', payload)
+
+  yield put(
+    noteActions.setLocalNote({
+      _id: '',
+      ...payload,
+    }),
+  )
+
+  try {
+    const response: Types.TPostNoteRequest = yield call(() =>
+      firestore().collection(ECollection.notes).add(payload),
+    )
+    console.log('postNote-response', response)
+    console.log('postNote-documentPath', response?.id)
+
+    yield put(
+      noteActions.handleLocalNote({
+        id: payload.id,
+        _id: response?.id,
+      }),
+    )
+  } catch (e) {
+    console.log('postNote-e', e)
+
+    captureException(e)
+  }
+
+  yield put(noteActions.setState({ loading: false }))
+}
+
 export function* noteWatcher() {
   yield takeLatest(ActionsTypes.getNotes, getNotes)
   yield takeLatest(ActionsTypes.getNotesCount, getNotesCount)
 
   yield takeEvery(ActionsTypes.deleteNote, deleteNote)
+  yield takeEvery(ActionsTypes.postNote, postNote)
 }

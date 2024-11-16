@@ -17,3 +17,6 @@ export { default as StickyNote } from './sources/sticky-note.svg'
 export { default as Add } from './sources/add.svg'
 export { default as Profile } from './sources/profile.svg'
 export { default as Delete } from './sources/delete.svg'
+
+export { default as Plus } from './sources/plus.svg'
+export { default as Camera } from './sources/camera.svg'
