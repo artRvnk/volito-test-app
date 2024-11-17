@@ -10,6 +10,5 @@ export type TKeyboardAwareProps = {
   pHorizontal?: number
   marginProps?: TMargin
   bgColor?: EColors
-  hasBottom?: boolean
   statusBarStyle?: StatusBarProps['barStyle']
 } & KeyboardAwareScrollViewProps

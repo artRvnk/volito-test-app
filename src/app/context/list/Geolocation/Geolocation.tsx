@@ -110,7 +110,7 @@ export const GeolocationProvider = ({ children }: TChildrenContext) => {
         console.error('Geolocation-error', error)
         captureException(error) // Capture error to Sentry for reporting
       },
-      { enableHighAccuracy: true, timeout: 15000, maximumAge: 10000 },
+      { enableHighAccuracy: true, timeout: 5000, maximumAge: 10000 },
     )
 
     // Geolocation.getCurrentPosition(

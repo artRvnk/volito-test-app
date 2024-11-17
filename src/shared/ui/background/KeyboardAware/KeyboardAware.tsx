@@ -20,7 +20,6 @@ export const KeyboardAware = forwardRef<
       marginProps,
       bgColor = EColors.neutral_500,
       statusBarStyle = 'light-content',
-      hasBottom = false,
       extraScrollHeight = 10,
       ...props
     },

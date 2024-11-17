@@ -129,16 +129,19 @@ export const CreateForm = ({ onSubmit, note, image }: TCreateProps) => {
             </>
           )}
         />
-      </Background.KeyboardAware>
 
-      <BottomBar>
-        <Button.Standard
-          disabled={!isValid || !isDirty}
-          onPress={handleSubmit(_onSubmit)}
-          color={EColors.primary_400}
-          text={!!note ? t('edit_note.update') : t('create_note.create')}
-        />
-      </BottomBar>
+        <BottomBar
+          containerStyle={{
+            marginTop: 'auto',
+          }}>
+          <Button.Standard
+            disabled={!isValid || !isDirty}
+            onPress={handleSubmit(_onSubmit)}
+            color={EColors.primary_400}
+            text={!!note ? t('edit_note.update') : t('create_note.create')}
+          />
+        </BottomBar>
+      </Background.KeyboardAware>
     </>
   )
 }

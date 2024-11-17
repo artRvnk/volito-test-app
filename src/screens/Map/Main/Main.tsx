@@ -19,7 +19,7 @@ export const Main = () => {
 
   const { location } = useTypedSelector(getUserSelector)
 
-  console.log('Map-location', location)
+  // console.log('Map-location', location)
 
   const { notes } = useTypedSelector(getNoteSelector)
 
@@ -39,8 +39,8 @@ export const Main = () => {
         style={StyleSheet.absoluteFill}
         initialRegion={{
           // TODO - add user location
-          latitude: Number(location?.latitude),
-          longitude: Number(location?.longitude),
+          latitude: !!location ? Number(location.latitude) : 0,
+          longitude: !!location ? Number(location?.longitude) : 0,
 
           latitudeDelta: 0.05,
           longitudeDelta: 0.05,
