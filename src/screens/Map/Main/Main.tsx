@@ -7,14 +7,10 @@ import { useDispatch } from 'react-redux'
 import { EScreens, EStacks } from '@/app/navigation'
 import { useTypedSelector } from '@/app/store'
 
-import { getNoteSelector, noteActions, TCoordinates } from '@/entities/note'
+import { getNoteSelector, noteActions } from '@/entities/note'
 import { getUserSelector } from '@/entities/user'
 
 import { useNavigation } from '@/shared/lib'
-
-type TMapProps = {
-  location: TCoordinates
-}
 
 export const Main = () => {
   const dispatch = useDispatch()
@@ -23,8 +19,9 @@ export const Main = () => {
 
   const { location } = useTypedSelector(getUserSelector)
 
+  console.log('Map-location', location)
+
   const { notes } = useTypedSelector(getNoteSelector)
-  console.log('notes', notes)
 
   const onNavigate = (noteId: string) => {
     dispatch(noteActions.setCurrentNote(noteId))
@@ -42,8 +39,8 @@ export const Main = () => {
         style={StyleSheet.absoluteFill}
         initialRegion={{
           // TODO - add user location
-          latitude: 50.904996,
-          longitude: 34.816961,
+          latitude: Number(location?.latitude),
+          longitude: Number(location?.longitude),
 
           latitudeDelta: 0.05,
           longitudeDelta: 0.05,

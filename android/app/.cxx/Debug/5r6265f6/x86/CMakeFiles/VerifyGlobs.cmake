@@ -37,6 +37,31 @@ if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   file(TOUCH_NOCREATE "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/android/app/.cxx/Debug/5r6265f6/x86/CMakeFiles/cmake.verify_globs")
 endif()
 
+# react_codegen_SRCS at /Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/@react-native-community/geolocation/android/build/generated/source/codegen/jni/CMakeLists.txt:9 (file)
+file(GLOB NEW_GLOB LIST_DIRECTORIES true "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/@react-native-community/geolocation/android/build/generated/source/codegen/jni/*.cpp")
+set(OLD_GLOB
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/@react-native-community/geolocation/android/build/generated/source/codegen/jni/RNCGeolocationSpec-generated.cpp"
+  )
+if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
+  message("-- GLOB mismatch!")
+  file(TOUCH_NOCREATE "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/android/app/.cxx/Debug/5r6265f6/x86/CMakeFiles/cmake.verify_globs")
+endif()
+
+# react_codegen_SRCS at /Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/@react-native-community/geolocation/android/build/generated/source/codegen/jni/CMakeLists.txt:9 (file)
+file(GLOB NEW_GLOB LIST_DIRECTORIES true "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/@react-native-community/geolocation/android/build/generated/source/codegen/jni/react/renderer/components/RNCGeolocationSpec/*.cpp")
+set(OLD_GLOB
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/@react-native-community/geolocation/android/build/generated/source/codegen/jni/react/renderer/components/RNCGeolocationSpec/ComponentDescriptors.cpp"
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/@react-native-community/geolocation/android/build/generated/source/codegen/jni/react/renderer/components/RNCGeolocationSpec/EventEmitters.cpp"
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/@react-native-community/geolocation/android/build/generated/source/codegen/jni/react/renderer/components/RNCGeolocationSpec/Props.cpp"
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/@react-native-community/geolocation/android/build/generated/source/codegen/jni/react/renderer/components/RNCGeolocationSpec/RNCGeolocationSpecJSI-generated.cpp"
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/@react-native-community/geolocation/android/build/generated/source/codegen/jni/react/renderer/components/RNCGeolocationSpec/ShadowNodes.cpp"
+  "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/@react-native-community/geolocation/android/build/generated/source/codegen/jni/react/renderer/components/RNCGeolocationSpec/States.cpp"
+  )
+if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
+  message("-- GLOB mismatch!")
+  file(TOUCH_NOCREATE "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/android/app/.cxx/Debug/5r6265f6/x86/CMakeFiles/cmake.verify_globs")
+endif()
+
 # react_codegen_SRCS at /Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/@react-native-google-signin/google-signin/android/build/generated/source/codegen/jni/CMakeLists.txt:9 (file)
 file(GLOB NEW_GLOB LIST_DIRECTORIES true "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/@react-native-google-signin/google-signin/android/build/generated/source/codegen/jni/*.cpp")
 set(OLD_GLOB

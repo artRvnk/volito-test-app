@@ -1,6 +1,7 @@
 {
   "buildFiles": [
     "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/@react-native-async-storage/async-storage/android/build/generated/source/codegen/jni/CMakeLists.txt",
+    "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/@react-native-community/geolocation/android/build/generated/source/codegen/jni/CMakeLists.txt",
     "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/@react-native-google-signin/google-signin/android/build/generated/source/codegen/jni/CMakeLists.txt",
     "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/@sentry/react-native/android/build/generated/source/codegen/jni/CMakeLists.txt",
     "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-date-picker/android/build/generated/source/codegen/jni/CMakeLists.txt",
@@ -79,6 +80,11 @@
     },
     "react_codegen_rnasyncstorage::@1596841e19ec5b9eeffe": {
       "artifactName": "react_codegen_rnasyncstorage",
+      "abi": "x86",
+      "runtimeFiles": []
+    },
+    "react_codegen_RNCGeolocationSpec::@1b959fcb56e23f7716ba": {
+      "artifactName": "react_codegen_RNCGeolocationSpec",
       "abi": "x86",
       "runtimeFiles": []
     },

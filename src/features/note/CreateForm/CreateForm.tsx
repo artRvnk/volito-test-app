@@ -54,11 +54,8 @@ export const CreateForm = ({ onSubmit, note, image }: TCreateProps) => {
 
   const _onSubmit = () => {
     const values = getValues()
-    // console.log('values', values)
 
     onSubmit(values)
-
-    // onSubmit()
   }
 
   return (
@@ -138,7 +135,6 @@ export const CreateForm = ({ onSubmit, note, image }: TCreateProps) => {
         <Button.Standard
           disabled={!isValid || !isDirty}
           onPress={handleSubmit(_onSubmit)}
-          // onPress={_onSubmit}
           color={EColors.primary_400}
           text={!!note ? t('edit_note.update') : t('create_note.create')}
         />

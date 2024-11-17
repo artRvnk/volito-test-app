@@ -1,8 +1,10 @@
 import React, { createContext, useEffect, useState } from 'react'
 import { Platform } from 'react-native'
 
+import Geolocation from '@react-native-community/geolocation'
 import { captureException } from '@sentry/react-native'
-import Geolocation from 'react-native-geolocation-service'
+// import Geolocation from 'react-native-geolocation-service'
+
 import {
   check,
   request,
@@ -45,7 +47,7 @@ export const GeolocationProvider = ({ children }: TChildrenContext) => {
   const isGranted = locationPermissionStatus === 'granted'
 
   const requestPermissions = async () => {
-    // console.log('Geolocation-requestPermissions')
+    console.log('Geolocation-requestPermissions')
 
     try {
       return request(
@@ -75,44 +77,77 @@ export const GeolocationProvider = ({ children }: TChildrenContext) => {
   }
 
   const onGetLocation = async (callback?: (data: TLocationContext) => void) => {
+    // Geolocation.getCurrentPosition(info =>
+    //   console.log('Geolocation-info', info),
+    // )
+
+    // Geolocation.getCurrentPosition(
+    //   info => console.log('Geolocation-info', info),
+    //   error => console.log('Geolocation-error', error),
+    //   { enableHighAccuracy: true, timeout: 15000, maximumAge: 10000 },
+    // )
+
     Geolocation.getCurrentPosition(
-      async position => {
-        try {
-          setLocation({
-            latitude: position.coords.latitude,
-            longitude: position.coords.longitude,
-          })
-
-          callback?.({
-            latitude: position.coords.latitude,
-            longitude: position.coords.longitude,
-          })
-
-          console.log('Geolocation-latitude', position.coords.latitude)
-          console.log('Geolocation-longitude', position.coords.longitude)
-
-          dispatch(userActions.setLocation(position.coords))
-        } catch (e) {
-          captureException(e)
-        }
+      position => {
+        const coords = position.coords
+        setLocation({
+          latitude: coords.latitude,
+          longitude: coords.longitude,
+        })
+        dispatch(
+          userActions.setLocation({
+            latitude: coords.latitude,
+            longitude: coords.longitude,
+          }),
+        )
+        callback?.({
+          latitude: coords.latitude,
+          longitude: coords.longitude,
+        })
+        console.log('Geolocation-Location fetched:', coords)
       },
-      e => {
-        captureException(e)
+      error => {
+        console.error('Geolocation-error', error)
+        captureException(error) // Capture error to Sentry for reporting
       },
-      {
-        maximumAge: 10,
-        timeout: 0,
-        enableHighAccuracy: true,
-        showLocationDialog: true,
-      },
+      { enableHighAccuracy: true, timeout: 15000, maximumAge: 10000 },
     )
+
+    // Geolocation.getCurrentPosition(
+    //   async position => {
+    //     try {
+    //       setLocation({
+    //         latitude: position.coords.latitude,
+    //         longitude: position.coords.longitude,
+    //       })
+    //       callback?.({
+    //         latitude: position.coords.latitude,
+    //         longitude: position.coords.longitude,
+    //       })
+    //       console.log('Geolocation-latitude', position.coords.latitude)
+    //       console.log('Geolocation-longitude', position.coords.longitude)
+    //       dispatch(userActions.setLocation(position.coords))
+    //     } catch (e) {
+    //       captureException(e)
+    //     }
+    //   },
+    //   e => {
+    //     captureException(e)
+    //   },
+    //   {
+    //     maximumAge: 10,
+    //     timeout: 0,
+    //     enableHighAccuracy: true,
+    //     showLocationDialog: true,
+    //   },
+    // )
   }
 
   const initGeolocation = async () => {
-    // console.log('Geolocation-initGeolocation')
+    console.log('Geolocation-initGeolocation')
 
     const status = await checkPermissions()
-    // console.log('Geolocation-initGeolocation-status', status)
+    console.log('Geolocation-initGeolocation-status', status)
 
     setLocationPermissionStatus(status)
 
@@ -124,13 +159,13 @@ export const GeolocationProvider = ({ children }: TChildrenContext) => {
   }
 
   useEffect(() => {
-    // console.log('Geolocation-useEffect')
+    console.log('Geolocation-useEffect')
     initGeolocation()
   }, [])
 
   const onRequest = async () => {
     const status = await requestPermissions()
-    // console.log('Geolocation-onRequest-status', status)
+    console.log('Geolocation-onRequest-status', status)
 
     setLocationPermissionStatus(status)
 

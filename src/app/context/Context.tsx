@@ -13,17 +13,17 @@ export const Context = ({ children }: TContext) => {
   return (
     <GestureView>
       <C.SafeAreaWrapper>
-        {/* <C.GeolocationProvider> */}
-        <C.LanguageProvider>
-          <C.ToastProvider>
-            <C.LoaderProvider>
-              <BottomSheetModalProvider>
-                <>{children}</>
-              </BottomSheetModalProvider>
-            </C.LoaderProvider>
-          </C.ToastProvider>
-        </C.LanguageProvider>
-        {/* </C.GeolocationProvider> */}
+        <C.GeolocationProvider>
+          <C.LanguageProvider>
+            <C.ToastProvider>
+              <C.LoaderProvider>
+                <BottomSheetModalProvider>
+                  <>{children}</>
+                </BottomSheetModalProvider>
+              </C.LoaderProvider>
+            </C.ToastProvider>
+          </C.LanguageProvider>
+        </C.GeolocationProvider>
       </C.SafeAreaWrapper>
     </GestureView>
   )

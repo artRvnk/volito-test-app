@@ -25,8 +25,6 @@ export const slice = createSlice({
     clearState: Reducers.clearState<TInitialState>(initialState),
 
     setNotes: (state, { payload }: PayloadAction<TGetNotesStore>) => {
-      // console.log('setNotes-payload', payload)
-
       state.notes = payload
     },
     setMoreNotes: (state, { payload }: PayloadAction<TGetNotesStore>) => {
@@ -38,14 +36,10 @@ export const slice = createSlice({
       state.notes = state.notes.concat(uniqueNotes)
     },
     setNotesCount: (state, { payload }: PayloadAction<number>) => {
-      // console.log('setNotesCount-payload', payload)
-
       state.notesCount = payload
     },
 
     setDeleteNote: (state, { payload }: PayloadAction<string>) => {
-      // console.log('deleteNote-payload', payload)
-
       state.notes = state.notes.filter(el => el._id !== payload)
       state.notesCount--
     },

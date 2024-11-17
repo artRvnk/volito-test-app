@@ -1,6 +1,7 @@
 {
   "buildFiles": [
     "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/@react-native-async-storage/async-storage/android/build/generated/source/codegen/jni/CMakeLists.txt",
+    "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/@react-native-community/geolocation/android/build/generated/source/codegen/jni/CMakeLists.txt",
     "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/@react-native-google-signin/google-signin/android/build/generated/source/codegen/jni/CMakeLists.txt",
     "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/@sentry/react-native/android/build/generated/source/codegen/jni/CMakeLists.txt",
     "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-date-picker/android/build/generated/source/codegen/jni/CMakeLists.txt",
@@ -42,6 +43,11 @@
         "/Users/art_rvnk/.gradle/caches/8.10.2/transforms/c35983e025c66419267514d0c7323f66/transformed/jetified-react-android-0.76.1-debug/prefab/modules/jsi/libs/android.x86/libjsi.so",
         "/Users/art_rvnk/.gradle/caches/8.10.2/transforms/c35983e025c66419267514d0c7323f66/transformed/jetified-react-android-0.76.1-debug/prefab/modules/reactnative/libs/android.x86/libreactnative.so"
       ]
+    },
+    "react_codegen_RNCGeolocationSpec::@1b959fcb56e23f7716ba": {
+      "toolchain": "toolchain",
+      "abi": "x86",
+      "artifactName": "react_codegen_RNCGeolocationSpec"
     },
     "react_codegen_RNDatePickerSpecs::@c00f981c6e74346c63d4": {
       "toolchain": "toolchain",

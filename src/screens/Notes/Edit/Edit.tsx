@@ -22,7 +22,6 @@ export const Edit = () => {
   const {
     params: { image: imageNote },
   } = useRoute<TRouteProps>()
-  // console.log('Edit-imageNote', imageNote)
 
   const { t } = useTranslation()
   const dispatch = useDispatch()
@@ -38,11 +37,8 @@ export const Edit = () => {
     if (!currentNote) return
 
     const { image: img, ...note } = values
-    console.log('onSubmit-img', img)
 
     const image = imageNote !== img ? await uploadImage(img) : currentNote.image
-
-    console.log('onSubmit-image', image)
 
     const updatedNote = {
       ...currentNote,

@@ -36,8 +36,6 @@ export const Create = () => {
   const onSubmit = async (values: TCreateReturn) => {
     if (!user?._id || !location) return
 
-    console.log('onSubmit-values', values)
-
     const { image: img, ...note } = values
 
     const image = await uploadImage(img)

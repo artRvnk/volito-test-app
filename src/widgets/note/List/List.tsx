@@ -27,8 +27,6 @@ export const List = () => {
 
   const { user } = useTypedSelector(getUserSelector)
 
-  // console.log('getNotes-user', user)
-
   const {
     data = [],
     isFirstLoad = false,
@@ -38,20 +36,14 @@ export const List = () => {
     refresh,
     refreshing,
     getFirstPage,
-    totalCount,
   } = useGetNotes({ owner: user?._id })
 
   useEffect(() => {
     getFirstPage?.()
-    console.log('getNotes-getFirstPage')
   }, [])
 
   const onGetMore = () => {
-    // console.log('getNotes-canGetMoreItems', canGetMoreItems)
-    // console.log('getNotes-totalCount', totalCount)
-
     if (canGetMoreItems && !!getMore) {
-      console.log('getNotes-getMore!!', totalCount)
       getMore()
     }
   }
