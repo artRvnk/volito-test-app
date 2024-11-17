@@ -107,7 +107,7 @@ class FirebaseService {
   }
 
   public async validateError(error: unknown) {
-    console.log('validateError-e', error)
+    // console.log('validateError-e', error)
     const err = error as { code?: string; message?: string }
 
     if (err.code) {

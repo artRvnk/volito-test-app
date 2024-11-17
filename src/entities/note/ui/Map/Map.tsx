@@ -11,8 +11,6 @@ type TMapProps = {
 }
 
 export const Map = ({ location }: TMapProps) => {
-  // console.log('location', location)
-
   return (
     <View style={styles.container}>
       <MapView
