@@ -13,7 +13,6 @@ import { useTypedSelector } from '@/app/store'
 import { NoteFeature } from '@/features/note'
 
 import { NoteEntity, TNote, useGetNotes } from '@/entities/note'
-
 import { getUserSelector } from '@/entities/user'
 
 import { EColors } from '@/shared/lib'
@@ -92,7 +91,11 @@ export const List = () => {
         </EmptyWrapper>
       )
 
-    return <ActivityIndicator size={'large'} color={EColors.primary_300} />
+    return (
+      <EmptyWrapper>
+        <ActivityIndicator size={'large'} color={EColors.primary_300} />
+      </EmptyWrapper>
+    )
   }
 
   return (
@@ -100,7 +103,7 @@ export const List = () => {
       <FlatList
         data={data}
         renderItem={renderItem}
-        keyExtractor={item => item.id}
+        keyExtractor={item => item._id}
         onEndReached={onGetMore}
         onEndReachedThreshold={0.8}
         ListEmptyComponent={renderEmpty}

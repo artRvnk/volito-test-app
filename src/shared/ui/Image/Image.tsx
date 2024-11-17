@@ -32,13 +32,7 @@ export const Image = ({
   return (
     <View style={[styles.view, imageStyle]}>
       <RNImage
-        source={
-          !image
-            ? Png.NoAvatar
-            : {
-                uri: image,
-              }
-        }
+        source={!image ? Png.NoAvatar : { uri: image }}
         style={styles.image}
       />
 

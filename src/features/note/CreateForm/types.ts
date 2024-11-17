@@ -2,6 +2,7 @@ export type TCreateForm = {
   title: string
   description: string
   image: string
+  date: string
 }
 
 export type TCreateReturn = TCreateForm

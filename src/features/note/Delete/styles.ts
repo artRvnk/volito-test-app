@@ -19,7 +19,7 @@ export const styles = StyleSheet.create({
   deleteMask: {
     position: 'absolute',
     left: 0,
-    zIndex: 5,
+    zIndex: 10,
     borderTopRightRadius: 24,
     borderBottomRightRadius: 24,
     backgroundColor: EColors.neutral_400,

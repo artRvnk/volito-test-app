@@ -4,6 +4,8 @@ import styled from 'styled-components'
 
 import { EColors } from '@/shared/lib'
 
+import { WP } from '@/shared/tools'
+
 import { Touchable } from '../styled'
 
 export const Container = styled(View)`
@@ -27,7 +29,9 @@ export const Button = styled(Touchable)<{ size: number }>`
 export const getStyles = (size: number) =>
   StyleSheet.create({
     image: {
-      width: size,
+      // width: size,
+      // width: '100%',
+      width: WP(90),
       height: size,
       borderRadius: 24,
     },

@@ -1,2 +1,2 @@
-export * from './Edit'
+export * from './Modal'
 export * from './types'

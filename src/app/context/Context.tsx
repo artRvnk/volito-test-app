@@ -1,5 +1,7 @@
 import React, { ReactNode } from 'react'
 
+import { BottomSheetModalProvider } from '@gorhom/bottom-sheet'
+
 import * as C from './list'
 import { GestureView } from './styles'
 
@@ -14,7 +16,11 @@ export const Context = ({ children }: TContext) => {
         <C.GeolocationProvider>
           <C.LanguageProvider>
             <C.ToastProvider>
-              <C.LoaderProvider>{children}</C.LoaderProvider>
+              <C.LoaderProvider>
+                <BottomSheetModalProvider>
+                  <>{children}</>
+                </BottomSheetModalProvider>
+              </C.LoaderProvider>
             </C.ToastProvider>
           </C.LanguageProvider>
         </C.GeolocationProvider>

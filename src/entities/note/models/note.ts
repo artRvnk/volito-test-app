@@ -4,8 +4,8 @@ export type TNote = {
   id: string
   title: string
   description: string
-  image: string
-
+  image: string | null
+  date: string
   location: TCoordinates
 
   owner: string

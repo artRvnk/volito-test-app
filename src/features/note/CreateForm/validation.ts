@@ -10,5 +10,6 @@ export const createValidation = (t: TFunction) => {
     title: schemas.requiredString,
     description: schemas.requiredString,
     image: schemas.requiredString,
+    date: schemas.requiredString,
   })
 }

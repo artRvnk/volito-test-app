@@ -1,5 +1,4 @@
 import React from 'react'
-import { View } from 'react-native'
 
 import ReanimatedSwipeable from 'react-native-gesture-handler/ReanimatedSwipeable'
 import Reanimated, { useAnimatedStyle } from 'react-native-reanimated'
@@ -25,7 +24,7 @@ const RightAction = ({ prog, drag, onPress }: TRightActionProps) => {
 
   return (
     <Reanimated.View style={styleAnimation}>
-      <View style={styles.deleteMask} />
+      {/* <View style={styles.deleteMask} /> */}
 
       <Touchable onPress={onPress}>
         <FlexWrapper style={styles.delete}>
@@ -34,7 +33,7 @@ const RightAction = ({ prog, drag, onPress }: TRightActionProps) => {
             size={20}
             fill="white"
             stroke="white"
-            marginProps={{ mLeft: '6px' }}
+            // marginProps={{ mLeft: '6px' }}
           />
         </FlexWrapper>
       </Touchable>
@@ -50,7 +49,7 @@ export const Delete = ({ item, entity }: TDeleteProps) => {
   }
 
   return (
-    <Touchable>
+    <>
       <ReanimatedSwipeable
         overshootRight={false}
         containerStyle={styles.container}
@@ -62,6 +61,6 @@ export const Delete = ({ item, entity }: TDeleteProps) => {
         rightThreshold={40}>
         {entity}
       </ReanimatedSwipeable>
-    </Touchable>
+    </>
   )
 }

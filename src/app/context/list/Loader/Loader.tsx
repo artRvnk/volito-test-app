@@ -1,4 +1,5 @@
 import React, { useState, createContext } from 'react'
+import { View, StyleSheet } from 'react-native'
 
 import { Modal } from '@/shared/ui/modal'
 
@@ -16,8 +17,17 @@ export const LoaderProvider = ({ children }: TChildrenContext) => {
 
   return (
     <LoaderContext.Provider value={{ setLoading, isLoading }}>
-      {isLoading && <Modal.Loader />}
       {children}
+
+      <View style={styles.loader}>{isLoading && <Modal.Loader />}</View>
     </LoaderContext.Provider>
   )
 }
+
+const styles = StyleSheet.create({
+  loader: {
+    // flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+})

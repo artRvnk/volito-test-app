@@ -1,18 +1,13 @@
-import firestore, {
-  FirebaseFirestoreTypes,
-} from '@react-native-firebase/firestore'
+import firestore from '@react-native-firebase/firestore'
 
 import { PayloadAction } from '@reduxjs/toolkit'
 import { captureException } from '@sentry/react-native'
 import Geolocation from 'react-native-geolocation-service'
 import { call, put, select, takeEvery, takeLatest } from 'redux-saga/effects'
-import { v4 as uuidv4 } from 'uuid'
-
-import { EStoreReducer, useTypedSelector } from '@/app/store'
-
-import { getUserSelector, TUser } from '@/entities/user'
 
 import { ECollection, STEP } from '@/shared/lib'
+
+import { TNote } from '../models'
 
 import { noteActions } from './actions'
 import { ActionsTypes } from './constants'
@@ -36,10 +31,19 @@ function* getNotes({ payload }: PayloadAction<Types.TGetNotesAction>) {
     )
     console.log('getNotes-response', response)
 
+    const notes = response.docs.map(snapshot => {
+      const data = snapshot.data()
+
+      return {
+        ...(data as TNote),
+        _id: snapshot.id,
+      }
+    })
+
     if (skip > STEP) {
-      yield put(noteActions.setMoreNotes(response.docs))
+      yield put(noteActions.setMoreNotes(notes))
     } else {
-      yield put(noteActions.setNotes(response.docs))
+      yield put(noteActions.setNotes(notes))
     }
   } catch (e) {
     console.log('getNotes-e', e)

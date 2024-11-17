@@ -48,8 +48,17 @@ export default {
     title: 'Create a new note',
     enter_title: 'Enter a note title',
     enter_description: 'Enter a note description',
+    enter_date: 'Enter the date of the note',
     create: 'Create',
     created: 'Note created',
+  },
+
+  single_note: {
+    title: 'Note',
+    // enter_title: 'Enter a note title',
+    // enter_description: 'Enter a note description',
+    // create: 'Create',
+    // created: 'Note created',
   },
 
   map: { title: 'Map' },
@@ -68,6 +77,9 @@ export default {
     decline: 'Decline',
     send: 'Send',
     accept: 'Accept',
+
+    show_more: 'Show more',
+    show_less: 'Show less',
   },
 
   validation: {

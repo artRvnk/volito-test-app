@@ -25,38 +25,15 @@ export const slice = createSlice({
     setNotes: (state, { payload }: PayloadAction<TGetNotesStore>) => {
       // console.log('setNotes-payload', payload)
 
-      const notes = payload.map(snapshot => {
-        const data = snapshot.data()
-
-        return {
-          ...(data as TNote),
-          _id: snapshot.id,
-        }
-      })
-
-      // console.log('setNotes-notes', notes)
-
-      state.notes = notes
+      state.notes = payload
     },
     setMoreNotes: (state, { payload }: PayloadAction<TGetNotesStore>) => {
-      const notes = payload.map(snapshot => {
-        const data = snapshot.data()
-
-        return {
-          ...(data as TNote),
-          _id: snapshot.id,
-        }
-      })
-
-      const uniqueNotes = notes.filter(
+      const uniqueNotes = payload.filter(
         newNote =>
           !state.notes.some(existingNote => existingNote.id === newNote.id),
       )
 
-      // Concatenate only the unique notes
       state.notes = state.notes.concat(uniqueNotes)
-
-      // state.notes = state.notes.concat(notes)
     },
     setNotesCount: (state, { payload }: PayloadAction<number>) => {
       // console.log('setNotesCount-payload', payload)
@@ -85,6 +62,21 @@ export const slice = createSlice({
       if (noteIndex === -1) return
 
       state.notes[noteIndex]._id = payload._id
+    },
+
+    updateNote: (state, { payload }: PayloadAction<Partial<TNote> | null>) => {
+      if (!payload?._id) return
+
+      const { _id } = payload
+
+      const noteIndex = state.notes.findIndex(note => note._id === _id)
+
+      if (noteIndex === -1) return
+
+      state.notes[noteIndex] = {
+        ...state.notes[noteIndex],
+        ...payload,
+      }
     },
   },
 })

@@ -37,7 +37,7 @@ export const Standard = ({
               </TouchableOpacity>
             )}
 
-            <Typography.H3 mLeft={canGoBack ? '10px' : '0px'}>
+            <Typography.H3 mLeft={canGoBack ? '10px' : '0px'} numberOfLines={1}>
               {title}
             </Typography.H3>
           </FlexWrapper>

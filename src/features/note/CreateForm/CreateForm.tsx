@@ -1,13 +1,17 @@
-import React from 'react'
+import React, { useRef } from 'react'
 
 import { zodResolver } from '@hookform/resolvers/zod'
+import { format, parseISO } from 'date-fns'
 import { Controller, useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
+
+import { BottomSheet } from '@/widgets/bottomSheet'
 
 import { EColors } from '@/shared/lib'
 import { useImagePicker } from '@/shared/lib'
 import { BottomBar, Image } from '@/shared/ui'
 import { Background } from '@/shared/ui/background'
+import { TBottomSheetModalRef } from '@/shared/ui/bottomSheet/Modal'
 import { Button } from '@/shared/ui/button'
 import { Input } from '@/shared/ui/input'
 import { Divider, FlexWrapper } from '@/shared/ui/styled'
@@ -18,6 +22,8 @@ import { createValidation } from './validation'
 export const CreateForm = ({ onSubmit }: TCreateProps) => {
   const { t } = useTranslation()
   const { onShowAlert } = useImagePicker()
+
+  const dateRef = useRef<TBottomSheetModalRef | null>(null)
 
   const {
     control,
@@ -31,6 +37,7 @@ export const CreateForm = ({ onSubmit }: TCreateProps) => {
       title: '',
       description: '',
       image: '',
+      date: new Date().toISOString(),
     },
   })
 
@@ -39,12 +46,17 @@ export const CreateForm = ({ onSubmit }: TCreateProps) => {
     if (!res?.path) return
 
     setValue('image', res.path, { shouldValidate: true })
-    // onSavePhoto(res.path)
+  }
+
+  const openDate = () => {
+    dateRef.current?.open()
   }
 
   const _onSubmit = () => {
     const values = getValues()
     onSubmit(values)
+
+    // console.log('values', values)
     // onSubmit()
   }
 
@@ -91,6 +103,32 @@ export const CreateForm = ({ onSubmit }: TCreateProps) => {
               multiline
               maxCharacters={500}
             />
+          )}
+        />
+
+        <Controller
+          control={control}
+          name={'date'}
+          render={({ field: { value, onChange } }) => (
+            <>
+              <Input.FloatingText
+                value={
+                  value
+                    ? format(parseISO(value), 'dd MMMM, yyyy')
+                    : format(new Date(), 'dd MMMM, yyyy')
+                }
+                label={t('create_note.enter_date')}
+                onPress={openDate}
+                icon={'ArrowRight'}
+              />
+
+              <BottomSheet.Date
+                ref={dateRef}
+                minimumDate={new Date()}
+                title={t('create_note.enter_date')}
+                {...{ value, onChange }}
+              />
+            </>
           )}
         />
       </Background.KeyboardAware>
