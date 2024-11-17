@@ -1,0 +1,3 @@
+import { EScreens } from '../screens'
+
+export const whiteList: Array<EScreens> = [EScreens.NMain, EScreens.MMain]

@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "379742973096",
+    "project_id": "volitotest",
+    "storage_bucket": "volitotest.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:379742973096:android:a6b0223c0c3fc65668e69d",
+        "android_client_info": {
+          "package_name": "com.volitotest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "379742973096-48oujj21sid46c9s78g8g0tusnpkh5j0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.volitotest",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "379742973096-hqd7dc6v1jfuogl3isacuppmvrmuu615.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCI4JpHeArjTfbP2ce47Fq9kDs485b9i4c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "379742973096-hqd7dc6v1jfuogl3isacuppmvrmuu615.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "379742973096-hrda3oso4njl1pb2catnvnnp0sugj79q.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.volitotest"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

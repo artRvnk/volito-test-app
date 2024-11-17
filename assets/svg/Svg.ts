@@ -1,0 +1,24 @@
+export { default as Map } from './sources/map-pin-line.svg'
+export { default as Task } from './sources/task-line.svg'
+
+export { default as Phone } from './sources/phone.svg'
+export { default as Google } from './sources/google.svg'
+export { default as Apple } from './sources/apple.svg'
+
+export { default as ArrowDown } from './sources/arrow-down.svg'
+export { default as ArrowLeft } from './sources/arrow-left.svg'
+export { default as ArrowRight } from './sources/arrow-right.svg'
+export { default as ArrowUp } from './sources/arrow-up.svg'
+
+export { default as TriangleDown } from './sources/triangle_down.svg'
+export { default as ChevronLeft } from './sources/chevron_left.svg'
+
+export { default as StickyNote } from './sources/sticky-note.svg'
+export { default as Add } from './sources/add.svg'
+export { default as Profile } from './sources/profile.svg'
+export { default as Delete } from './sources/delete.svg'
+
+export { default as Plus } from './sources/plus.svg'
+export { default as Camera } from './sources/camera.svg'
+export { default as Logout } from './sources/logout.svg'
+export { default as Edit } from './sources/edit.svg'
