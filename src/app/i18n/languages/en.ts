@@ -44,21 +44,23 @@ export default {
     empty_list: 'You have not created any note yet',
   },
 
+  log_out: 'Are you sure you want to log out?',
+  yes: 'Yes',
+  no: 'No',
+
   create_note: {
     title: 'Create a new note',
-    enter_title: 'Enter a note title',
-    enter_description: 'Enter a note description',
+    enter_title: 'Enter the note title',
+    enter_description: 'Enter the note description',
     enter_date: 'Enter the date of the note',
     create: 'Create',
     created: 'Note created',
   },
 
-  single_note: {
-    title: 'Note',
-    // enter_title: 'Enter a note title',
-    // enter_description: 'Enter a note description',
-    // create: 'Create',
-    // created: 'Note created',
+  edit_note: {
+    title: 'Edit the note',
+    update: 'Update',
+    updated: 'Note updated',
   },
 
   map: { title: 'Map' },
@@ -66,17 +68,8 @@ export default {
   user_exist: 'A user with these credentials already exists',
 
   button: {
-    continue: 'Continue',
     confirm: 'Confirm',
     cancel: 'Cancel',
-    ok: 'Okay',
-    save: 'Save',
-    subscribe: 'Subscribe',
-    search: 'Search',
-    delete: 'Delete',
-    decline: 'Decline',
-    send: 'Send',
-    accept: 'Accept',
 
     show_more: 'Show more',
     show_less: 'Show less',
@@ -110,6 +103,8 @@ export default {
     media_not_uploaded_yet: 'Media not yet uploaded',
     uploading_media: 'Uploading media',
   },
+
+  loading: 'Loading...',
 
   firebase_error: {
     'auth/app-not-authorized':

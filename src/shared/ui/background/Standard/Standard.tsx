@@ -35,7 +35,6 @@ export const Standard = ({
   return (
     <>
       <StatusBar barStyle={statusBarStyle} />
-      {/* TODO - refactor inline styles */}
       <Background
         color={color}
         {...props}

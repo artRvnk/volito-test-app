@@ -19,7 +19,7 @@ import { Divider, FlexWrapper } from '@/shared/ui/styled'
 import { TCreateForm, TCreateProps } from './types'
 import { createValidation } from './validation'
 
-export const CreateForm = ({ onSubmit }: TCreateProps) => {
+export const CreateForm = ({ onSubmit, note, image }: TCreateProps) => {
   const { t } = useTranslation()
   const { onShowAlert } = useImagePicker()
 
@@ -30,14 +30,14 @@ export const CreateForm = ({ onSubmit }: TCreateProps) => {
     setValue,
     getValues,
     handleSubmit,
-    formState: { isValid },
+    formState: { isValid, isDirty },
   } = useForm<TCreateForm>({
     resolver: zodResolver(createValidation(t)),
     defaultValues: {
-      title: '',
-      description: '',
-      image: '',
-      date: new Date().toISOString(),
+      title: note?.title || '',
+      description: note?.description || '',
+      image: image || '',
+      date: new Date(note?.date ?? new Date()).toISOString(),
     },
   })
 
@@ -45,7 +45,7 @@ export const CreateForm = ({ onSubmit }: TCreateProps) => {
     const res = await onShowAlert({})
     if (!res?.path) return
 
-    setValue('image', res.path, { shouldValidate: true })
+    setValue('image', res.path, { shouldValidate: true, shouldDirty: true })
   }
 
   const openDate = () => {
@@ -54,9 +54,10 @@ export const CreateForm = ({ onSubmit }: TCreateProps) => {
 
   const _onSubmit = () => {
     const values = getValues()
+    // console.log('values', values)
+
     onSubmit(values)
 
-    // console.log('values', values)
     // onSubmit()
   }
 
@@ -101,7 +102,7 @@ export const CreateForm = ({ onSubmit }: TCreateProps) => {
               label={t('create_note.enter_description')}
               error={error?.message}
               multiline
-              maxCharacters={500}
+              maxCharacters={1000}
             />
           )}
         />
@@ -113,7 +114,7 @@ export const CreateForm = ({ onSubmit }: TCreateProps) => {
             <>
               <Input.FloatingText
                 value={
-                  value
+                  !!value
                     ? format(parseISO(value), 'dd MMMM, yyyy')
                     : format(new Date(), 'dd MMMM, yyyy')
                 }
@@ -135,11 +136,11 @@ export const CreateForm = ({ onSubmit }: TCreateProps) => {
 
       <BottomBar>
         <Button.Standard
-          disabled={!isValid}
+          disabled={!isValid || !isDirty}
           onPress={handleSubmit(_onSubmit)}
           // onPress={_onSubmit}
           color={EColors.primary_400}
-          text={t('create_note.create')}
+          text={!!note ? t('edit_note.update') : t('create_note.create')}
         />
       </BottomBar>
     </>

@@ -5,7 +5,6 @@ import { ZodRawShape, z } from 'zod'
 
 export type TSchema<TSchemaType extends z.ZodTypeAny> = z.infer<TSchemaType>
 
-// TODO
 export const getSchemas = (t: TFunction) => ({
   phone: z
     .string({
@@ -22,24 +21,6 @@ export const getSchemas = (t: TFunction) => ({
     .email({ message: t('validation.email') })
     .optional(),
 
-  password: z
-    .string({ required_error: t('validation.required') })
-    .min(4, t('validation.password')),
-
-  photo: z.string().min(1, t('validation.required')),
-
-  fullName: z
-    .string({
-      required_error: t('validation.required'),
-    })
-    .min(1, t('validation.min', { value: 1 }))
-    .max(
-      255,
-      t('validation.max', {
-        value: 255,
-      }),
-    ),
-
   optionalString: z.string().optional().or(z.literal('')),
   requiredString: z
     .string({
@@ -52,36 +33,11 @@ export const getSchemas = (t: TFunction) => ({
     })
     .min(0, t('validation.min', { value: 0 })),
 
-  textArea: z
-    .string({
-      required_error: t('validation.required'),
-    })
-    .min(1, t('validation.min', { value: 1 }))
-    .max(
-      500,
-      t('validation.max', {
-        value: 500,
-      }),
-    ),
-
   code: z
     .string({
       required_error: t('validation.required'),
     })
     .min(1, t('validation.min', { value: 6 })),
-
-  arrayString: z.array(
-    z.string({
-      required_error: t('validation.required'),
-    }),
-  ),
-
-  arrayObject: z.array(
-    z.object({
-      key: z.string(),
-      label: z.string(),
-    }),
-  ),
 })
 
 export const validationSchema = (

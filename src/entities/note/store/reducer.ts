@@ -12,6 +12,8 @@ const initialState: TInitialState = {
   notes: [],
   notesCount: 0,
 
+  currentNote: null,
+
   loading: false,
 }
 
@@ -63,9 +65,8 @@ export const slice = createSlice({
 
       state.notes[noteIndex]._id = payload._id
     },
-
-    updateNote: (state, { payload }: PayloadAction<Partial<TNote> | null>) => {
-      if (!payload?._id) return
+    setUpdateNote: (state, { payload }: PayloadAction<TNote>) => {
+      if (!payload || !payload._id) return
 
       const { _id } = payload
 
@@ -73,10 +74,20 @@ export const slice = createSlice({
 
       if (noteIndex === -1) return
 
-      state.notes[noteIndex] = {
-        ...state.notes[noteIndex],
-        ...payload,
+      state.notes[noteIndex] = { ...state.notes[noteIndex], ...payload }
+
+      state.currentNote = payload
+    },
+
+    setCurrentNote: (state, { payload }: PayloadAction<string>) => {
+      const note = state.notes?.find(n => n._id === payload)
+
+      if (!note) {
+        console.warn(`Note with id ${payload} not found`)
+        return
       }
+
+      state.currentNote = note
     },
   },
 })

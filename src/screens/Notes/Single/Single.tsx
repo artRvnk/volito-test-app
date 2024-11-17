@@ -1,106 +1,47 @@
-import React, { useState, useEffect } from 'react'
-import {
-  Text,
-  View,
-  Image,
-  StyleSheet,
-  TouchableWithoutFeedback,
-} from 'react-native'
+import React, { useState } from 'react'
 
-import storage from '@react-native-firebase/storage'
-import { useRoute } from '@react-navigation/native'
 import { useTranslation } from 'react-i18next'
-import ImageView from 'react-native-image-viewing'
 
-import { Png } from '@assets/png'
+import { EScreens } from '@/app/navigation'
+import { useTypedSelector } from '@/app/store'
 
 import { Header } from '@/widgets/header'
-
 import { NoteWidget } from '@/widgets/note'
 
-import { TNote } from '@/entities/note'
+import { getNoteSelector } from '@/entities/note'
 
-import { WP } from '@/shared/tools'
-import { ViewMore } from '@/shared/ui'
-import { Background } from '@/shared/ui/background'
-
-import { Divider, Typography } from '@/shared/ui/styled'
-
-import { TRouteProps } from './types'
+import { useNavigation } from '@/shared/lib'
+import { Typography } from '@/shared/ui/styled'
 
 export const Single = () => {
   const { t } = useTranslation()
 
-  const {
-    params: { item },
-  } = useRoute<TRouteProps>()
-
-  const note: TNote = item
+  const { currentNote } = useTypedSelector(getNoteSelector)
 
   const [image, setImage] = useState<string | null>(null)
-  const [isVisible, setVisible] = useState<boolean>(false)
 
-  // const note = item
-  // console.log('note', note)
+  const { navigate } = useNavigation()
 
-  const getImage = async () => {
-    try {
-      if (!note.image) return
-
-      const url = await storage().ref(note.image).getDownloadURL()
-
-      setImage(url)
-    } catch (e) {
-      setImage(null)
-    }
+  const onNavigate = () => {
+    navigate(EScreens.NEdit, { image })
   }
 
-  useEffect(() => {
-    getImage()
-  }, [])
+  const renderBody = () => {
+    if (!currentNote)
+      return <Typography.Body2R>{t('loading')}</Typography.Body2R>
 
-  const showImage = () => setVisible(true)
+    return <NoteWidget.Single note={currentNote} {...{ image, setImage }} />
+  }
 
   return (
     <>
-      <Header.Standard title={note.title} />
+      <Header.Standard
+        title={currentNote?.title}
+        icon="Edit"
+        onPress={onNavigate}
+      />
 
-      <Background.Scroll pHorizontal={8}>
-        <TouchableWithoutFeedback onPress={showImage}>
-          <Image
-            source={!image ? Png.NoAvatar : { uri: image }}
-            style={styles.image}
-          />
-        </TouchableWithoutFeedback>
-
-        <ViewMore linesCount={5} text={note.description ?? ''} />
-
-        <Divider height={12} />
-
-        <NoteWidget.Map location={note.location} />
-
-        <Divider height={50} />
-      </Background.Scroll>
-
-      {isVisible && !!image && (
-        <ImageView
-          images={[{ uri: image }]}
-          imageIndex={0}
-          visible={isVisible}
-          onRequestClose={() => setVisible(false)}
-        />
-      )}
+      {renderBody()}
     </>
   )
 }
-
-export const styles = StyleSheet.create({
-  image: {
-    // width: size,
-    // width: '100%',
-    width: '100%',
-    height: WP(60),
-    // borderRadius: 24,
-    marginBottom: 16,
-  },
-})

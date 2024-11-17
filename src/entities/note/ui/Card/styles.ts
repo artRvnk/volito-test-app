@@ -5,10 +5,9 @@ import styled from 'styled-components'
 import { EColors } from '@/shared/lib'
 
 export const Container = styled(View)`
-  height: 108px;
   width: 100%;
   background-color: ${EColors.neutral_400};
-  padding: 8px 16px;
+  padding: 12px;
   justify-content: center;
 `
 

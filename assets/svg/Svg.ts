@@ -20,3 +20,5 @@ export { default as Delete } from './sources/delete.svg'
 
 export { default as Plus } from './sources/plus.svg'
 export { default as Camera } from './sources/camera.svg'
+export { default as Logout } from './sources/logout.svg'
+export { default as Edit } from './sources/edit.svg'

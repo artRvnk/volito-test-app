@@ -1,3 +1,5 @@
+import { TNote } from '@/entities/note'
+
 export type TCreateForm = {
   title: string
   description: string
@@ -8,5 +10,7 @@ export type TCreateForm = {
 export type TCreateReturn = TCreateForm
 
 export type TCreateProps = {
+  note?: TNote
+  image?: string
   onSubmit: (val: TCreateForm) => void
 }

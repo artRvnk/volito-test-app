@@ -1,4 +1,4 @@
 import { List } from './List'
-import { Map } from './Map'
+import { Single } from './Single'
 
-export const NoteWidget = { List, Map }
+export const NoteWidget = { List, Single }

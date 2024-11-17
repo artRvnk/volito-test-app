@@ -1,11 +1,9 @@
-import React, { useContext } from 'react'
+import React from 'react'
 
-import storage from '@react-native-firebase/storage'
 import { useTranslation } from 'react-i18next'
 import { useDispatch } from 'react-redux'
 import { v4 as uuidv4 } from 'uuid'
 
-import { LoaderContext } from '@/app/context'
 import { useTypedSelector } from '@/app/store'
 
 import { Header } from '@/widgets/header'
@@ -13,10 +11,10 @@ import { Header } from '@/widgets/header'
 import { NoteFeature } from '@/features/note'
 import { TCreateReturn } from '@/features/note/CreateForm'
 
-import { noteActions } from '@/entities/note'
+import { noteActions, TCoordinates } from '@/entities/note'
 import { getUserSelector } from '@/entities/user'
 
-import { useNavigation, useToast } from '@/shared/lib'
+import { useImageUpload, useNavigation, useToast } from '@/shared/lib'
 
 export const Create = () => {
   const { t } = useTranslation()
@@ -25,32 +23,14 @@ export const Create = () => {
   const { callToast } = useToast()
   const { goBack } = useNavigation()
 
-  const { user, location } = useTypedSelector(getUserSelector)
+  const { uploadImage } = useImageUpload()
 
-  const { setLoading } = useContext(LoaderContext)
+  const { user, location: dd } = useTypedSelector(getUserSelector)
 
-  const uploadImage = async (image: string) => {
-    console.log('putFile-image', image)
-
-    const filename = image?.split('/')?.[image?.split('/')?.length - 1]
-    console.log('putFile-filename', filename)
-
-    setLoading(true)
-
-    try {
-      const response = await storage().ref(filename).putFile(image)
-      console.log('putFile-response', response)
-
-      setLoading(false)
-
-      return filename
-    } catch (e) {
-      console.log('putFile-e', e)
-
-      setLoading(false)
-
-      return null
-    }
+  // TODO - fix location
+  const location: TCoordinates = {
+    latitude: 50.45483,
+    longitude: 30.477702,
   }
 
   const onSubmit = async (values: TCreateReturn) => {
@@ -58,9 +38,9 @@ export const Create = () => {
 
     console.log('onSubmit-values', values)
 
-    const image = await uploadImage(values.image)
+    const { image: img, ...note } = values
 
-    const { title, description } = values
+    const image = await uploadImage(img)
 
     dispatch(
       noteActions.postNote({
@@ -73,8 +53,7 @@ export const Create = () => {
         createdAt: new Date().toISOString(),
         updatedAt: new Date().toISOString(),
         image,
-        title,
-        description,
+        ...note,
       }),
     )
 

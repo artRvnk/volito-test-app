@@ -1,4 +1,6 @@
-import firestore from '@react-native-firebase/firestore'
+import firestore, {
+  FirebaseFirestoreTypes,
+} from '@react-native-firebase/firestore'
 
 import { PayloadAction } from '@reduxjs/toolkit'
 import { captureException } from '@sentry/react-native'
@@ -113,7 +115,7 @@ function* postNote({ payload }: PayloadAction<Types.TPostNoteAction>) {
       firestore().collection(ECollection.notes).add(payload),
     )
     console.log('postNote-response', response)
-    console.log('postNote-documentPath', response?.id)
+    console.log('postNote-id', response?.id)
 
     yield put(
       noteActions.handleLocalNote({
@@ -130,10 +132,37 @@ function* postNote({ payload }: PayloadAction<Types.TPostNoteAction>) {
   yield put(noteActions.setState({ loading: false }))
 }
 
+function* updateNote({ payload }: PayloadAction<Types.TUpdateNoteAction>) {
+  yield put(noteActions.setState({ loading: true }))
+
+  console.log('updateNote-payload', payload)
+
+  try {
+    const response: FirebaseFirestoreTypes.DocumentReference<FirebaseFirestoreTypes.DocumentData> =
+      yield call(() =>
+        firestore()
+          .collection(ECollection.notes)
+          .doc(payload._id)
+          .update(payload),
+      )
+    console.log('updateNote-response', response)
+    // console.log('updateNote-id', response?.id)
+
+    yield put(noteActions.setUpdateNote(payload))
+  } catch (e) {
+    console.log('updateNote-e', e)
+
+    captureException(e)
+  }
+
+  yield put(noteActions.setState({ loading: false }))
+}
+
 export function* noteWatcher() {
   yield takeLatest(ActionsTypes.getNotes, getNotes)
   yield takeLatest(ActionsTypes.getNotesCount, getNotesCount)
 
   yield takeEvery(ActionsTypes.deleteNote, deleteNote)
   yield takeEvery(ActionsTypes.postNote, postNote)
+  yield takeEvery(ActionsTypes.updateNote, updateNote)
 }

@@ -1,17 +1,16 @@
-import React, { useRef } from 'react'
-
-import { StatusBar, StyleSheet, View } from 'react-native'
+import React from 'react'
+import { StyleSheet } from 'react-native'
 
 import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps'
-
 import { useDispatch } from 'react-redux'
 
+import { EScreens, EStacks } from '@/app/navigation'
 import { useTypedSelector } from '@/app/store'
 
-import { getNoteSelector, TCoordinates } from '@/entities/note'
+import { getNoteSelector, noteActions, TCoordinates } from '@/entities/note'
 import { getUserSelector } from '@/entities/user'
 
-import darkModeStyle from './config'
+import { useNavigation } from '@/shared/lib'
 
 type TMapProps = {
   location: TCoordinates
@@ -20,28 +19,29 @@ type TMapProps = {
 export const Main = () => {
   const dispatch = useDispatch()
 
-  const mapRef = useRef<MapView>(null)
+  const { navigate } = useNavigation()
 
   const { location } = useTypedSelector(getUserSelector)
 
   const { notes } = useTypedSelector(getNoteSelector)
   console.log('notes', notes)
 
+  const onNavigate = (noteId: string) => {
+    dispatch(noteActions.setCurrentNote(noteId))
+    navigate(EStacks.Notes, {
+      screen: EScreens.NSingle,
+      // initial: false,
+    })
+  }
+
   return (
     <>
-      {/* <StatusBar
-        barStyle={'dark-content'}
-        backgroundColor={'transparent'}
-        translucent
-      /> */}
-
       <MapView
         userInterfaceStyle="dark"
-        // customMapStyle={darkModeStyle}
         provider={PROVIDER_GOOGLE}
         style={StyleSheet.absoluteFill}
-        ref={mapRef}
         initialRegion={{
+          // TODO - add user location
           latitude: 50.904996,
           longitude: 34.816961,
 
@@ -54,14 +54,14 @@ export const Main = () => {
 
           return (
             <Marker
+              onPress={() => onNavigate(note._id)}
               key={note._id}
               coordinate={{
                 latitude: note.location.latitude,
                 longitude: note.location.longitude,
               }}
               title={note.title}
-              description={note.description}
-              pinColor="blue"
+              pinColor={'pink'}
             />
           )
         })}

@@ -44,8 +44,6 @@ export const getStyles = ({
       ...(multiline &&
         lineHeight && {
           minHeight: 60,
-          // TODO - IOS, ANDROID
-          // height: lineHeight * 1.7,
         }),
       ...(!multiline && { height: getSize(size) }),
 

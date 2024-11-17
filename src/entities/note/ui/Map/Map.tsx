@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React from 'react'
 
 import { StyleSheet, View } from 'react-native'
 
@@ -13,14 +13,11 @@ type TMapProps = {
 export const Map = ({ location }: TMapProps) => {
   // console.log('location', location)
 
-  const mapRef = useRef<MapView>(null)
-
   return (
     <View style={styles.container}>
       <MapView
         provider={PROVIDER_GOOGLE}
         style={styles.map}
-        ref={mapRef}
         initialRegion={{
           latitude: location.latitude,
           longitude: location.longitude,
@@ -29,7 +26,7 @@ export const Map = ({ location }: TMapProps) => {
           longitudeDelta: 0.05,
         }}
         mapType="standard">
-        {!!location && <Marker coordinate={location} />}
+        <Marker coordinate={location} pinColor={'pink'} />
       </MapView>
     </View>
   )
