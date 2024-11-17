@@ -74,6 +74,16 @@ def enableProguardInReleaseBuilds = false
 def jscFlavor = 'org.webkit:android-jsc:+'
 
 apply from: new File(["node", "--print", "require.resolve('@sentry/react-native/package.json')"].execute().text.trim(), "../sentry.gradle")
+
+def mapsKeyFile = rootProject.file("mapskey.properties")
+def properties = new Properties()
+
+if (mapsKeyFile.exists()) {
+    properties.load(new FileInputStream(mapsKeyFile))
+}
+
+def mapKey = properties.getProperty("GOOGLE_MAPS_API_KEY", "")
+
 android {
     ndkVersion rootProject.ext.ndkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
@@ -87,6 +97,12 @@ android {
         versionCode 1
         versionName "1.0"
 
+        // Create manifest placeholders
+        manifestPlaceholders = [googleKey: mapKey]
+
+        // Define the resource value
+        resValue "string", "googleKey", mapKey       
+ 
         vectorDrawables.useSupportLibrary = true
     }
     signingConfigs {
@@ -115,16 +131,16 @@ dependencies {
     // The version of react-native is set by the React Native Gradle Plugin
     implementation("com.facebook.react:react-android")
 
-    // implementation(project(':react-native-maps')){
-    //     exclude group: 'com.google.android.gms'
-    // }
-    // implementation 'com.google.android.gms:play-services-base:18.0.1'
-    // implementation 'com.google.android.gms:play-services-location:19.0.1'
-    // implementation 'com.google.android.gms:play-services-maps:18.0.2'
+    implementation(project(':react-native-maps')){
+        exclude group: 'com.google.android.gms'
+    }
+    implementation 'com.google.android.gms:play-services-base:18.1.0'
+    implementation 'com.google.android.gms:play-services-location:21.0.1'
+    implementation 'com.google.android.gms:play-services-maps:18.1.0'
 
     if (hermesEnabled.toBoolean()) {
         implementation("com.facebook.react:hermes-android")
     } else {
         implementation jscFlavor
-    }
 }
+    }

@@ -3,6 +3,7 @@
     "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/@react-native-async-storage/async-storage/android/build/generated/source/codegen/jni/CMakeLists.txt",
     "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/@react-native-google-signin/google-signin/android/build/generated/source/codegen/jni/CMakeLists.txt",
     "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/@sentry/react-native/android/build/generated/source/codegen/jni/CMakeLists.txt",
+    "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-date-picker/android/build/generated/source/codegen/jni/CMakeLists.txt",
     "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-gesture-handler/android/build/generated/source/codegen/jni/CMakeLists.txt",
     "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-keyboard-controller/android/build/generated/source/codegen/jni/CMakeLists.txt",
     "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/node_modules/react-native-keychain/android/build/generated/source/codegen/jni/CMakeLists.txt",
@@ -28,11 +29,6 @@
     "{LIST_OF_TARGETS_TO_BUILD}"
   ],
   "libraries": {
-    "react_codegen_rnreanimated::@8afabad14bfffa3f8b9a": {
-      "artifactName": "react_codegen_rnreanimated",
-      "abi": "x86",
-      "runtimeFiles": []
-    },
     "react_codegen_safeareacontext::@7984cd80db47aa7b952a": {
       "artifactName": "react_codegen_safeareacontext",
       "abi": "x86",
@@ -53,16 +49,6 @@
       "abi": "x86",
       "runtimeFiles": []
     },
-    "react_codegen_rnscreens::@25bcbd507e98d3a854ad": {
-      "artifactName": "react_codegen_rnscreens",
-      "abi": "x86",
-      "output": "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/android/app/build/intermediates/cxx/Debug/5r6265f6/obj/x86/libreact_codegen_rnscreens.so",
-      "runtimeFiles": [
-        "/Users/art_rvnk/.gradle/caches/8.10.2/transforms/c35983e025c66419267514d0c7323f66/transformed/jetified-react-android-0.76.1-debug/prefab/modules/reactnative/libs/android.x86/libreactnative.so",
-        "/Users/art_rvnk/.gradle/caches/8.10.2/transforms/c35983e025c66419267514d0c7323f66/transformed/jetified-react-android-0.76.1-debug/prefab/modules/jsi/libs/android.x86/libjsi.so",
-        "/Users/art_rvnk/.gradle/caches/8.10.2/transforms/bcb1b93ec3cee8ea5834c7c5ad119044/transformed/jetified-fbjni-0.6.0/prefab/modules/fbjni/libs/android.x86/libfbjni.so"
-      ]
-    },
     "appmodules::@6890427a1f51a3e7e1df": {
       "artifactName": "appmodules",
       "abi": "x86",
@@ -76,11 +62,6 @@
         "/Users/art_rvnk/.gradle/caches/8.10.2/transforms/c35983e025c66419267514d0c7323f66/transformed/jetified-react-android-0.76.1-debug/prefab/modules/reactnative/libs/android.x86/libreactnative.so"
       ]
     },
-    "react_codegen_RNKeychainSpec::@f9a2cb36ebca2de4baf9": {
-      "artifactName": "react_codegen_RNKeychainSpec",
-      "abi": "x86",
-      "runtimeFiles": []
-    },
     "react_codegen_rnsvg::@4f40eb209d0c0b4a3b65": {
       "artifactName": "react_codegen_rnsvg",
       "abi": "x86",
@@ -90,11 +71,6 @@
         "/Users/art_rvnk/.gradle/caches/8.10.2/transforms/c35983e025c66419267514d0c7323f66/transformed/jetified-react-android-0.76.1-debug/prefab/modules/jsi/libs/android.x86/libjsi.so",
         "/Users/art_rvnk/.gradle/caches/8.10.2/transforms/bcb1b93ec3cee8ea5834c7c5ad119044/transformed/jetified-fbjni-0.6.0/prefab/modules/fbjni/libs/android.x86/libfbjni.so"
       ]
-    },
-    "react_codegen_RNSentrySpec::@b85314237d91cb2ada57": {
-      "artifactName": "react_codegen_RNSentrySpec",
-      "abi": "x86",
-      "runtimeFiles": []
     },
     "react_codegen_RNGoogleSignInCGen::@337b7b353bd94a4215c0": {
       "artifactName": "react_codegen_RNGoogleSignInCGen",
@@ -108,6 +84,36 @@
     },
     "react_codegen_reactnativekeyboardcontroller::@dc50c79f19fba14eeefd": {
       "artifactName": "react_codegen_reactnativekeyboardcontroller",
+      "abi": "x86",
+      "runtimeFiles": []
+    },
+    "react_codegen_rnreanimated::@8afabad14bfffa3f8b9a": {
+      "artifactName": "react_codegen_rnreanimated",
+      "abi": "x86",
+      "runtimeFiles": []
+    },
+    "react_codegen_rnscreens::@25bcbd507e98d3a854ad": {
+      "artifactName": "react_codegen_rnscreens",
+      "abi": "x86",
+      "output": "/Users/art_rvnk/Documents/Projects/Test/volito-test-app/android/app/build/intermediates/cxx/Debug/5r6265f6/obj/x86/libreact_codegen_rnscreens.so",
+      "runtimeFiles": [
+        "/Users/art_rvnk/.gradle/caches/8.10.2/transforms/c35983e025c66419267514d0c7323f66/transformed/jetified-react-android-0.76.1-debug/prefab/modules/reactnative/libs/android.x86/libreactnative.so",
+        "/Users/art_rvnk/.gradle/caches/8.10.2/transforms/c35983e025c66419267514d0c7323f66/transformed/jetified-react-android-0.76.1-debug/prefab/modules/jsi/libs/android.x86/libjsi.so",
+        "/Users/art_rvnk/.gradle/caches/8.10.2/transforms/bcb1b93ec3cee8ea5834c7c5ad119044/transformed/jetified-fbjni-0.6.0/prefab/modules/fbjni/libs/android.x86/libfbjni.so"
+      ]
+    },
+    "react_codegen_RNKeychainSpec::@f9a2cb36ebca2de4baf9": {
+      "artifactName": "react_codegen_RNKeychainSpec",
+      "abi": "x86",
+      "runtimeFiles": []
+    },
+    "react_codegen_RNSentrySpec::@b85314237d91cb2ada57": {
+      "artifactName": "react_codegen_RNSentrySpec",
+      "abi": "x86",
+      "runtimeFiles": []
+    },
+    "react_codegen_RNDatePickerSpecs::@c00f981c6e74346c63d4": {
+      "artifactName": "react_codegen_RNDatePickerSpecs",
       "abi": "x86",
       "runtimeFiles": []
     }
