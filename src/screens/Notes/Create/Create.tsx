@@ -11,7 +11,7 @@ import { Header } from '@/widgets/header'
 import { NoteFeature } from '@/features/note'
 import { TCreateReturn } from '@/features/note/CreateForm'
 
-import { noteActions, TCoordinates } from '@/entities/note'
+import { noteActions } from '@/entities/note'
 import { getUserSelector } from '@/entities/user'
 
 import { useImageUpload, useNavigation, useToast } from '@/shared/lib'
@@ -25,13 +25,7 @@ export const Create = () => {
 
   const { uploadImage } = useImageUpload()
 
-  const { user, location: dd } = useTypedSelector(getUserSelector)
-
-  // TODO - fix location
-  const location: TCoordinates = {
-    latitude: 50.45483,
-    longitude: 30.477702,
-  }
+  const { user, location } = useTypedSelector(getUserSelector)
 
   const onSubmit = async (values: TCreateReturn) => {
     if (!user?._id || !location) return

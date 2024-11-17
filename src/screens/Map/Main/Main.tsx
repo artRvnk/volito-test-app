@@ -19,8 +19,6 @@ export const Main = () => {
 
   const { location } = useTypedSelector(getUserSelector)
 
-  // console.log('Map-location', location)
-
   const { notes } = useTypedSelector(getNoteSelector)
 
   const onNavigate = (noteId: string) => {
@@ -38,7 +36,6 @@ export const Main = () => {
         provider={PROVIDER_GOOGLE}
         style={StyleSheet.absoluteFill}
         initialRegion={{
-          // TODO - add user location
           latitude: !!location ? Number(location.latitude) : 0,
           longitude: !!location ? Number(location?.longitude) : 0,
 

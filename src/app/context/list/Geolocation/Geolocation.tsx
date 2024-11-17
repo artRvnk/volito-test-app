@@ -46,7 +46,7 @@ export const GeolocationProvider = ({ children }: TChildrenContext) => {
   const isGranted = locationPermissionStatus === 'granted'
 
   const requestPermissions = async () => {
-    console.log('Geolocation-requestPermissions')
+    // console.log('Geolocation-requestPermissions')
 
     try {
       return request(
@@ -93,7 +93,7 @@ export const GeolocationProvider = ({ children }: TChildrenContext) => {
           latitude: coords.latitude,
           longitude: coords.longitude,
         })
-        console.log('Geolocation-Location fetched:', coords)
+        // console.log('Geolocation-Location fetched:', coords)
       },
       error => {
         console.error('Geolocation-error', error)
@@ -104,10 +104,10 @@ export const GeolocationProvider = ({ children }: TChildrenContext) => {
   }
 
   const initGeolocation = async () => {
-    console.log('Geolocation-initGeolocation')
+    // console.log('Geolocation-initGeolocation')
 
     const status = await checkPermissions()
-    console.log('Geolocation-initGeolocation-status', status)
+    // console.log('Geolocation-initGeolocation-status', status)
 
     setLocationPermissionStatus(status)
 
@@ -119,13 +119,13 @@ export const GeolocationProvider = ({ children }: TChildrenContext) => {
   }
 
   useEffect(() => {
-    console.log('Geolocation-useEffect')
+    // console.log('Geolocation-useEffect')
     initGeolocation()
   }, [])
 
   const onRequest = async () => {
     const status = await requestPermissions()
-    console.log('Geolocation-onRequest-status', status)
+    // console.log('Geolocation-onRequest-status', status)
 
     setLocationPermissionStatus(status)
 
