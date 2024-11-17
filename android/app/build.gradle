@@ -104,6 +104,10 @@ android {
         resValue "string", "googleKey", mapKey       
  
         vectorDrawables.useSupportLibrary = true
+
+        versionCode 1
+        versionName "0.1"
+        archivesBaseName = "VOL-v${versionCode}_${versionName}"
     }
     signingConfigs {
         debug {

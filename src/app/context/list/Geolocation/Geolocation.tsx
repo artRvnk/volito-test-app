@@ -3,7 +3,6 @@ import { Platform } from 'react-native'
 
 import Geolocation from '@react-native-community/geolocation'
 import { captureException } from '@sentry/react-native'
-// import Geolocation from 'react-native-geolocation-service'
 
 import {
   check,
@@ -77,16 +76,6 @@ export const GeolocationProvider = ({ children }: TChildrenContext) => {
   }
 
   const onGetLocation = async (callback?: (data: TLocationContext) => void) => {
-    // Geolocation.getCurrentPosition(info =>
-    //   console.log('Geolocation-info', info),
-    // )
-
-    // Geolocation.getCurrentPosition(
-    //   info => console.log('Geolocation-info', info),
-    //   error => console.log('Geolocation-error', error),
-    //   { enableHighAccuracy: true, timeout: 15000, maximumAge: 10000 },
-    // )
-
     Geolocation.getCurrentPosition(
       position => {
         const coords = position.coords
@@ -110,37 +99,8 @@ export const GeolocationProvider = ({ children }: TChildrenContext) => {
         console.error('Geolocation-error', error)
         captureException(error) // Capture error to Sentry for reporting
       },
-      { enableHighAccuracy: true, timeout: 5000, maximumAge: 10000 },
+      { enableHighAccuracy: false, timeout: 5000 },
     )
-
-    // Geolocation.getCurrentPosition(
-    //   async position => {
-    //     try {
-    //       setLocation({
-    //         latitude: position.coords.latitude,
-    //         longitude: position.coords.longitude,
-    //       })
-    //       callback?.({
-    //         latitude: position.coords.latitude,
-    //         longitude: position.coords.longitude,
-    //       })
-    //       console.log('Geolocation-latitude', position.coords.latitude)
-    //       console.log('Geolocation-longitude', position.coords.longitude)
-    //       dispatch(userActions.setLocation(position.coords))
-    //     } catch (e) {
-    //       captureException(e)
-    //     }
-    //   },
-    //   e => {
-    //     captureException(e)
-    //   },
-    //   {
-    //     maximumAge: 10,
-    //     timeout: 0,
-    //     enableHighAccuracy: true,
-    //     showLocationDialog: true,
-    //   },
-    // )
   }
 
   const initGeolocation = async () => {
