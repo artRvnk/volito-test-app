@@ -1,52 +1,45 @@
 import React, { useRef } from 'react'
 
-// import MapView, { MapPressEvent, Marker } from 'react-native-maps'
+import { StyleSheet, View } from 'react-native'
 
-import { useDispatch } from 'react-redux'
-
-import { useTypedSelector } from '@/app/store'
+import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps'
 
 import { TCoordinates } from '@/entities/note'
-import { getUserSelector } from '@/entities/user'
 
 type TMapProps = {
   location: TCoordinates
 }
-//
 
 export const Map = ({ location }: TMapProps) => {
-  const dispatch = useDispatch()
+  // console.log('location', location)
 
   const mapRef = useRef<MapView>(null)
 
-  const { location: userLocation } = useTypedSelector(getUserSelector)
-
   return (
-    <>
-      {/* <MapView
-        // style={{ width, height: height * 0.75 }}
+    <View style={styles.container}>
+      <MapView
+        provider={PROVIDER_GOOGLE}
+        style={styles.map}
         ref={mapRef}
-        region={{
+        initialRegion={{
           latitude: location.latitude,
           longitude: location.longitude,
+
           latitudeDelta: 0.05,
           longitudeDelta: 0.05,
         }}
-        mapType="standard"
-        showsUserLocation
-        // onPress={(event: MapPressEvent) => {
-        //   const { latitude, longitude } = event.nativeEvent.coordinate
-        //   console.log(`event-Latitude: ${latitude}, Longitude: ${longitude}`)
-        //   setMarkerCoords({
-        //     latitude,
-        //     longitude,
-        //   })
-        // }}
-
-        //
-      >
+        mapType="standard">
         {!!location && <Marker coordinate={location} />}
-      </MapView> */}
-    </>
+      </MapView>
+    </View>
   )
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    borderRadius: 24,
+    overflow: 'hidden',
+  },
+  map: { width: '100%', height: 200 },
+})

@@ -1,29 +1,71 @@
-import React, { useEffect } from 'react'
-import { View, Button, Image } from 'react-native'
+import React, { useRef } from 'react'
 
-import { utils } from '@react-native-firebase/app'
-import storage from '@react-native-firebase/storage'
+import { StatusBar, StyleSheet, View } from 'react-native'
+
+import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps'
+
+import { useDispatch } from 'react-redux'
+
+import { useTypedSelector } from '@/app/store'
+
+import { getNoteSelector, TCoordinates } from '@/entities/note'
+import { getUserSelector } from '@/entities/user'
+
+import darkModeStyle from './config'
+
+type TMapProps = {
+  location: TCoordinates
+}
 
 export const Main = () => {
-  const reference = storage().ref('black-t-shirt-sm.png')
-  console.log('reference', reference)
+  const dispatch = useDispatch()
 
-  // console.log(utils.FilePath.PICTURES_DIRECTORY)
+  const mapRef = useRef<MapView>(null)
+
+  const { location } = useTypedSelector(getUserSelector)
+
+  const { notes } = useTypedSelector(getNoteSelector)
+  console.log('notes', notes)
 
   return (
-    <View style={{ flex: 1, justifyContent: 'center' }}>
-      <Button
-        onPress={async () => {
-          // path to existing file on filesystem
-          const pathToFile = `${utils.FilePath.PICTURES_DIRECTORY}/black-t-shirt-sm.png`
-          console.log('pathToFile', pathToFile)
+    <>
+      {/* <StatusBar
+        barStyle={'dark-content'}
+        backgroundColor={'transparent'}
+        translucent
+      /> */}
 
-          // uploads file
-          const response = await reference.putFile(pathToFile)
-          console.log('response', response)
+      <MapView
+        userInterfaceStyle="dark"
+        // customMapStyle={darkModeStyle}
+        provider={PROVIDER_GOOGLE}
+        style={StyleSheet.absoluteFill}
+        ref={mapRef}
+        initialRegion={{
+          latitude: 50.904996,
+          longitude: 34.816961,
+
+          latitudeDelta: 0.05,
+          longitudeDelta: 0.05,
         }}
-        title="ddd"
-      />
-    </View>
+        mapType="standard">
+        {notes.map(note => {
+          if (!note.location) return <></>
+
+          return (
+            <Marker
+              key={note._id}
+              coordinate={{
+                latitude: note.location.latitude,
+                longitude: note.location.longitude,
+              }}
+              title={note.title}
+              description={note.description}
+              pinColor="blue"
+            />
+          )
+        })}
+      </MapView>
+    </>
   )
 }

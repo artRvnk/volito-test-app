@@ -16,6 +16,8 @@ import { Png } from '@assets/png'
 
 import { Header } from '@/widgets/header'
 
+import { NoteWidget } from '@/widgets/note'
+
 import { TNote } from '@/entities/note'
 
 import { WP } from '@/shared/tools'
@@ -72,6 +74,10 @@ export const Single = () => {
         </TouchableWithoutFeedback>
 
         <ViewMore linesCount={5} text={note.description ?? ''} />
+
+        <Divider height={12} />
+
+        <NoteWidget.Map location={note.location} />
 
         <Divider height={50} />
       </Background.Scroll>
