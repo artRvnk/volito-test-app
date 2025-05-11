@@ -38,7 +38,7 @@ export const getStyles = ({
       borderWidth: 1,
       borderRadius: 16,
       paddingHorizontal: 16,
-      borderColor: !!error ? EColors.primary_500 : EColors.neutral_400,
+      borderColor: !!error ? EColors.red_500 : EColors.neutral_400,
       backgroundColor: EColors.neutral_400,
 
       ...(multiline &&

@@ -103,7 +103,7 @@ export const FloatingText = ({
             onChangeText={onChange}
             rightComponent={rightComponent}
             leftComponent={leftComponent}
-            selectionColor={!!error ? EColors.primary_500 : EColors.white}
+            selectionColor={!!error ? EColors.red_500 : EColors.white}
             inputStyles={styles.input}
             labelStyles={styles.labelStyles}
             containerStyles={styles.container}
@@ -123,7 +123,7 @@ export const FloatingText = ({
         <Typography.Body2R
           mTop={'2px'}
           mLeft={'8px'}
-          color={EColors.primary_400}
+          color={EColors.red_400}
           align="right">
           {t(error as keyof typeof keys)}
         </Typography.Body2R>

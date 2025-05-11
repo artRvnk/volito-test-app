@@ -86,7 +86,6 @@ export const picker = StyleSheet.create({
   },
   // country code (item)
   dialCode: {
-    color: 'green',
     // color: EColors.white,
   },
   // country name (item)

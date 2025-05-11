@@ -44,17 +44,11 @@ export const TextArea = ({
         {...props}
       />
 
-      {/* {!!error && (
-        <Typography.Body2R mTop={'5px'} color={EColors.primary_400}>
-          {t(error as keyof typeof keys)}
-        </Typography.Body2R>
-      )} */}
-
       {!!error && (
         <Typography.Body2R
           mTop={'2px'}
           mLeft={'8px'}
-          color={EColors.primary_400}
+          color={EColors.red_400}
           align="right">
           {t(error as keyof typeof keys)}
         </Typography.Body2R>
@@ -65,9 +59,7 @@ export const TextArea = ({
           <Typography.Body2R
             mTop={'5px'}
             color={
-              error || maxLengthExceed
-                ? EColors.primary_400
-                : EColors.neutral_200
+              error || maxLengthExceed ? EColors.red_400 : EColors.neutral_200
             }>
             {value?.length || 0}/{maxCharacters}
           </Typography.Body2R>

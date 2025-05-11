@@ -11,7 +11,7 @@ export const Input = styled(TextInput)<{ hasError?: boolean }>`
   border-width: 1px;
   color: ${EColors.black};
   border-color: ${({ hasError }) =>
-    hasError ? EColors.primary_500 : EColors.neutral_400};
+    hasError ? EColors.red_500 : EColors.neutral_400};
   background-color: ${EColors.neutral_400};
   color: ${EColors.white};
   font-family: ${EFonts.regular};

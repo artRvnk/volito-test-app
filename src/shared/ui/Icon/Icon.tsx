@@ -19,7 +19,7 @@ export const Icon = ({
   marginProps,
   ...props
 }: TIconProps) => {
-  const currentFill = fill || EColors.gray
+  const currentFill = fill || EColors.white
   const IconSvg = Svg[name]
 
   return (

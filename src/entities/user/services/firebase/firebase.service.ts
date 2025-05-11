@@ -21,7 +21,7 @@ class FirebaseService {
   public async signInWithGoogle() {
     GoogleSignin.configure({
       webClientId: FIREBASE_WEB_CLIENT_ID,
-      // scopes: ['https://www.googleapis.com/auth/userinfo.profile', 'openid'],
+      scopes: ['https://www.googleapis.com/auth/userinfo.profile', 'openid'],
     })
 
     await GoogleSignin.hasPlayServices({ showPlayServicesUpdateDialog: true })
@@ -29,6 +29,8 @@ class FirebaseService {
     const signInResponse = await GoogleSignin.signIn()
 
     const idToken = signInResponse.data?.idToken
+
+    console.log('signInResponse', signInResponse)
 
     if (!idToken) {
       throw new Error('No ID token found')

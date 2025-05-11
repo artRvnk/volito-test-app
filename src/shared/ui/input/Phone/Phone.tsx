@@ -174,6 +174,7 @@ export const Phone = ({
         itemTemplate={renderItem}
         inputPlaceholder={t('input.search')}
         onBackdropPress={() => setShow(false)}
+        inputPlaceholderTextColor={EColors.gray}
       />
     </>
   )

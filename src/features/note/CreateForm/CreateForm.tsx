@@ -1,6 +1,7 @@
 import React, { useRef } from 'react'
 
 import { zodResolver } from '@hookform/resolvers/zod'
+import { connectStorageEmulator } from '@react-native-firebase/storage'
 import { format, parseISO } from 'date-fns'
 import { Controller, useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
@@ -49,6 +50,7 @@ export const CreateForm = ({ onSubmit, note, image }: TCreateProps) => {
   }
 
   const openDate = () => {
+    console.log('openDate')
     dateRef.current?.open()
   }
 

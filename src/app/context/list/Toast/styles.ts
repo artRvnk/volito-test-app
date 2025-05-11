@@ -7,7 +7,7 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 15,
   },
   errorToast: {
-    borderLeftColor: EColors.primary_500,
+    borderLeftColor: EColors.red_500,
   },
   successToast: {
     borderLeftColor: EColors.status_300,

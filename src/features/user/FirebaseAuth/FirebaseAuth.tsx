@@ -57,6 +57,7 @@ export const FirebaseAuth = () => {
           authMethod: EAuthMethod.google,
         })
     } catch (e: unknown) {
+      console.log('signInWithGoogle-e', e)
       const isErrorWithMessage = (
         error: unknown,
       ): error is { message: string } => {

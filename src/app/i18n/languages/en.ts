@@ -1,10 +1,9 @@
 export default {
   auth_main: {
-    title_line_1: 'Welcome to Volito Test App',
-    title_line_2: 'Created by Artem Revenko',
+    title_line_1: 'Welcome to Notes Application',
+    title_line_2: 'Created by Daniil Revenko',
 
     with_phone: 'Continue with Phone',
-    with_apple: 'Continue with Apple',
     with_google: 'Continue with Google',
 
     success: "You've successfully signed in",

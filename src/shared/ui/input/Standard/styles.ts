@@ -27,7 +27,7 @@ export const StyledTextInputContainer = styled(TouchableOpacity)<TStyledInputCon
   align-items: center;
   width: 100%;
   height: ${({ height }) => height};
-   
+
   border-radius: 16px;
   background-color: ${EColors.neutral_400};
 
@@ -39,7 +39,7 @@ export const StyledTextInputContainer = styled(TouchableOpacity)<TStyledInputCon
     hasError &&
     css`
       border-color: ${EColors.primary_400};
-    `} 
+    `}
 `
 
 export const StyledTextInput = styled(MaskInput)<TStyledInput>`

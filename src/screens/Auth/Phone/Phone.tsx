@@ -41,6 +41,7 @@ export const Phone = () => {
       await FirebaseService.signInWithPhone(country?.dial_code + phone)
       onNavigate()
     } catch (e) {
+      console.log('signInWithPhone-e', e)
       FirebaseService.validateError(e)
     }
 
@@ -59,17 +60,12 @@ export const Phone = () => {
       <Header.Standard title={t('add_phone.title')} />
 
       <Background.KeyboardAware pHorizontal={8}>
-        <Typography.Body1R
-          mTop="28px"
-          mLeft="8px"
-          mRight="8px"
-          color={EColors.neutral_200}>
+        <Typography.Body1R mTop="28px" mLeft="8px" mRight="8px">
           {t('add_phone.description')}
         </Typography.Body1R>
 
         <View style={styles.phoneWrapper}>
           <Input.Phone
-            style={styles.countryPhone}
             setCountry={setCountry}
             setCorrectLength={setCorrectLength}
             setInputValue={setPhoneValue}

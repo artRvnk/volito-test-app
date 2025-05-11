@@ -19,7 +19,7 @@ export const Standard = ({
   mLeft = '0px',
   mRight = '0px',
   disabled = false,
-  radius = 80,
+  radius = 16,
   icon,
   hideBorder = false,
   iconProps = {},

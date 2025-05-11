@@ -42,6 +42,7 @@ export const SignUp = () => {
 
       callToast({ title: t('success'), message: t('sign_up.user_created') })
     } catch (e) {
+      console.log('onSubmit-e', e)
       captureException(e)
     }
   }

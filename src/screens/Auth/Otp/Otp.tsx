@@ -21,9 +21,12 @@ import { TAuthStackSighUpParams } from '../SignUp'
 import { TRouteProps } from './types'
 
 export const Otp = () => {
-  const {
-    params: { phone, formattedPhone },
-  } = useRoute<TRouteProps>()
+  // const {
+  //   params: { phone, formattedPhone },
+  // } = useRoute<TRouteProps>()
+
+  const phone = ''
+  const formattedPhone = ''
 
   const { t } = useTranslation()
   const { navigate } = useNavigation()

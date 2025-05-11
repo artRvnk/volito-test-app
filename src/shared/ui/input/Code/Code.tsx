@@ -56,7 +56,7 @@ export const Code = ({ error, value, onChange = () => {} }: TCodeProps) => {
           mTop="10px"
           mLeft="8px"
           mBottom="10px"
-          color={EColors.primary_500}>
+          color={EColors.red_500}>
           {t(error as keyof typeof keys)}
         </Typography.Body2R>
       )}

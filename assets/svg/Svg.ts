@@ -3,7 +3,6 @@ export { default as Task } from './sources/task-line.svg'
 
 export { default as Phone } from './sources/phone.svg'
 export { default as Google } from './sources/google.svg'
-export { default as Apple } from './sources/apple.svg'
 
 export { default as ArrowDown } from './sources/arrow-down.svg'
 export { default as ArrowLeft } from './sources/arrow-left.svg'
