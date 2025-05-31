@@ -1,4 +1,4 @@
-import { StyleSheet, View } from 'react-native'
+import { StyleSheet } from 'react-native'
 
 import styled from 'styled-components'
 
@@ -7,13 +7,6 @@ import { EColors } from '@/shared/lib'
 import { WP } from '@/shared/tools'
 
 import { Touchable } from '../styled'
-
-export const Container = styled(View)`
-  background-color: ${EColors.white};
-  padding: 24px 0px;
-  align-items: center;
-  justify-content: center;
-`
 
 export const Button = styled(Touchable)<{ size: number }>`
   bottom: -12px;
@@ -29,11 +22,11 @@ export const Button = styled(Touchable)<{ size: number }>`
 export const getStyles = (size: number) =>
   StyleSheet.create({
     image: {
-      // width: size,
-      // width: '100%',
       width: WP(90),
       height: size,
       borderRadius: 24,
+      alignItems: 'center',
+      justifyContent: 'center',
     },
     view: {
       borderRadius: 24,

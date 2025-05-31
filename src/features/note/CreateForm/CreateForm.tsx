@@ -1,10 +1,12 @@
 import React, { useRef } from 'react'
 
 import { zodResolver } from '@hookform/resolvers/zod'
-import { connectStorageEmulator } from '@react-native-firebase/storage'
 import { format, parseISO } from 'date-fns'
+import { uk, enUS } from 'date-fns/locale'
 import { Controller, useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
+
+import { ELanguage } from '@/app/i18n'
 
 import { BottomSheet } from '@/widgets/bottomSheet'
 
@@ -21,7 +23,7 @@ import { TCreateForm, TCreateProps } from './types'
 import { createValidation } from './validation'
 
 export const CreateForm = ({ onSubmit, note, image }: TCreateProps) => {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const { onShowAlert } = useImagePicker()
 
   const dateRef = useRef<TBottomSheetModalRef | null>(null)
@@ -47,11 +49,6 @@ export const CreateForm = ({ onSubmit, note, image }: TCreateProps) => {
     if (!res?.path) return
 
     setValue('image', res.path, { shouldValidate: true, shouldDirty: true })
-  }
-
-  const openDate = () => {
-    console.log('openDate')
-    dateRef.current?.open()
   }
 
   const _onSubmit = () => {
@@ -114,11 +111,15 @@ export const CreateForm = ({ onSubmit, note, image }: TCreateProps) => {
               <Input.FloatingText
                 value={
                   !!value
-                    ? format(parseISO(value), 'dd MMMM, yyyy')
+                    ? format(parseISO(value), 'dd MMMM, yyyy', {
+                        locale: i18n.language === ELanguage.uk ? uk : enUS,
+                      })
                     : format(new Date(), 'dd MMMM, yyyy')
                 }
                 label={t('create_note.enter_date')}
-                onPress={openDate}
+                onPress={() => {
+                  dateRef.current?.open()
+                }}
                 icon={'ArrowRight'}
               />
 

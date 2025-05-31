@@ -1,4 +1,9 @@
-import React, { forwardRef, useState } from 'react'
+import React, {
+  forwardRef,
+  useEffect,
+  useImperativeHandle,
+  useState,
+} from 'react'
 
 import { parseISO } from 'date-fns'
 import { useTranslation } from 'react-i18next'
@@ -36,6 +41,11 @@ export const DateBS = forwardRef<TBottomSheetModalRef, TDatePickerProps>(
 
     const [selected, setSelected] = useState<string>(value)
 
+    useImperativeHandle(ref, () => ({
+      open: () => bottomSheetRef.current?.open?.(),
+      close: () => bottomSheetRef.current?.close?.(),
+    }))
+
     const onConfirm = () => {
       const newValue = selected ? selected : new Date().toISOString()
       onChange(newValue)
@@ -48,6 +58,7 @@ export const DateBS = forwardRef<TBottomSheetModalRef, TDatePickerProps>(
         enableDynamicSizing
         withScroll
         snapPoints={[]}
+        // snapPoints={['50%']}
         scrollEnabled={false}
         ref={bottomSheetRef}>
         <Container>
@@ -58,6 +69,7 @@ export const DateBS = forwardRef<TBottomSheetModalRef, TDatePickerProps>(
             date={!!selected ? parseISO(selected) : new Date()}
             // date={new Date()}
             locale={locale || (i18n.language as ELanguage)}
+            // locale={i18n.language === ELanguage.uk ? 'ua' : 'en'}
             onDateChange={val => setSelected(val.toISOString())}
             androidVariant={'iosClone'}
             mode={mode}

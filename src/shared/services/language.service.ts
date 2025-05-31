@@ -11,7 +11,7 @@ export class LanguageService {
   private static KEY = 'language'
   private static storage = AsyncStorage
 
-  public static DEFAULT_LANGUAGE = ELanguage.en
+  public static DEFAULT_LANGUAGE = ELanguage.uk
 
   private static getDeviceLang() {
     const appLanguage = isIos

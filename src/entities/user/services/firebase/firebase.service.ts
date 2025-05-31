@@ -27,10 +27,9 @@ class FirebaseService {
     await GoogleSignin.hasPlayServices({ showPlayServicesUpdateDialog: true })
 
     const signInResponse = await GoogleSignin.signIn()
+    console.log('signInResponse', signInResponse)
 
     const idToken = signInResponse.data?.idToken
-
-    console.log('signInResponse', signInResponse)
 
     if (!idToken) {
       throw new Error('No ID token found')

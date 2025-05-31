@@ -39,6 +39,7 @@ export const FirebaseAuth = () => {
 
     try {
       const response = await FirebaseService.signInWithGoogle()
+      console.log('signInWithGoogle-response', response)
 
       const name = response?.additionalUserInfo?.profile?.given_name || ''
       const surname = response?.additionalUserInfo?.profile?.family_name || ''
@@ -102,7 +103,7 @@ export const FirebaseAuth = () => {
       })}
 
       {renderButton({
-        onPress: signInWithGoogle,
+        onPress: () => signInWithGoogle(),
         icon: 'Google',
         text: t('auth_main.with_google'),
       })}

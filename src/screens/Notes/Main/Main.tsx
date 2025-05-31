@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Alert } from 'react-native'
 
 import { useTranslation } from 'react-i18next'
@@ -8,6 +8,8 @@ import { EScreens } from '@/app/navigation'
 
 import { Header } from '@/widgets/header'
 import { NoteWidget } from '@/widgets/note'
+
+import { UserFeature } from '@/features/user'
 
 import { userActions } from '@/entities/user'
 
@@ -21,6 +23,16 @@ export const Main = () => {
 
   const dispatch = useDispatch()
   const { navigate } = useNavigation()
+
+  const [isVisible, setVisible] = useState(false)
+
+  const openModal = () => {
+    setVisible(true)
+  }
+
+  const closeModal = () => {
+    setVisible(false)
+  }
 
   const onNavigate = async () => {
     navigate(EScreens.NCreate)
@@ -38,6 +50,7 @@ export const Main = () => {
         },
         {
           text: t('yes'),
+          style: 'destructive',
           onPress: () => dispatch(userActions.logOut()),
         },
       ],
@@ -53,11 +66,19 @@ export const Main = () => {
       <Header.Standard
         title={t('notes.title')}
         canGoBack={false}
-        icon="Logout"
-        onPress={callAlert}
+        icons={[
+          {
+            name: 'Global',
+            props: { fill: EColors.primary_400 },
+            onPress: openModal,
+          },
+          { name: 'Logout', onPress: callAlert },
+        ]}
       />
 
       <NoteWidget.List />
+
+      <UserFeature.Language isVisible={isVisible} onClose={closeModal} />
 
       <S.Button onPress={onNavigate}>
         <Icon name="Add" size={32} fill={EColors.white} />

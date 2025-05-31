@@ -43,6 +43,8 @@ export default {
     empty_list: 'You have not created any note yet',
   },
 
+  choose_language: 'Choose Language',
+
   log_out: 'Are you sure you want to log out?',
   yes: 'Yes',
   no: 'No',

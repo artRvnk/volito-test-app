@@ -1,8 +1,6 @@
 import React from 'react'
 import { Image as RNImage, View } from 'react-native'
 
-import { Png } from '@assets/png'
-
 import { EColors } from '@/shared/lib'
 import { WP } from '@/shared/tools'
 
@@ -29,12 +27,26 @@ export const Image = ({
 
   const styles = S.getStyles(size)
 
-  return (
-    <View style={[styles.view, imageStyle]}>
+  const renderImage = () => {
+    if (!image)
+      return (
+        <View style={styles.image}>
+          <Icon name="Note" size={90} fill="gray" />
+        </View>
+      )
+
+    return (
       <RNImage
-        source={!image ? Png.NoAvatar : { uri: image }}
+        source={{ uri: image }}
+        // source={!image ? Png.NoAvatar : { uri: image }}
         style={styles.image}
       />
+    )
+  }
+
+  return (
+    <View style={[styles.view, imageStyle]}>
+      {renderImage()}
 
       {isEditable && (
         <S.Button size={size} onPress={onPress}>

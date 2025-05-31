@@ -72,6 +72,8 @@ android/app/cxx/
 **/.cxx/
 android/app/.cxx/Debug/
 
-*.env.local
-*.env
+
+.env*.local
 .env
+.env.development
+.env.production
