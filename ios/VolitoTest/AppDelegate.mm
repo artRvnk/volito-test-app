@@ -2,12 +2,14 @@
 #import <Firebase.h>
 
 #import <React/RCTBundleURLProvider.h>
-#import "RNSplashScreen.h" 
+#import "RNSplashScreen.h"
+#import <GoogleMaps/GoogleMaps.h>
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+  [GMSServices provideAPIKey:@"AIzaSyBHLdt7QXL23f7B4BsEOnqhHuZ1LJ1SxJ8"]; // add this line using the api key obtained from Google Console
   [FIRApp configure];
 
   self.moduleName = @"VolitoTest";
@@ -18,7 +20,7 @@
   [super application:application didFinishLaunchingWithOptions:launchOptions];
   [RNSplashScreen show];
 
-  return YES; 
+  return YES;
 }
 
 - (NSURL *)sourceURLForBridge:(RCTBridge *)bridge

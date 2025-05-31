@@ -1,8 +1,8 @@
-import { ru, en } from '@/app/i18n'
+import { en, uk } from '@/app/i18n'
 import { defaultNS } from '@/app/i18n/i18n'
 
 const resources = {
-  ru,
+  uk,
   en,
 } as const
 

@@ -9,10 +9,10 @@ import { initReactI18next } from 'react-i18next'
 
 import { isIos } from '@/shared/tools'
 
-import { en } from './languages'
+import { en, uk } from './languages'
 import { ELanguage } from './types'
 
-const DEFAULT_LANG = ELanguage.en
+const DEFAULT_LANG = ELanguage.uk
 
 const getDeviceLang = () => {
   const appLanguage = isIos
@@ -48,6 +48,7 @@ const languageDetector: LanguageDetectorAsyncModule = {
 }
 export const defaultNS = DEFAULT_LANG
 export const resources = {
+  uk: { translation: uk },
   en: { translation: en },
 }
 

@@ -66,10 +66,12 @@ buck-out/
 /vendor/bundle/
 
 .vscode
- 
+
 android/app/.cxx/
 android/app/cxx/
 **/.cxx/
-android/app/.cxx/Debug/    
+android/app/.cxx/Debug/
 
 *.env.local
+*.env
+.env

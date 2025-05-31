@@ -38,6 +38,7 @@ export const Single = () => {
       <Header.Standard
         title={currentNote?.title}
         icon="Edit"
+        iconProps={{ fill: 'blue' }}
         onPress={onNavigate}
       />
 

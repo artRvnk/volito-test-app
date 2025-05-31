@@ -31,7 +31,7 @@ export const Main = () => {
 
   return (
     <>
-      <MapView
+      {/* <MapView
         userInterfaceStyle="dark"
         provider={PROVIDER_GOOGLE}
         style={StyleSheet.absoluteFill}
@@ -59,7 +59,7 @@ export const Main = () => {
             />
           )
         })}
-      </MapView>
+      </MapView> */}
     </>
   )
 }

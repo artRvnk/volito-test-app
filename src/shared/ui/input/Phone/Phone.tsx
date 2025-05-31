@@ -41,7 +41,7 @@ export const Phone = ({
   disabled = false,
   style,
 }: TCountryPhoneProps) => {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
 
   const [show, setShow] = useState(false)
   const [countryLocal, setCountryLocal] = useState<null | CountryItem>(country)
@@ -169,7 +169,7 @@ export const Phone = ({
       <CountryPicker
         style={picker}
         pickerButtonOnPress={() => {}}
-        lang={ELanguage.en}
+        lang={i18n.language === ELanguage.uk ? 'ua' : 'en'}
         show={show}
         itemTemplate={renderItem}
         inputPlaceholder={t('input.search')}
