@@ -12,7 +12,7 @@
   [GMSServices provideAPIKey:@"AIzaSyBHLdt7QXL23f7B4BsEOnqhHuZ1LJ1SxJ8"]; // add this line using the api key obtained from Google Console
   [FIRApp configure];
 
-  self.moduleName = @"VolitoTest";
+  self.moduleName = @"MapNotes";
   // You can add your custom initial props in the dictionary below.
   // They will be passed down to the ViewController used by React Native.
   self.initialProps = @{};

@@ -1,4 +1,4 @@
-package com.volitotest
+package com.danrvnk.mapnotes
 
 import android.app.Application
 import com.facebook.react.PackageList

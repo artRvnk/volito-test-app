@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>379742973096-hrda3oso4njl1pb2catnvnnp0sugj79q.apps.googleusercontent.com</string>
+	<string>379742973096-j46f4fju20ekv4hfvpmef6tbde12gba8.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.379742973096-hrda3oso4njl1pb2catnvnnp0sugj79q</string>
+	<string>com.googleusercontent.apps.379742973096-j46f4fju20ekv4hfvpmef6tbde12gba8</string>
 	<key>ANDROID_CLIENT_ID</key>
 	<string>379742973096-48oujj21sid46c9s78g8g0tusnpkh5j0.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
@@ -15,7 +15,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.volitotest</string>
+	<string>com.danrvnk.mapnotes</string>
 	<key>PROJECT_ID</key>
 	<string>volitotest</string>
 	<key>STORAGE_BUCKET</key>
@@ -31,6 +31,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:379742973096:ios:27c57ada2be5a6a968e69d</string>
+	<string>1:379742973096:ios:b443b0364d8cef4068e69d</string>
 </dict>
 </plist>

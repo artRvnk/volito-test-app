@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "VolitoTest.app"
-               BlueprintName = "VolitoTest"
-               ReferencedContainer = "container:VolitoTest.xcodeproj">
+               BuildableName = "MapNotes.app"
+               BlueprintName = "MapNotes"
+               ReferencedContainer = "container:MapNotes.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "VolitoTestTests.xctest"
-               BlueprintName = "VolitoTestTests"
-               ReferencedContainer = "container:VolitoTest.xcodeproj">
+               BuildableName = "MapNotesTests.xctest"
+               BlueprintName = "MapNotesTests"
+               ReferencedContainer = "container:MapNotes.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "VolitoTest.app"
-            BlueprintName = "VolitoTest"
-            ReferencedContainer = "container:VolitoTest.xcodeproj">
+            BuildableName = "MapNotes.app"
+            BlueprintName = "MapNotes"
+            ReferencedContainer = "container:MapNotes.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "VolitoTest.app"
-            BlueprintName = "VolitoTest"
-            ReferencedContainer = "container:VolitoTest.xcodeproj">
+            BuildableName = "MapNotes.app"
+            BlueprintName = "MapNotes"
+            ReferencedContainer = "container:MapNotes.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
