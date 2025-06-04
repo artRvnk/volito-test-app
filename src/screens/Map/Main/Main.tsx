@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 
 import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps'
 import { useDispatch } from 'react-redux'
@@ -31,7 +31,7 @@ export const Main = () => {
 
   return (
     <>
-      {/* <MapView
+      <MapView
         userInterfaceStyle="dark"
         provider={PROVIDER_GOOGLE}
         style={StyleSheet.absoluteFill}
@@ -55,11 +55,11 @@ export const Main = () => {
                 longitude: note.location.longitude,
               }}
               title={note.title}
-              pinColor={'pink'}
+              pinColor={'blue'}
             />
           )
         })}
-      </MapView> */}
+      </MapView>
     </>
   )
 }

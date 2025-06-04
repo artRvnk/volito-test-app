@@ -13,7 +13,7 @@ type TMapProps = {
 export const Map = ({ location }: TMapProps) => {
   return (
     <View style={styles.container}>
-      {/* <MapView
+      <MapView
         provider={PROVIDER_GOOGLE}
         style={styles.map}
         initialRegion={{
@@ -24,8 +24,8 @@ export const Map = ({ location }: TMapProps) => {
           longitudeDelta: 0.05,
         }}
         mapType="standard">
-        <Marker coordinate={location} pinColor={'pink'} />
-      </MapView> */}
+        <Marker coordinate={location} pinColor={'blue'} />
+      </MapView>
     </View>
   )
 }
